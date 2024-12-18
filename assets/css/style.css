@@ -1041,7 +1041,7 @@ blockquote {
 }
 
 .post-header {
-  margin: 0 0 15px;
+  margin: 0 0 5px;
 }
 
 .post-meta {
@@ -1050,6 +1050,11 @@ blockquote {
 }
 
 .post-entry {
+  padding-top: 0px;
+  margin-top: 5px;
+}
+
+.post-line{
   border-top: 1px dotted #c2c2c2;
   padding-top: 20px;
   margin-top: 10px;
@@ -1069,17 +1074,17 @@ blockquote {
   font-size: 14px;
 }
 
-.post-columns .post-entry {
+.post-columns .post-entry .post-line {
   padding: 10px 0 0;
   margin: 0 0 10px;
 }
 
-.post-columns.wo-border .post-entry {
+.post-columns.wo-border .post-entry .post-line {
   border: 0;
   padding: 0;
 }
 
-.post-columns .post-entry p:last-child {
+.post-columns .post-entry .post-line p:last-child {
   margin: 0;
 }
 
@@ -1164,6 +1169,15 @@ blockquote {
 .gallery-icon i,
 .gallery-icon span {
   line-height: 50px;
+}
+
+/*--------------------------------------------------------------
+	Socials
+--------------------------------------------------------------*/
+.socials {
+  letter-spacing: 16px;
+  font-size: 30px;
+  color: #121212;
 }
 
 /*--------------------------------------------------------------
