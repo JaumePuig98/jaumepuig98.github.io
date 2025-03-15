@@ -249,7 +249,7 @@ input, select, textarea {
 	}
 
 	code {
-		background: rgba(144, 144, 144, 0.25);
+		background: 073b4c;
 		border-radius: 3px;
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
@@ -1835,7 +1835,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background-color: rgba(144, 144, 144, 0.25);
+		background-color: #073b4c;
 		border-radius: 3px;
 		border: none;
 		color: inherit;
@@ -1933,7 +1933,7 @@ input, select, textarea {
 
 			input[type="checkbox"] + label:before,
 			input[type="radio"] + label:before {
-				background: rgba(144, 144, 144, 0.25);
+				background: 073b4c;
 				border-radius: 3px;
 				content: '';
 				display: inline-block;
@@ -2348,7 +2348,7 @@ input, select, textarea {
 		}
 
 			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(144, 144, 144, 0.25);
+				background-color: 073b4c;
 			}
 
 		table td {
@@ -2439,7 +2439,7 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(144, 144, 144, 0.25);
+			background-color: 073b4c;
 		}
 
 		input[type="submit"]:active,
@@ -3885,11 +3885,33 @@ input, select, textarea {
 		background-attachment: scroll;
 	}
 
+
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+	width: 4px; /* Set the width of the scrollbar (narrow line) */
+  }
+  
+  /* Customize the scrollbar track (background of the scrollbar) */
+  ::-webkit-scrollbar-track {
+	background: transparent; /* No background */
+  }
+  
+  /* Customize the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+	background-color: #118ab2; /* Color of the scrollbar thumb */
+	border-radius: 4px; /* Rounded corners for the thumb */
+  }
+  
+  /* Optional: When the scrollbar thumb is hovered */
+  ::-webkit-scrollbar-thumb:hover {
+	background-color: #073b4c; /* Darker color when hovered */
+  }
+
 /* Footer */
 
 	#footer {
 		padding: 0.5em 0 0.01em 0 ;
-		background-color: #1d242a;
+		background-color: #073b4c;
 		text-align: center;
 	}
 
@@ -3998,5 +4020,5 @@ input, select, textarea {
 	}
 
 	body.is-mobile.landing #footer {
-		background-color: #1d242a;
+		background-color: #073b4c;
 	}
