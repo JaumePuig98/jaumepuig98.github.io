@@ -2313,6 +2313,14 @@ input, select, textarea {
 				padding-right: 0 !important;
 			}
 
+			ul.icons a {
+				color: #fff;
+			}
+
+				ul.icons a:hover {
+					color: #118ab2;
+				}
+					
 		ul.icons.major {
 			padding: 1em 0;
 		}
