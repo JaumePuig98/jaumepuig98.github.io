@@ -2320,7 +2320,7 @@ input, select, textarea {
 				ul.icons a:hover {
 					color: #118ab2;
 				}
-					
+
 		ul.icons.major {
 			padding: 1em 0;
 		}
@@ -3600,10 +3600,10 @@ input, select, textarea {
 			-webkit-transform: scale(1);
 			-ms-transform: scale(1);
 			transform: scale(1);
-			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
-			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
-			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
-			transition: transform 0.5s ease, opacity 0.5s ease;
+			-moz-transition: -moz-transform 0.05s ease, opacity 0.05s ease;
+			-webkit-transition: -webkit-transform 0.05s ease, opacity 0.05s ease;
+			-ms-transition: -ms-transform 0.05s ease, opacity 0.05s ease;
+			transition: transform 0.05s ease, opacity 0.05s ease;
 			display: inline-block;
 			font-size: 1.75em;
 			opacity: 1;
@@ -3613,14 +3613,14 @@ input, select, textarea {
 		}
 
 			#banner h2:before, #banner h2:after {
-				-moz-transition: width 0.85s ease;
-				-webkit-transition: width 0.85s ease;
-				-ms-transition: width 0.85s ease;
-				transition: width 0.85s ease;
-				-moz-transition-delay: 0.25s;
-				-webkit-transition-delay: 0.25s;
-				-ms-transition-delay: 0.25s;
-				transition-delay: 0.25s;
+				-moz-transition: width 0.05s ease;
+				-webkit-transition: width 0.05s ease;
+				-ms-transition: width 0.05s ease;
+				transition: width 0.05s ease;
+				-moz-transition-delay: 0.05s;
+				-webkit-transition-delay: 0.05s;
+				-ms-transition-delay: 0.05s;
+				transition-delay: 0.05s;
 				background: #fff;
 				content: '';
 				display: block;
@@ -3649,14 +3649,14 @@ input, select, textarea {
 			}
 
 		#banner .more {
-			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
-			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
-			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
-			transition: transform 0.75s ease, opacity 0.75s ease;
-			-moz-transition-delay: 3.5s;
-			-webkit-transition-delay: 3.5s;
-			-ms-transition-delay: 3.5s;
-			transition-delay: 3.5s;
+			-moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+			-moz-transition-delay: 0.75s;
+			-webkit-transition-delay: 0.75s;
+			-ms-transition-delay: 0.75s;
+			transition-delay: 0.75s;
 			-moz-transform: translateY(0);
 			-webkit-transform: translateY(0);
 			-ms-transform: translateY(0);
@@ -3696,14 +3696,14 @@ input, select, textarea {
 
 		#banner:after {
 			pointer-events: none;
-			-moz-transition: opacity 3s ease-in-out;
-			-webkit-transition: opacity 3s ease-in-out;
-			-ms-transition: opacity 3s ease-in-out;
-			transition: opacity 3s ease-in-out;
-			-moz-transition-delay: 1.25s;
-			-webkit-transition-delay: 1.25s;
-			-ms-transition-delay: 1.25s;
-			transition-delay: 1.25s;
+			-moz-transition: opacity 0.5s ease-in-out;
+			-webkit-transition: opacity 0.5s ease-in-out;
+			-ms-transition: opacity 0.5s ease-in-out;
+			transition: opacity 0.5s ease-in-out;
+			-moz-transition-delay: 0.5s;
+			-webkit-transition-delay: 0.5s;
+			-ms-transition-delay: 0.5s;
+			transition-delay: 0.5s;
 			content: '';
 			background: #2e3842;
 			display: block;
@@ -3918,7 +3918,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 0.5em 0 0.01em 0 ;
+		padding: 0.2em 0 0.01em 0 ;
 		background-color: #073b4c;
 		text-align: center;
 	}
@@ -3973,7 +3973,7 @@ input, select, textarea {
 						display: block;
 						line-height: 1em;
 						margin: 0;
-						padding: 0.5em 0;
+						padding: 0.2em 0;
 					}
 
 				}
@@ -3981,7 +3981,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#footer {
-				padding: 2em 3em 2em 3em ;
+				padding: 0.2em 0 0.01em 0 ;
 			}
 
 		}
@@ -3989,7 +3989,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#footer {
-				padding: 2em 2em 1em 2em ;
+				padding: 0.2em 0 0.01em 0 ;
 			}
 
 		}
