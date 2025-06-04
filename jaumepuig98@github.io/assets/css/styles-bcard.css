@@ -1,0 +1,438 @@
+/* assets/styles-bcard.css - V5 */
+/* This stylesheet defines the visual appearance of the digital business card. */
+
+/* --- THEME VARIABLES --- */
+/* CSS Custom Properties (variables) for easy theming and maintenance. */
+:root {
+    /* Light Theme (Default) */
+    /* These variables are used when no specific theme or the light theme is active. */
+    --bg-color: #f4f5f7;                     /* Page background: Very light cool grey */
+    --card-bg-color: #ffffff;                /* Card background: White */
+    --text-color-primary: #1a202c;           /* Primary text (name, main titles): Very dark desaturated blue/charcoal */
+    --text-color-secondary: #2c343c;         /* Secondary text (other info): Dark slate grey */
+    --text-color-muted: #718096;             /* Muted text (less important, quote, some icons): Cool grey */
+    --accent-color: #2c5282;                 /* Accent (links, icons, buttons): Deep professional blue */
+    --accent-color-hover: #1a365d;           /* Accent hover: Darker shade of the blue */
+    --separator-color: #e2e8f0;              /* Separators: Very light grey */
+    --shadow-color: rgba(45, 55, 72, 0.08);  /* Shadows: Subtle dark grey based shadow */
+    --button-text-color: #ffffff;            /* Text on primary buttons: White */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Main font stack */
+    --font-quote: 'Lora', serif;               /* Font for quotes */
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    /* These variables override the :root variables when the 'data-theme' attribute on the HTML element is set to "dark". */
+    --bg-color: #121212;                     /* Page background: Near black */
+    --card-bg-color: #2c343c;                   /* Card background: Very dark grey */
+    --text-color-primary: #f7fafc;           /* Primary text: Off-white */
+    --text-color-secondary: #ccc;            /* Secondary text: Light grey-blue */
+    --text-color-muted: #ccc;                /* Muted text: Medium grey */
+    --accent-color: #fff;                    /* Accent: Brighter, accessible blue for dark mode */
+    --accent-color-hover: #fff;              /* Accent hover: Slightly darker vibrant blue */
+    --separator-color: #4a5568;              /* Separators: Darker grey */
+    --shadow-color: rgba(0, 0, 0, 0.25);     /* Shadows: More pronounced for depth */
+    --button-text-color: #121212;            /* Button text: Dark text on light button background */
+}
+
+/* --- GENERAL STYLES --- */
+/* Basic reset and global styles */
+* {
+    margin: 0;                               /* Remove default margins from all elements */
+    padding: 0;                              /* Remove default padding from all elements */
+    box-sizing: border-box;                  /* Border and padding are included in the element's total width and height */
+}
+
+html {
+    height: 100%;                            /* Ensure HTML element takes full viewport height */
+}
+
+body {
+    min-height: 100%;                        /* Ensure body takes at least full viewport height */
+    width: 100%;                             /* Ensure body takes full viewport width */
+    font-family: var(--font-primary);        /* Apply primary font stack */
+    background-color: var(--bg-color);       /* Apply background color from theme variables */
+    color: var(--text-color-secondary);      /* Apply default text color from theme variables */
+    display: flex;                           /* Use flexbox to center card content */
+    align-items: center;                     /* Vertically center content */
+    justify-content: center;                   /* Horizontally center content */
+    padding: 20px;                           /* Padding around the card area, useful for smaller screens */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for theme changes */
+    -webkit-font-smoothing: antialiased;     /* Improve font rendering on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale;      /* Improve font rendering on Firefox */
+    line-height: 1.6;                        /* Default line height for readability */
+}
+
+.card-wrapper {
+    /* Wrapper for the card, helps manage sizing and overflow for the main card area */
+    width: 100%;                             /* Take full width of its parent (body padding constrains it) */
+    max-width: 400px;                        /* Maximum width of the card area */
+    max-height: 95vh;                        /* Maximum height (95% of viewport height) to prevent overflow on short screens */
+    display: flex;                           /* Using flex to make its child (.card-container) fill it */
+    overflow: hidden;                        /* Hide scrollbars that might appear on the wrapper itself */
+    border-radius: 8px;                     /* Rounded corners for the card area */
+    box-shadow: 0 0px 0px 0px var(--shadow-color); /* Apply shadow from theme variables */
+}
+
+.card-container {
+    /* The main container holding all card content */
+    background-color: var(--card-bg-color);  /* Card background color from theme */
+    padding: 30px 25px;                      /* Inner padding of the card */
+    width: 100%;                             /* Take full width of .card-wrapper */
+    display: flex;                           /* Use flexbox for internal layout */
+    flex-direction: column;                  /* Stack items vertically */
+    align-items: center;                     /* Center items horizontally */
+    text-align: center;                      /* Default text alignment for content */
+    transition: background-color 0.3s ease;  /* Smooth transition for theme changes */
+    overflow-y: auto;                        /* Allow vertical scrolling if content exceeds card height */
+}
+
+/* SCROLLBAR FOR CARD CONTAINER (User's Preferred Style) */
+.card-container::-webkit-scrollbar {
+    width: 4px; /* Narrow line */
+}
+
+.card-container::-webkit-scrollbar-track {
+    background: transparent; /* No background for the track */
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    /* Adapting thumb to new theme */
+    background-color: var(--text-color-secondary); 
+    border-radius: 4px; /* Rounded corners */
+}
+
+.card-container::-webkit-scrollbar-thumb:hover {
+    /* Adapting hover to new theme */
+    background-color: var(--accent-color); 
+}
+
+/* --- HEADER --- */
+/* Styles for the top section of the card (photo, name, titles) */
+.card-header {
+    margin-bottom: 8px;                     /* Space below the header */
+    width: 100%;                             /* Take full width */
+}
+
+.profile-photo {
+    width: 80px;                            /* Width of the profile photo */
+    height: 80px;                           /* Height of the profile photo (making it square) */
+    border-radius: 6px;                     /* Rounded corners for the photo */
+    object-fit: cover;                       /* Ensures the image covers the area, cropping if necessary */
+    margin-bottom: 4px;                     /* Space below the photo */
+}
+
+.name {
+    font-size: 1.4em;                       /* Font size for the main name */
+    font-weight: 600;                        /* Bold weight */
+    color: var(--text-color-primary);        /* Primary text color */
+    margin-bottom: 2px;                      /* Space below the name */
+}
+
+.main-title {
+    font-size: 1.0em;                       /* Font size for the primary title */
+    color: var(--accent-color);              /* Accent color for emphasis */
+    font-weight: 500;                        /* Semi-bold weight */
+    margin-bottom: 2px;                      /* Space below the main title */
+}
+
+.secondary-title {
+    font-size: 0.95em;                       /* Font size for the secondary title */
+    color: var(--text-color-secondary);      /* Secondary text color */
+    margin-bottom: 0;                        /* No space below if it's the last item in header */
+    font-weight: 400;                        /* Medium weight */
+}
+
+/* --- QUOTE SECTION --- */
+/* Styles for the personal quote */
+.quote-section {
+    width: 100%;                             /* Take full width */
+    margin-top: 5px;                         /* Space above the quote */
+    margin-bottom: 10px;                     /* Space below the quote */
+    padding: 0 10px;                         /* Horizontal padding to prevent text touching card edges */
+}
+
+.personal-quote {
+    font-family: var(--font-quote);          /* Use Lora (or chosen serif font) */
+    font-style: italic;                      /* Italicize the quote */
+    font-size: 0.9em;                       /* Font size for the quote */
+    color: var(--text-color-muted);          /* Muted text color */
+    line-height: 1.2;                        /* Line height for readability */
+    max-width: 90%;                          /* Prevent quote from being too wide */
+    margin-left: auto;                       /* Center the quote block if max-width is applied */
+    margin-right: auto;                      /* Center the quote block */
+}
+
+/*
+.personal-quote::before,
+.personal-quote::after {
+    /* Optional: Add quotation marks via pseudo-elements for styling 
+    content: '"';                            /* The quotation mark character 
+    color: var(--accent-color);              /* Style with accent color 
+    font-weight: bold;                       /* Make quotes bold 
+    font-size: 1.2em;                        /* Make quotes slightly larger than quote text 
+    font-family: var(--font-primary);        /* Use main font for quote marks for consistency 
+    font-style: normal;                      /* Ensure quote marks are not italic 
+}
+*/
+
+.personal-quote::before {
+    margin-right: 0.2em;                     /* Space after opening quote mark */
+}
+.personal-quote::after {
+    margin-left: 0.2em;                      /* Space before closing quote mark */
+}
+
+
+/* --- AFFILIATIONS --- */
+/* Styles for the section listing roles and affiliations */
+.affiliations {
+    width: 100%;                             /* Take full width */
+    margin-top: 15px;                        /* Space above this section (adjust if quote is present) */
+    margin-bottom: 20px;                     /* Space below this section */
+    text-align: left;                        /* Align text to the left for readability of list items */
+}
+
+.section-title {
+    /* Common style for titles of sections like Affiliations, Contact */
+    font-size: 0.8em;                        /* Smaller font size for section titles */
+    font-weight: 600;                        /* Semi-bold weight */
+    color: var(--text-color-muted);          /* Muted text color */
+    text-transform: uppercase;               /* Uppercase for a formal look */
+    letter-spacing: 0.05em;                  /* Slight letter spacing */
+    margin-bottom: 10px;                     /* Space below the title */
+    padding-bottom: 5px;                     /* Padding below the text, before the border */
+    border-bottom: 1px solid var(--separator-color); /* Separator line below title */
+}
+
+.affiliations ul {
+    list-style: none;                        /* Remove default bullet points */
+    padding-left: 0;                         /* Remove default padding */
+}
+
+.affiliations li {
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+    margin-bottom: 8px; /* Slightly increased margin for better spacing with icons */
+    display: flex; /* Use flexbox for alignment */
+    align-items: flex-start; /* Align items to the top, good if text wraps */
+    /* padding-left: 0; -- Removed, as flex gap will handle spacing */
+    /* position: relative; -- No longer needed for ::before pseudo-element */
+}
+
+.affiliation-icon {
+    color: var(--text-color-secondary); /* Use your accent color for the icons */
+    font-size: 0.9em; /* Icon size relative to the li's font size */
+    margin-right: 8px; /* Space between icon and text */
+    width: 1.2em; /* Give icon a fixed width for alignment if text wraps */
+    text-align: center; /* Center icon within its fixed width */
+    flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+    padding-top: 0.3em; /* Slight top padding to better align icon with first line of text */
+}
+
+/*
+.affiliations li::before {
+    /* Custom bullet point style 
+    content: '•';                            /* Unicode bullet character 
+    color: var(--accent-color);              /* Accent color for the bullet 
+    font-weight: bold;                       /* Make bullet bold 
+    display: inline-block;                   /* Allow positioning 
+    position: absolute;                      /* Position relative to the li 
+    left: 0;                                 /* Align to the left of the padding area 
+    top: 0;                                  /* Align to the top 
+}
+*/
+
+/* --- CONTACT DETAILS --- */
+/* Styles for the phone, email, website links section */
+.contact-details {
+    width: 100%;                             /* Take full width */
+    margin-bottom: 4px;                     /* Space below this section */
+    text-align: left;                        /* Align text to the left */
+}
+
+.info-item {
+    /* Container for each contact item (e.g., phone + icon) */
+    display: flex;                           /* Use flexbox for icon and text alignment */
+    align-items: center;                     /* Vertically align icon and text */
+    margin-bottom: 10px;                     /* Space between contact items */
+    padding-left: 10px;                      /* Indentation for the icon */
+
+}
+
+.info-icon {
+    color: var(--accent-color);              /* Accent color for icons */
+    font-size: 0.85em;                        /* Icon size */
+    margin-right: 6px;                      /* Space between icon and text */
+    width: 20px;                             /* Fixed width for alignment consistency */
+    text-align: center;                      /* Center icon within its fixed width */
+}
+
+.info-link {
+    color: var(--text-color-secondary);      /* Secondary text color for the link */
+    text-decoration: none;                   /* Remove underline from link by default */
+    font-size: 0.9em;                        /* Font size for contact links */
+    font-weight: 400;                        /* Medium weight */
+    word-break: break-all;                   /* Prevent long emails/URLs from breaking layout */
+    transition: color 0.2s ease;             /* Smooth color transition on hover */
+}
+
+.info-link:hover,
+.info-link:focus,
+.info-link:active {
+    color: var(--accent-color-hover);        /* Change color on hover/focus/active */
+    text-decoration: none;                   /* Ensure no underline on hover/focus/active */
+}
+
+/* --- SOCIAL MEDIA LINKS (Icons Only) --- */
+/* Styles for the row of social media icons */
+.social-media-links {
+    width: 100%;                             /* Take full width */
+    display: flex;                           /* Use flexbox to arrange icons in a row */
+    justify-content: center;                 /* Center the group of icons */
+    gap: 20px;                               /* Space between each icon link */
+    margin-bottom: 4px;                     /* Space below this section */
+    padding: 4px 0;                          /* Vertical padding for the section */
+}
+
+.social-icon-link {
+    color: var(--text-color-muted);          /* Muted color for social icons */
+    font-size: 1.2em;                        /* Size of the icons */
+    text-decoration: none;                   /* Remove underline by default */
+    transition: color 0.2s ease, transform 0.2s ease; /* Smooth transitions for hover effects */
+}
+
+.social-icon-link:hover,
+.social-icon-link:focus,
+.social-icon-link:active {
+    color: var(--accent-color);              /* Change color to accent on hover/focus/active */
+    transform: translateY(0px);             /* Slight upward lift on hover/focus/active */
+    text-decoration: none;                   /* Ensure no underline on hover/focus/active */
+}
+
+/* --- ACTION BUTTONS (vCard) --- */
+/* Styles for the "Save to Contacts" button */
+.action-buttons {
+    width: 100%;                             /* Take full width */
+    margin-top: 0px;                        /* Space above the button */
+    margin-bottom: 20px;                     /* Space below the button */
+}
+
+.action-button {
+    background-color: var(--accent-color);   /* Accent color for button background */
+    color: var(--button-text-color);         /* Button text color from theme */
+    text-decoration: none;                   /* Remove underline by default */
+    padding: 4px 4px;                        /* Padding inside the button */
+    border-radius: 6px;                      /* Rounded corners */
+    display: inline-flex;                    /* Align icon and text inside button */
+    align-items: center;                     /* Vertically align icon and text */
+    justify-content: center;                 /* Horizontally center icon and text */
+    font-size: 0.9em;                          /* Font size for button text */
+    font-weight: 500;                        /* Semi-bold weight */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+    width: 40%;                             /* Button takes full width of its container (.action-buttons) */
+    max-width: 280px;                       /* Maximum width of the button itself */
+    margin: 0 auto;                          /* Center the button if .action-buttons is wider */
+    border: none;                            /* Ensure no default browser border */
+}
+
+.action-button:hover,
+.action-button:focus,
+.action-button:active {
+    background-color: var(--accent-color-hover); /* Darker accent on hover/focus/active */
+    transform: translateY(0px);             /* Slight upward lift on hover/focus/active */
+    box-shadow: 0 0px 0px var(--shadow-color); /* Add shadow on hover/focus/active for depth */
+    text-decoration: none;                   /* Ensure no underline on hover/focus/active */
+}
+
+.action-button i {
+    /* Styles for icon inside the button */
+    margin-right: 8px;                       /* Space between icon and button text */
+    font-size: 0.8em;                          /* Icon size relative to button text */
+}
+
+/* --- FOOTER --- */
+/* Styles for the footer link to the full website */
+.card-footer {
+    width: 100%;                             /* Take full width */
+    margin-top: auto;                        /* Pushes footer to the bottom if there's extra vertical space in .card-container */
+    padding-top: 10px;                       /* Space above the footer content */
+    border-top: 0px solid var(--separator-color); /* Separator line above footer */
+}
+
+.website-link {
+    color: var(--text-color-muted);          /* Muted color for the link */
+    text-decoration: none;                   /* Remove underline by default */
+    font-weight: 500;                        /* Medium weight */
+    font-size: 0.9em;                        /* Font size for footer link */
+    display: inline-flex;                    /* Align icon and text */
+    align-items: center;                     /* Vertically align icon and text */
+    transition: color 0.2s ease;             /* Smooth color transition on hover */
+}
+
+.website-link:hover,
+.website-link:focus,
+.website-link:active {
+    color: var(--accent-color);              /* Change color to accent on hover/focus/active */
+    text-decoration: none;                   /* Ensure no underline on hover/focus/active */
+}
+
+.website-link i {
+    margin-left: 4px;                       /* Space between icon and link text */
+}
+
+.website-link-2 {
+    color: var(--text-color-muted);          /* Muted color for the link */
+    text-decoration: none;                   /* Remove underline by default */
+    font-weight: 500;                        /* Medium weight */
+    font-size: 0.9em;                        /* Font size for footer link 
+    display: inline-flex;                    /* Align icon and text 
+    align-items: center;                     /* Vertically align icon and text */
+    transition: color 0.2s ease;             /* Smooth color transition on hover */
+}
+
+.website-link-2:hover,
+.website-link-2:focus,
+.website-link-2:active {
+    color: var(--accent-color);              /* Change color to accent on hover/focus/active */
+    text-decoration: none;                   /* Ensure no underline on hover/focus/active */
+}
+
+.website-link-2 i {
+    margin-left: 4px;                       /* Space between icon and link text */
+}
+
+/* --- RESPONSIVENESS --- */
+/* Media queries for adjusting styles on different screen sizes. Base styles are mobile-first. */
+@media (max-height: 720px) and (max-width: 400px) { 
+    /* Adjustments for shorter and narrow screens to help prevent excessive scrolling.
+       The max-height value might need tweaking based on final content length.
+    */
+    body { padding: 10px; }                  /* Reduce body padding to give card more space */
+    .card-wrapper { max-height: 97vh; }      /* Allow card wrapper to use almost full viewport height */
+    .card-container { padding: 25px 20px; }  /* Reduce card's internal padding */
+
+    .profile-photo { width: 90px; height: 90px; margin-bottom: 15px; } /* Slightly smaller photo */
+    .name { font-size: 1.6em; }              /* Smaller name */
+    .main-title { font-size: 1em; }          /* Smaller main title */
+    .secondary-title { font-size: 0.9em; }   /* Smaller secondary title */
+
+    .quote-section { margin-top: 10px; margin-bottom: 15px; }
+    .personal-quote { font-size: 0.9em; }
+
+    .section-title { font-size: 0.75em; margin-bottom: 8px; } /* Smaller section titles */
+    .affiliations li { font-size: 0.85em; margin-bottom: 5px; padding-left: 12px; } /* Smaller affiliation text */
+    .info-item { margin-bottom: 10px; }      /* Reduce space between info items */
+    .info-icon { font-size: 1em; margin-right: 8px; } /* Smaller info icons */
+    .info-link { font-size: 0.9em; }         /* Smaller info link text */
+
+    .social-media-links { gap: 18px; margin-bottom: 20px; } /* Reduce gap and margin for social icons */
+    .social-icon-link { font-size: 1.5em; }  /* Smaller social icons */
+
+    .action-buttons { margin-top: 5px; margin-bottom: 15px; }
+    .action-button { padding: 10px 15px; font-size: 0.95em; } /* Smaller action button */
+    .card-footer { padding-top: 10px; }      /* Reduce footer padding */
+    .website-link { font-size: 0.85em; }     /* Smaller website link text */
+    .website-link-2 { font-size: 0.85em; }     /* Smaller website link text */
+
+}
