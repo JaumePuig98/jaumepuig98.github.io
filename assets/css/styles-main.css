@@ -534,7 +534,7 @@ header nav a:hover, header nav a:focus {
     background-color: var(--banner-button-bg-color-hover); /* Darken on hover/focus */
     opacity: 1; /* Full opacity on hover */
     text-decoration: none; /* Ensure no underline */
-    color: var(--button-text-color); /* Ensure icon color remains consistent */
+    color: var(--card-bg-color); /* Ensure icon color remains consistent */
 }
 
 /* Responsive adjustments for the scroll-to-top button */
