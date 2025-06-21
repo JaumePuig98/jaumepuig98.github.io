@@ -1085,7 +1085,7 @@ header nav a:hover, header nav a:focus {
     font-family: var(--font-primary); /* Inter, same as banner button */
     text-transform: uppercase;        /* All caps, same as banner button */
     font-weight: 400;                 /* Same as banner button */
-    font-size: 0.85em;                /* Same as banner button text size */
+    font-size: 0.8em;                /* Same as banner button text size */
     letter-spacing: 0.075em;          /* Same as banner button */
     padding: 0.7em 1.5em;             /* Adjusted padding, slightly more top/bottom than banner button for icon */
 
@@ -1109,7 +1109,7 @@ header nav a:hover, header nav a:focus {
 }
 
 #contact .contact-icon {
-    font-size: 0.85em; /* Make icon size relative to button text size, adjust as needed */
+    font-size: 0.8em; /* Make icon size relative to button text size, adjust as needed */
     margin-right: 8px;
     color: var(--banner-button-text-color); /* Match button text color */
     /* transition: color 0.2s ease; -- Not needed if color doesn't change on item hover */
