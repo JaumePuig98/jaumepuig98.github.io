@@ -21,8 +21,8 @@
     --bg-color-light: #f6f6f6;                /* Light background: Light grey for contrast */
     --card-bg-color-light: #ededed;                   /* Card background: Very dark grey */
     --text-color-primary: #f7fafc;           /* Primary text: Off-white */
-    --text-color-secondary: #ccc;            /* Secondary text: Light grey-blue */
-    --text-color-muted: #ccc;                /* Muted text: Medium grey */
+    --text-color-secondary: #fff8e7;            /* Secondary text: Light grey-blue */
+    --text-color-muted: #fff8e7;                /* Muted text: Medium grey */
     --accent-color: #fff;                    /* Accent: Brighter, accessible blue for dark mode */
     --accent-color-hover: #fff;              /* Accent hover: Slightly darker vibrant blue */
     --separator-color: #4a5568;              /* Separators: Darker grey */
@@ -40,7 +40,7 @@
     --original-secondary-color: #ffc107;     /* Was your old hover accent color (yellow) */
     --original-background-color: #2e3842;   /* Was your old background color (dark gray) */
     --original-text-color: #fff;             /* Was your old default text color (white) */
-    --original-muted-text-color: #ccc;       /* Was your old muted text color */
+    --original-muted-text-color: #fff8e7;       /* Was your old muted text color */
     --original-footer-bg-color: #333;        /* Was your old footer background color */
 }
 
@@ -53,8 +53,8 @@
     --bg-color-light: #f6f6f6;                /* Light background: Light grey for contrast */
     --card-bg-color-light: #ededed;                   /* Card background: Very dark grey */
     --text-color-primary: #f7fafc;           /* Primary text: Off-white */
-    --text-color-secondary: #ccc;            /* Secondary text: Light grey-blue */
-    --text-color-muted: #ccc;                /* Muted text: Medium grey */
+    --text-color-secondary: #fff8e7;            /* Secondary text: Light grey-blue */
+    --text-color-muted: #fff8e7;                /* Muted text: Medium grey */
     --accent-color: #fff;                    /* Accent: Brighter, accessible blue for dark mode */
     --accent-color-hover: #fff;              /* Accent hover: Slightly darker vibrant blue */
     --separator-color: #4a5568;              /* Separators: Darker grey */
