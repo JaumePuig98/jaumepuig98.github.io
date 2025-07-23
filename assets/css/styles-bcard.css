@@ -26,8 +26,8 @@
     --bg-color: #121212;                     /* Page background: Near black */
     --card-bg-color: #2c343c;                   /* Card background: Very dark grey */
     --text-color-primary: #f7fafc;           /* Primary text: Off-white */
-    --text-color-secondary: #ccc;            /* Secondary text: Light grey-blue */
-    --text-color-muted: #ccc;                /* Muted text: Medium grey */
+    --text-color-secondary: #fff8e7;            /* Secondary text: Light grey-blue */
+    --text-color-muted: #fff8e7;                /* Muted text: Medium grey */
     --accent-color: #fff;                    /* Accent: Brighter, accessible blue for dark mode */
     --accent-color-hover: #fff;              /* Accent hover: Slightly darker vibrant blue */
     --separator-color: #4a5568;              /* Separators: Darker grey */
