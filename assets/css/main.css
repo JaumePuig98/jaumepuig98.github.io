@@ -1,0 +1,1011 @@
+/*
+====================================================
+  Main CSS Stylesheet for Grivpan
+  Jaume Puig
+  Version: 4.0
+====================================================
+*/
+
+/*
+====================================================
+  CSS VARIABLES (Colors & Typography)
+====================================================
+*/
+
+:root {
+    /* Color Palette */
+    --color-primary: #2c343c;
+    --color-secondary: #118ab2;
+    --color-background: #121C2B;
+    --color-surface: #121C2B;
+    --color-text: #FFF8E7;
+    --color-text-alt: #B0BAC5;
+    --color-text-accent: #E5EAF1;
+    --color-heading: #E5EAF1;
+    --color-border: #FFF8E7;
+    --color-white: #ffffff;
+    --color-btn-primary-bg: var(--color-secondary);
+    --color-btn-primary-hover: #58ADC9;
+    --color-btn-secondary-bg: transparent;
+    --color-btn-secondary-border: var(--color-secondary);
+    --color-btn-secondary-hover: var(--color-secondary);
+
+    /* Typography */
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Urbanist', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+    --font-quote: 'Merriweather', serif;
+    
+    /* ======== NEW: Sizing & Spacing System ======== */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+    /* ======== NEW: Border Radius System ======== */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    
+    /* ======== NEW: Layout Dimensions ======== */
+    --container-width: 1100px;
+    --nav-height: 70px; /* Example value, can be adjusted when we build the nav */
+}
+
+/*
+====================================================
+  CSS RESET & GLOBAL STYLES
+====================================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height); /* Offset for fixed nav */
+}
+
+body {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    background-color: var(--color-background);
+    font-family: var(--font-body);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.4;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md); /* Use spacing variable for padding */
+}
+
+/* ======== NEW: Accessibility Focus Styles ======== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(17, 138, 178, 0.6); /* Using secondary color with transparency */
+}
+
+/*
+====================================================
+  BUTTONS
+====================================================
+*/
+.button {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+    border: 1.25px solid transparent;
+}
+
+.button-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+}
+
+.button-primary:hover,
+.button-primary:focus {
+    background-color: var(--color-btn-primary-hover);
+    border-color: var(--color-btn-primary-hover);
+    transform: translateY(-1px);
+    color: var(--color-background);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+    background-color: var(--color-white);
+    color: var(--color-background);
+    transform: translateY(-1px);
+}
+
+/*
+====================================================
+  CUSTOM SCROLLBAR
+====================================================
+*/
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface); /* Color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); /* Color of the scroll thumb */
+  border-radius: 20px; /* Roundness of the scroll thumb */
+  border: 2px solid var(--color-surface); /* Creates padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary); /* Color of the thumb on hover */
+}
+
+/*
+====================================================
+  SCROLL TO TOP BUTTON
+====================================================
+*/
+#scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    background-color: var(--color-btn-primary-hover);
+    color: var(--color-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s, box-shadow 0.2s; /* Added box-shadow transition */
+    z-index: 999;
+}
+
+#scroll-to-top-btn.is-visible {
+    opacity: 0.9;
+    visibility: visible;
+}
+
+#scroll-to-top-btn:hover,
+#scroll-to-top-btn:focus {
+    transform: scale(1.05);
+    color: var(--color-text-accent);
+}
+
+/* ======== NEW: Animation Classes for Scroll Effect ======== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+====================================================
+  RESPONSIVE DESIGN (Media Queries)
+====================================================
+*/
+@media (max-width: 768px) {
+    :root {
+      /* Adjust spacing for smaller screens */
+      --spacing-lg: 24px;
+      --spacing-xl: 48px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+/*
+====================================================
+  BANNER SECTION
+====================================================
+*/
+#banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    padding: var(--spacing-lg);
+    overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient from 70% opacity at the top to 50% at the bottom */
+    background: linear-gradient(to bottom, rgba(18 ,28 ,43 , 0.8), rgba(18 ,28 ,43 , 0.7));
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    color: var(--color-white);
+    max-width: 800px;
+}
+
+.logo-container {
+    margin-bottom: var(--spacing-xs);
+}
+
+.logo-icon {
+    width: 6rem; /* Was 60px. Now scales with the root font size. */
+    height: auto;
+}
+
+#banner h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700; /* Change from 750 to 700 to match the loaded font */
+    color: var(--color-white);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+#banner .subtitle {
+    font-family: var(--font-secondary);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--color-text);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+#banner blockquote {
+    font-family: var(--font-quote);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 200;
+    color: var(--color-text-accent);
+    line-height: 1.6;
+    max-width: 650px; /* Constrain quote width */
+    margin: 0 auto;
+    border: none;
+    padding: 0;
+}
+
+/* Scroll Down Link */
+.scroll-down-link {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--color-text-alt);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.scroll-down-link:hover {
+    color: var(--color-text-accent);
+}
+
+.scroll-down-text {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+    animation: color-change 2s infinite ease-in-out;
+}
+
+.scroll-down-link i {
+    font-size: 1rem;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Keyframes for the arrow bounce animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+        color: var(--color-text-alt);
+    }
+    40% {
+        transform: translateY(-2px);
+        color: var(--color-text-accent);
+    }
+    60% {
+        transform: translateY(-1px);
+        color: var(--color-text-accent);
+    }
+}
+
+@keyframes color-change {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+        color: var(--color-text-alt);
+    }
+    40% {
+        transform: translateY(0px);
+        color: var(--color-text-accent);
+    }
+    60% {
+        transform: translateY(0px);
+        color: var(--color-text-alt);
+    }
+}
+
+/* Responsive Design for Banner */
+@media (max-width: 768px) {
+    #banner h1 {
+        font-size: 2.5rem;
+    }
+
+    #banner .subtitle {
+        font-size: 1.1rem;
+    }
+
+    #banner blockquote {
+        font-size: 1rem;
+    }
+}
+
+/*
+====================================================
+  GENERAL SECTION STYLES
+====================================================
+*/
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-text-accent);
+    margin-bottom: var(--spacing-lg);
+}
+
+/*
+====================================================
+  ABOUT ME SECTION
+====================================================
+*/
+#about {
+    background-color: var(--color-background); /* Using a new background color to create separation */
+    padding: var(--spacing-xl) 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+}
+
+.about-image {
+    flex-basis: 25%;
+    flex-shrink: 0;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 15rem;
+}
+
+.about-text {
+    flex-basis: 75%;
+}
+
+.about-text p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-accent);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.4;
+    text-align: justify;
+    font-weight: 300; 
+}
+
+.about-text strong {
+    font-weight: 500; 
+    color: var(--color-text-accent);
+}
+
+.about-text .text-secondary {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-alt);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.35;
+    text-align: justify;
+    font-weight: 300;
+}
+
+.text-secondary strong {
+    font-weight: 400; 
+    color: var(--color-text-accent);
+}
+
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Affiliation List */
+.affiliation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.affiliation-list li {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-alt);
+    margin-bottom: var(--spacing-sm);
+}
+
+.affiliation-list i {
+    color: var(--color-text-alt);
+    font-size: 0.95rem;
+    width: 40px; /* Aligns the text neatly */
+    text-align: center;
+    margin-right: var(--spacing-sm);
+}
+
+.affiliation-list li a {
+    color: inherit; /* The link will have the same color as the surrounding text */
+    text-decoration: none; /* Removes the default underline */
+    transition: color 0.3s ease;
+    border-bottom: 0px solid transparent; /* Prepare for a subtle hover effect */
+    font-weight: 400;
+}
+
+.affiliation-list li a:hover,
+.affiliation-list li a:focus {
+    color: var(--color-text-accent); /* Changes color on hover/focus to the accent color */
+    border-bottom-color: var(--color-secondary); /* Adds a subtle underline on hover */
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-links a {
+    color: var(--color-text-alt);
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+    color: var(--color-text-accent);
+    transform: translateY(-0.5px);
+}
+
+/* Responsive Design for About Me Section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-image {
+        max-width: 300px; /* Constrain image size on mobile */
+    }
+
+    .about-text {
+        text-align: justify;
+    }
+
+    .affiliation-list {
+        display: inline-block; /* Center the list block */
+        text-align: left;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/*
+====================================================
+  PROJECTS SECTION
+====================================================
+*/
+#projects {
+    background-color: var(--color-background); /* Using main background for contrast with #about */
+    padding: var(--spacing-md) 0;
+}
+
+.project-filters {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+.filter-btn {
+    margin: 0 0.5em;
+    cursor: pointer;
+    border: none;
+    background: rgba(17, 138, 178, 0.15); /* Same as .tag background */
+    color: var(--color-secondary);
+    font: inherit;
+    outline: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-secondary);
+    font-size: 0.6rem;
+    font-weight: 400;
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: var(--spacing-sm);
+}
+.filter-btn.active {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+}
+
+.project-card {
+    background-color: var(--color-primary); /* Dark card background */
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-basis: 450px; /* Base width for cards */
+    flex-grow: 1;
+    max-width: 450px; /* Max width for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-0.5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.project-card-icon {
+    font-size: 1.75rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+    width: 100%;
+}
+
+.project-card-title {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.2;
+}
+
+.project-card-org-date {
+    font-family: var(--font-secondary);
+    color: var(--color-text);
+    font-size: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+}
+
+.project-card-org-date strong {
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.project-card-description {
+    font-family: var(--font-body);
+    color: var(--color-text-alt);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Ensures footer content is pushed down */
+    text-align: left; /* Overrides body 'justify' for better card readability */
+}
+
+.project-card-tags {
+    margin-bottom: var(--spacing-md);
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(17, 138, 178, 0.15); /* Transparent version of secondary color */
+    color: var(--color-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-secondary);
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-card-links {
+    margin-top: auto; /* Pushes links to the very bottom of the card */
+}
+
+.project-card-links a {
+    font-family: var(--font-body);
+    color: var(--color-text-accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+}
+
+.project-card-links a:hover,
+.project-card-links a:focus {
+    color: var(--color-secondary);
+}
+
+.project-card-links .fa-caret-right {
+    margin-left: var(--spacing-xs);
+    font-size: 0.8em;
+}
+
+/*
+====================================================
+  EXPERIENCE SECTION (2-COLUMN GRID)
+====================================================
+*/
+#experience {
+    background-color: var(--color-background);
+    padding: var(--spacing-lg) 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
+    gap: var(--spacing-md); /* Space between rows and columns */
+}
+
+.experience-category {
+    grid-column: 1 / -1; /* Make the category title span both columns */
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-item {
+    background-color: transparent;
+    padding: 0;
+    text-align: left;
+}
+
+.experience-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-accent);
+    line-height: 1.2;
+}
+
+.experience-details {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.experience-details strong {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--color-text-alt);
+}
+
+.experience-description {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left; /* Overrides body justify */
+}
+
+.experience-description li {
+    font-family: var(--font-body);
+    color: var(--color-text-alt);
+    padding-left: var(--spacing-md);
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.experience-description li::before {
+    content: '›'; /* Custom bullet point */
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.timeline-cta {
+    grid-column: 1 / -1; /* Make this div span both columns */
+    text-align: center;
+    margin-top: var(--spacing-md); /* Add space above the button */
+    font-size: 0.8rem;
+    font-family: var(--font-secondary);
+    color: var(--color-text-alt);
+}
+
+.button-timeline-cta {
+    /* --- You can edit any of these values --- */
+
+    border-width: 1px; 
+
+    /* Sizing & Spacing */
+    font-size: 0.7rem;
+    padding: 0.6em 1em; /* Vertical and horizontal padding */
+    width: auto; /* Let the button size to its content, or set a fixed width like 250px */
+    
+    /* Typography */
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    text-transform: none; /* or 'uppercase' */
+    letter-spacing: 0.5px;
+
+    /* Colors (These override the .button-secondary styles) */
+    color: var(--color-text-alt);
+    border-color: var(--color-text-alt);
+    background-color: transparent;
+}
+
+.button-timeline-cta:hover,
+.button-timeline-cta:focus {
+    color: var(--color-background);
+    border-color: var(--color-text-alt);
+    background-color: var(--color-text-alt);
+}
+
+/* Responsive: On screens 900px or less, stack to a single column */
+@media (max-width: 900px) {
+    .experience-grid {
+        grid-template-columns: 1fr; /* Stack to a single column */
+    }
+}
+
+/*
+====================================================
+  CONTACT SECTION
+====================================================
+*/
+#contact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    /* The background image is already applied to the body with attachment:fixed,
+       so it will show through here, creating the parallax effect. */
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(18 ,28 ,43 , 0.75), rgba(18 ,28 ,43 , 0.85));
+    z-index: 1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+#contact .section-title {
+    color: var(--color-text-accent); /* Ensure title is white on the dark overlay */
+}
+
+.contact-subtitle {
+    color: var(--color-text-accent);
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-top: calc(-1 * var(--spacing-md)); /* Pulls it closer to the title */
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap; /* Allows buttons to stack on smaller screens */
+}
+
+/*
+====================================================
+  FOOTER SECTION
+====================================================
+*/
+#footer {
+    background-color: var(--color-background);
+    color: var(--color-text-alt);
+    padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-accent);
+    text-decoration: none;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo {
+    width: 30px;
+    height: auto;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: var(--color-text-alt);
+    margin: 0;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-cookie-notice {
+    font-size: 0.55rem;
+    color: var(--color-text-alt);
+    margin: 0;
+    font-style: italic;
+}
+
+.footer-last-updated {
+    font-size: 0.55rem;
+    color: var(--color-primary);
+    margin: 0;
+    font-style: italic;
+}
+
+.footer-copyright {
+    margin-top: var(--spacing-md);
+}
+
+.footer-column h4 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem; /* Base size for icons in this section */
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: var(--color-text-alt);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+    color: var(--color-text-accent);
+}
+
+.footer-social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 1.25rem; /* Base size for icons in this section */
+}
+
+.footer-social-links a {
+    color: var(--color-text-alt);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-links a:hover,
+.footer-social-links a:focus {
+    color: var(--color-text-accent);
+    transform: translateY(-1px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom a {
+    color: var(--color-text-alt);
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover,
+.footer-bottom a:focus {
+    color: var(--color-text-accent);
+}

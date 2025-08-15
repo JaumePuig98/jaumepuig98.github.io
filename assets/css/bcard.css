@@ -1,0 +1,281 @@
+/*
+====================================================
+  Stylesheet for Digital Business Card
+  Jaume Puig
+  Version: 2.0
+====================================================
+*/
+
+/* --- THEME & DESIGN SYSTEM VARIABLES (from main.css) --- */
+:root {
+    /* Color Palette */
+    --color-primary: #2c343c;
+    --color-secondary: #118ab2;
+    --color-background: #121C2B;
+    --color-text: #FFF8E7;
+    --color-text-alt: #B0BAC5;
+    --color-text-accent: #E5EAF1;
+    --color-heading: #E5EAF1;
+    --color-white: #ffffff;
+    --color-btn-primary-hover: #58ADC9;
+
+    /* Typography */
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Urbanist', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+    --font-quote: 'Merriweather', serif;
+
+    /* Sizing & Spacing System */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+
+    /* Border Radius System */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+}
+
+/* --- GENERAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    width: 100%;
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+.card-wrapper {
+    width: 100%;
+    max-width: 400px;
+    max-height: 95vh;
+    display: flex;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-container {
+    background-color: var(--color-primary);
+    padding: 30px 25px 10px 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+/* --- HEADER --- */
+.card-header {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; /* Circular photo */
+    object-fit: cover;
+    margin-bottom: var(--spacing-sm);
+    border: 2px solid var(--color-secondary);
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: 1.7em;
+    font-weight: 700;
+    color: var(--color-heading);
+}
+
+.main-title {
+    font-family: var(--font-secondary);
+    font-size: 0.9em;
+    color: var(--color-text);
+    font-weight: 300;
+}
+
+/* --- SECTIONS --- */
+.quote-section {
+    width: 100%;
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.personal-quote {
+    font-family: var(--font-quote);
+    font-style: italic;
+    font-size: 0.8em;
+    color: var(--color-text-alt);
+}
+
+.affiliations {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+}
+
+.contact-details {
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+    text-align: left;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--color-text-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.affiliations ul {
+    list-style: none;
+}
+
+.affiliations li {
+    font-size: 0.8em;
+    color: var(--color-text-alt);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: flex-start;
+}
+
+.affiliations strong {
+    font-weight: 500;
+}
+
+.affiliation-icon {
+    color: var(--color-text-alt);
+    font-size: 1em;
+    margin-right: var(--spacing-sm);
+    margin-left: var(--spacing-sm);
+    width: 20px;
+    text-align: center;
+    padding-top: 0.2em;
+}
+
+.contact-details .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.8em;
+}
+
+.contact-details .info-icon {
+    color: var(--color-text-alt);
+    margin-left: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+    width: 20px;
+    text-align: center;
+}
+
+.contact-details .info-link {
+    color: var(--color-text-alt);
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.2s ease;
+}
+
+.contact-details .info-link:hover {
+    color: var(--color-text-accent);
+}
+
+/* --- SOCIAL & ACTION BUTTONS --- */
+.social-media-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
+}
+
+.social-icon-link {
+    color: var(--color-text-alt);
+    font-size: 1.2em;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon-link:hover {
+    color: var(--color-text-accent);
+    transform: translateY(-0.5px);
+}
+
+.action-buttons {
+    width: 100%;
+    margin-top: var(--spacing-xs);
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 180px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--color-secondary);
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--color-btn-primary-hover);
+    border-color: var(--color-btn-primary-hover);
+    transform: translateY(-1px);
+    color: var(--color-background);
+}
+
+.action-button i {
+    margin-right: var(--spacing-sm);
+}
+
+/* --- FOOTER --- */
+.card-footer {
+    width: 100%;
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 0px solid rgba(255, 255, 255, 0.1);
+}
+
+.website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-alt);
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.website-link:hover {
+    color: var(--color-secondary);
+    gap: var(--spacing-sm); /* Icon moves slightly on hover */
+}

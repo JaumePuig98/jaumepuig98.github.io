@@ -1,24 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaume Puig</title>
+<!--
+====================================================
+  Main Personal Webpage
+  Jaume Puig
+  Version: 4.0
+====================================================
+-->
 
-    <!-- SEO Meta Tags START -->
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- =================== META & SEO SECTION =================== -->
+    <!-- Charset for proper encoding (supports Catalan, Spanish, etc.) -->
+    <meta charset="UTF-8">
+    <!-- Responsive design for all devices -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Jaume Puig – Space Biotechnology & Engineering">
+    <meta property="og:description" content="Personal webpage of Jaume Puig, showcasing expertise in Space Biotechnology, Synthetic Biology, and more.">
+    <meta property="og:image" content="assets/images/profile.png">
+    <meta property="og:type" content="website">
+
+    <!-- =================== TITLE & FAVICON =================== -->
+    <!-- Page title -->
+    <title>Jaume Puig</title>
+    <!-- Favicon icon for browser tab -->
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+    <!-- =================== SEO META TAGS =================== -->
     <meta name="description" content="Personal webpage of Jaume Puig, showcasing expertise in Space Biotechnology and Engineering, Synthetic Biology, Strategic Research Development, and STEAM Education.">
     <meta name="keywords" content="Jaume Puig, Space Biotechnology, Synthetic Biology, Biomedical Engineering, Strategic Research, Omics, STEAM Education, NASA GeneLab, iGEM">
+    <meta name="author" content="Jaume Puig">
 
-    <link rel="stylesheet" href="assets/css/styles-main.css">
-    <link rel="icon" href="images/icon.png" type="image/x-icon">
-
-    <!-- FontAwesome for icons -->
+    <!-- =================== FONTS & ICONS =================== -->
+    <!-- Preconnect for Google Fonts performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts: Merriweather (200-300), Urbanist (300-800), Roboto Mono (300-800 for secondary, 400-600 for quote) -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@200;300&family=Roboto+Mono:wght@300;400;500&family=Urbanist:wght@300;400;500;600;700;750;800&family=Inter:wght@200;250;300;400;500;600;700;750;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+    <!-- =================== MAIN STYLESHEET =================== -->
+    <link rel="stylesheet" href="assets/css/main.css">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- =================== ANALYTICS & OTHER SCRIPTS =================== -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNRCCQG4MD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -28,237 +56,332 @@
     </script>
 </head>
 <body>
-    <!-- Banner Section -->
+    <!-- =================== BANNER/HOME SECTION =================== -->
     <section id="banner">
-        <!-- Content for the banner will go here -->
-        <div class="banner-overlay"></div> 
-        <div class="banner-content">
-            <img src="images/icon.png" alt="Jaume Puig" class="icon-banner">
-            <p class="subtitle">Space Biotechnology & Engineering</p>
-            <h1>JAUME PUIG</h1>
-            <p class="tagline">"Space exploration begins within us."</p>
-            <div class="banner-buttons">
-                <a href="https://www.linkedin.com/in/jaume-puig/" target="_blank" rel="noopener noreferrer" class="button button-banner-primary">Connect with me</a>
-            </div>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <div class="logo-container">
+            <img src="assets/images/icon.png" alt="Jaume Puig logo icon" class="logo-icon" loading="lazy">
         </div>
-        <a href="#aboutme" class="scroll-down-link" aria-label="Scroll to About Me section">
-            <span class="scroll-down-text">LEARN MORE ABOUT ME</span>
-            <i class="fas fa-chevron-down scroll-down-arrow"></i>
-        </a>
+
+        <h1>Jaume Puig</h1>
+
+        <p class="subtitle">
+            SPACE BIOTECHNOLOGY &amp; ENGINEERING
+        </p>
+
+        <blockquote>
+            "Space exploration begins within us."
+        </blockquote>
+    </div>
+
+    <a href="#about" class="scroll-down-link">
+        <span class="scroll-down-text">Learn more about me</span>
+        <i class="fas fa-chevron-down"></i>
+    </a>
     </section>
 
-    <!-- About Me Section -->
-    <section id="aboutme">
-        <div class="container about-me-container"> 
-            <h2>About Me</h2>
-            <div class="about-me-content">
-                <div class="about-me-image-column">
-                    <img src="images/profile.png" alt="Jaume Puig" class="profile-picture-main">
-                </div>
-                <div class="about-me-text-column">
-                    <p class="about-me-intro">
-                        As an innovator in <strong>Space Biotechnology</strong> and <strong>Synthetic Biology</strong>, my focus is <strong>strategic research in space biotechnology</strong>. With a background in Biomedical Engineering, I develop solutions for terrestrial applications and space exploration, translating complex discoveries (including multi-omics research, microbiome studies, astrobiology, and radiation tolerance) into tangible breakthroughs.
-                    </p>
+    <!-- =================== ABOUT ME SECTION =================== -->
+    <section id="about">
+    <div class="container">
+        <h2 class="section-title fade-in-section">About Me</h2>
+        <div class="about-content fade-in-section">
+            <div class="about-image">
+                <img src="assets/images/profile.png" alt="Portrait of Jaume Puig" loading="lazy">
+            </div>
 
-                    <div class="about-me-affiliations">
-                        <h3>Main Affiliations</h3>
-                        <ul>
-                            <!-- 
-                            <li><i class="fas fa-circle-radiation about-me-affiliation-icon"></i>
-                                <span>PhD Candidate,&nbsp;<b><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer" class="website-link">SNOLAB</a></b></span></li>
-                            -->
-                            <li><i class="fas fa-shuttle-space about-me-affiliation-icon"></i>
-                                <span>Co-Founder & Chief Technology Officer (CTO),&nbsp;<b><a href="" target="_blank" rel="noopener noreferrer" class="website-link">Stealth Mode (Biotech)</a></b></span></li>
-                            <li><i class="fas fa-school about-me-affiliation-icon"></i>
-                                <span>STEAM Educator,&nbsp;<b><a href="https://aulasputnik.com/es/inicio/" target="_blank" rel="noopener noreferrer" class="website-link">AulaSPUTNIK</a></b></span></li>
-                            <li><i class="fas fa-dna about-me-affiliation-icon"></i>
-                                <span>Communicationss Coordinator,&nbsp;<b><a href="https://www.nasa.gov/osdr/" target="_blank" rel="noopener noreferrer" class="website-link">NASA OSDR Microbes AWG</a></b></span></li>
-                        </ul>
-                    </div>
-    
-                    <h3>Collaboration & Open Science</h3>
-                    <p>
-                       Passionate about collaborative discovery and open science, I actively contribute to global initiatives like <strong>NASA OSDR GeneLab</strong>, <strong>Deep Space Initiative</strong>, and the <strong>iGEM Competition</strong>, aiming to accelerate advancements in space biology and multi-omics for the benefit of all.
-                    </p>
+            <div class="about-text">
+                <p>
+                    As an innovator in <strong>Space Biotechnology</strong> and <strong>Synthetic Biology</strong>, my focus is strategic research in space biotechnology and radiobiology. With a background in biomedical engineering, I develop solutions for terrestrial applications and space exploration, translating complex discoveries (including multi-omics research, microbiome studies, astrobiology, and radiation tolerance) into tangible breakthroughs.
+                </p>
 
-                    <h3>STEAM Education & Mentorship</h3>
-                    <p>
-                        My dedication extends to <strong>STEAM education</strong>, where I mentor future scientists through programs like <strong>iGEM</strong> and <strong>AulaSPUTNIK</strong>, creating engaging experiences to make complex science accessible and inspiring.
-                    </p>
-                    
-                    <div class="about-me-social-icons">
-                        <a href="mailto:jaume.puig98@gmail.com" class="social-icon-item" aria-label="Email"> 
+                <h3>Main Affiliations</h3>
+                <ul class="affiliation-list">
+                    <li><i class="fas fa-circle-radiation"></i> <span>Space Radiobiology PhD Researcher,&nbsp;<a href="https://www.snolab.ca/" aria-label="Stealth Mode Biotech" lang="en" target="_blank" rel="noopener noreferrer">SNOLAB</a></span></li>
+                    <li><i class="fas fa-shuttle-space"></i> <span>Co-Founder & Chief Technology Officer (CTO),&nbsp;<a href="#" aria-label="Stealth Mode Biotech">Stealth Mode (Biotech)</a></span></li>
+                    <li><i class="fas fa-school"></i> <span>STEAM Educator,&nbsp;<a href="https://aulasputnik.com/" target="_blank" rel="noopener noreferrer" aria-label="AulaSPUTNIK website" lang="es">AulaSPUTNIK</a></span></li>
+                    <li><i class="fas fa-dna"></i> <span>Communications Coordinator,&nbsp;<a href="https://www.nasa.gov/osdr-open-science-analysis-working-groups/" target="_blank" rel="noopener noreferrer" aria-label="NASA OSDR Microbes AWG website" lang="en">NASA OSDR Microbes AWG</a></span></li>
+                </ul>
+
+                <h3>Collaboration & Open Science</h3>
+                <p class="text-secondary">
+                    Passionate about <strong>collaborative discovery</strong> and <strong>open science</strong>, I actively contribute to global initiatives like <strong>NASA OSDR GeneLab</strong>, <strong>Deep Space Initiative</strong>, and the <strong>iGEM Competition</strong>, aiming to accelerate advancements in space and synthetic biology and multi-omics for the benefit of all.
+                </p>
+
+                <h3>STEAM Education & Mentorship</h3>
+                <p class="text-secondary">
+                    My dedication extends to <strong>STEAM education</strong>, where I mentor future scientists through programs like <strong>AulaSPUTNIK</strong> and <strong>iGEM</strong>, creating engaging experiences to make complex science accessible and inspiring.
+                </p>
+
+                <h3>Follow Me</h3>
+                <div class="social-links">
+                    <a href="mailto:jaume.puig98@gmail.com" class="social-icon-item" aria-label="Email"> 
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="LinkedIn">
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="LinkedIn" lang="en">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="GitHub">
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="GitHub" lang="en">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://orcid.org/0000-0002-4411-8807" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="OrcID">
-                            <i class="fab fa-orcid"></i>
+                        <a href="https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="Google Scholar" lang="en">
+                            <i class="fab fa-google-scholar"></i>
                         </a>
-                        <a href="https://instagram.com/jaume.puig98" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="Instagram">
+                        <a href="https://instagram.com/jaume.puig98" target="_blank" rel="noopener noreferrer" class="social-icon-item" aria-label="Instagram" lang="en">
                             <i class="fab fa-instagram"></i>
                         </a>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container projects-outer-container">
-            <h2 class="projects-title">Featured Projects</h2>
-            <div class="projects-grid">
+    <!-- =================== HIGHLIGHTED PROJECTS SECTION =================== -->
+        <section id="projects">
+        <div class="container">
+                <h2 class="section-title fade-in-section">Featured Projects</h2>
+                <!-- ===== PROJECT FILTER BUTTONS ===== -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Radiation">Radiation</button>
+                    <button class="filter-btn" data-filter="Omics">Omics</button>
+                    <button class="filter-btn" data-filter="Synthetic Biology">Synthetic Biology</button>
+                    <button class="filter-btn" data-filter="Health">Health</button>
+                    <button class="filter-btn" data-filter="Astronaut Data">Astronaut Data</button>
+                </div>
+                <div class="projects-grid fade-in-section">
 
-                    <!-- Project Card 1 -->
-                    <div class="project-card">
-                        <div class="project-card-icon-container">
-                            <i class="fas fa-circle-radiation project-card-icon"></i>
-                        </div>
-                        <h3 class="project-card-title">Skin Microbiome and Radiation Resistance</h3>
-                        <p class="project-card-org-date"><strong>UPF & LSC</strong> | 2022-Present</p>
-                        <p class="project-card-description">
-                            Exploring DNA repair and radiation tolerance in the skin microbiome using transcriptomics across diverse radiation environments, including low-background conditions.
-                        </p>
-                        <div class="project-card-tags">
-                            <span class="tag">Radiation</span>
-                            <span class="tag">Synthetic Biology</span>
-                            <span class="tag">Microbiome</span>
-                        </div>
-                        <div class="project-card-links">
-                            <a href="https://lsc-canfranc.es/en/home-2/" target="_blank" rel="noopener noreferrer" class="project-link">More about the LSC <i class="fas fa-caret-right"></i></a>
-                        </div>
-                    </div>
+            <div class="project-card" data-tags="Radiation,Omics,Microbiome,Low-Background Radiation">
+                <i class="fas fa-radiation project-card-icon"></i>
+                <h3 class="project-card-title">Skin Microbiome and Radiation Resistance</h3>
+                <p class="project-card-org-date"><strong>UPF & LSC</strong> | 2022-Present</p>
+                <p class="project-card-description">
+                    Exploring DNA repair and radiation tolerance in the skin microbiome using transcriptomics across diverse radiation environments, including low-background conditions.
+                </p>
+                <div class="project-card-tags">
+                    <span class="tag">Radiation</span>
+                    <span class="tag">Omics</span>
+                    <span class="tag">Microbiome</span>
+                </div>
+                <div class="project-card-links">
+                    <a href="https://lsc-canfranc.es/en/home-2/" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">More about the LSC <i class="fas fa-caret-right"></i></a>
+                </div>
+            </div>
 
-                    <!-- Project Card 2 -->
-                    <div class="project-card">
-                        <div class="project-card-icon-container">
-                            <i class="fas fa-dna project-card-icon"></i>
-                        </div>
-                        <h3 class="project-card-title">DNA Damage Protection in Low Earth Orbit</h3>
-                        <p class="project-card-org-date"><strong>UPF & HMar</strong> | 2020-2021</p>
-                        <p class="project-card-description">
-                            Engineering bacteria with DNA repair genes from radio-tolerant species to study and enhance survival under simulated Low Earth Orbit conditions.
-                        </p>
-                        <div class="project-card-tags">
-                            <span class="tag">Radiation</span>
-                            <span class="tag">Synthetic Biology</span>
-                            <span class="tag">LEO</span>
-                        </div>
-                        <div class="project-card-links">
-                            <a href="https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2021.789668/full" target="_blank" rel="noopener noreferrer" class="project-link">Read more in Frontiers in Microbiology <i class="fas fa-caret-right"></i></a>
-                        </div>
-                    </div>
+            <div class="project-card" data-tags="Radiation,Synthetic Biology,LEO,Space">
+                <i class="fas fa-dna project-card-icon"></i>
+                <h3 class="project-card-title">DNA Damage Protection in Low Earth Orbit</h3>
+                <p class="project-card-org-date"><strong>UPF & HMar</strong> | 2020-2021</p>
+                <p class="project-card-description">
+                    Engineering bacteria with DNA repair genes from radio-tolerant species to study and enhance survival under simulated Low Earth Orbit conditions.
+                </p>
+                <div class="project-card-tags">
+                    <span class="tag">Radiation</span>
+                    <span class="tag">Synthetic Biology</span>
+                    <span class="tag">LEO</span>
+                </div>
+                <div class="project-card-links">
+                    <a href="https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2021.789668/full" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">Read more in Frontiers in Microbiology <i class="fas fa-caret-right"></i></a>
+                </div>
+            </div>
 
-                    <!-- Project Card 3 -->
-                    <div class="project-card">
-                        <div class="project-card-icon-container">
-                            <i class="fas fa-leaf project-card-icon"></i>
-                        </div>
-                        <h3 class="project-card-title">Lunar Agriculture and Sustainable Technologies</h3>
-                        <p class="project-card-org-date"><strong>Moon Village Association</strong> | 2025-Present</p>
-                        <p class="project-card-description">
-                            Integrating astronaut transcriptomics, chemical toxicology, and plant data to evaluate lunar regolith health risks and dvelop safe bioregenerative life support systems.
-                        </p>
-                        <div class="project-card-tags">
-                            <span class="tag">Toxicogenomics</span>
-                            <span class="tag">Lunar Regolith</span>
-                            <span class="tag">Astronaut</span>
-                        </div>
-                        <div class="project-card-links">
-                            <a href="https://moonvillageassociation.org/working-groups/lunar-agriculture-and-sustainable-technologies-last/" target="_blank" rel="noopener noreferrer" class="project-link">More about LAST <i class="fas fa-caret-right"></i></a>
-                        </div>
-                    </div>
+            <div class="project-card" data-tags="Toxicogenomics,Lunar Regolith,Astronaut Data,Omics,Space,Health">
+                <i class="fas fa-leaf project-card-icon"></i>
+                <h3 class="project-card-title">Lunar Agriculture and Sustainable Technologies</h3>
+                <p class="project-card-org-date"><strong>Moon Village Association</strong> | 2025-Present</p>
+                <p class="project-card-description">
+                    Integrating astronaut transcriptomics, chemical toxicology, and plant data to evaluate lunar regolith health risks and develop safe bioregenerative life support systems.
+                </p>
+                <div class="project-card-tags">
+                    <span class="tag">Toxicogenomics</span>
+                    <span class="tag">Lunar Regolith</span>
+                    <span class="tag">Astronaut</span>
+                </div>
+                <div class="project-card-links">
+                    <a href="https://moonvillageassociation.org/working-groups/lunar-agriculture-and-sustainable-technologies-last/" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">More about LAST <i class="fas fa-caret-right"></i></a>
+                </div>
+            </div>
 
-                    <!-- Project Card 4 -->
-                    <div class="project-card">
-                        <div class="project-card-icon-container">
-                            <i class="fas fa-user-astronaut project-card-icon"></i>
-                        </div>
-                        <h3 class="project-card-title">Spaceflight Multi-Omics</h3>
-                        <p class="project-card-org-date"><strong>BioAstra</strong> | 2024-2025</p>
-                        <p class="project-card-description">
-                            Interpreting pharmacology and genomic data from space missions to advance research in the commercial astronaut sector, with a focus on pharmacogenomics and space omics.
-                        </p>
-                        <div class="project-card-tags">
-                            <span class="tag">Pharmacogenomics</span>
-                            <span class="tag">Space Biology</span>
-                            <span class="tag">Astronaut</span>
-                        </div>
-                        <div class="project-card-links">
-                            <a href="https://www.bioastra.org/" target="_blank" rel="noopener noreferrer" class="project-link">More about BioAstra <i class="fas fa-caret-right"></i></a>
-                            <!--
-                            <a href="" target="_blank" rel="noopener noreferrer" class="project-link">Read more in npj Microgravity <i class="fas fa-caret-right"></i></a>
-                        -->
-                        </div>
-                    </div>
+            <div class="project-card" data-tags="Pharmacogenomics,Space,Astronaut Data,Omics,Space,Health">
+                <i class="fas fa-user-astronaut project-card-icon"></i>
+                <h3 class="project-card-title">Spaceflight Multi-Omics</h3>
+                <p class="project-card-org-date"><strong>BioAstra</strong> | 2024-2025</p>
+                <p class="project-card-description">
+                    Interpreting pharmacology and genomic data from space missions to advance research in the commercial astronaut sector, with a focus on pharmacogenomics and space omics.
+                </p>
+                <div class="project-card-tags">
+                    <span class="tag">Pharmacogenomics</span>
+                    <span class="tag">Space Biology</span>
+                    <span class="tag">Astronaut</span>
+                </div>
+                <div class="project-card-links">
+                    <a href="https://www.bioastra.org/" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">More about BioAstra <i class="fas fa-caret-right"></i></a><br>
+                    <a href="https://www.nature.com/articles/s41526-025-00490-z" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">Read more in npj Microgravity <i class="fas fa-caret-right"></i></a>
+                </div>
+            </div>
 
-                    <!-- Project Card 5 -->
-                    <div class="project-card">
-                        <div class="project-card-icon-container">
-                            <i class="fas fa-dna project-card-icon"></i>
-                        </div>
-                        <h3 class="project-card-title">Intein-mediated Biosensors for Thyroid Hormones</h3>
-                        <p class="project-card-org-date"><strong>UPF</strong> | 2020-2024</p>
-                        <p class="project-card-description">
-                            Engineering an optimized bacterial biosensor to measure thyroid hormone levels in real time, providing a foundation for hormone therapy advancements.
-                        </p>
-                        <div class="project-card-tags">
-                            <span class="tag">Biosensor</span>
-                            <span class="tag">Hormone Regulation</span>
-                            <span class="tag">Synthetic Biology</span>
-                        </div>
-                        <div class="project-card-links">
-                            <a href="https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2024.1270071/full" target="_blank" rel="noopener noreferrer" class="project-link">Read more in Frontiers in Systems Biology <i class="fas fa-caret-right"></i></a><br>
-                            <a href="https://2020.igem.org/Team:UPF_Barcelona" target="_blank" rel="noopener noreferrer" class="project-link">Our iGEM Wiki <i class="fas fa-caret-right"></i></a>
-                        </div>
-                    </div>
+            <div class="project-card" data-tags="Biosensor,Hormone Regulation,Synthetic Biology,Health">
+                <i class="fas fa-dna project-card-icon"></i>
+                <h3 class="project-card-title">Intein-mediated Biosensors for Thyroid Hormones</h3>
+                <p class="project-card-org-date"><strong>UPF</strong> | 2020-2024</p>
+                <p class="project-card-description">
+                    Engineering an optimized bacterial biosensor to measure thyroid hormone levels in real time, providing a foundation for hormone therapy advancements.
+                </p>
+                <div class="project-card-tags">
+                    <span class="tag">Biosensor</span>
+                    <span class="tag">Hormone Regulation</span>
+                    <span class="tag">Synthetic Biology</span>
+                </div>
+                <div class="project-card-links">
+                    <a href="https://www.frontiersin.org/journals/systems-biology/articles/10.3389/fsysb.2024.1270071/full" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">Read more in Frontiers in Systems Biology <i class="fas fa-caret-right"></i></a><br>
+                    <a href="https://2020.igem.org/Team:UPF_Barcelona" target="_blank" rel="noopener noreferrer" class="project-link" lang="en">Our iGEM Wiki <i class="fas fa-caret-right"></i></a>
+                </div>
+            </div>
 
+        </div>
+    </div>
+    </section>
 
+    <!-- =================== EXPERIENCE AND EDUCATION SECTION =================== -->
+    <section id="experience">
+    <div class="container">
+        <h2 class="section-title fade-in-section">Experience & Education</h2>
+
+        <div class="experience-grid fade-in-section">
+            <h3 class="experience-category">Professional Experience</h3>
+
+            <div class="experience-item">
+                <h4 class="experience-title">Co-Founder & Chief Technology Officer (CTO)</h4>
+                <p class="experience-details"><strong>Stealth Mode (Biotech)</strong> | Oct. 2024 - Present</p>
+                <ul class="experience-description">
+                    <li>Leading the technological design and development of pioneering biotechnologies for sustainable resource extraction.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h4 class="experience-title">GeneLab Microbes AWG Communications Coordinator</h4>
+                <p class="experience-details"><strong>NASA Open Science Data Repository (OSDR)</strong> | Jun. 2024 - Present</p>
+                <ul class="experience-description">
+                    <li>Contributing to space microbiology by optimizing omics data processing and managing group communications.</li>
+                    <li>Also member of the <strong>RadLab</strong>, <strong>Hardware</strong>, and <strong>Human</strong> AWGs.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h4 class="experience-title">Research Fellow, Crew 2: The Illuminator's Class</h4>
+                <p class="experience-details"><strong>BioAstra</strong> | Jun. 2024 - Jun. 2025</p>
+                <ul class="experience-description">
+                    <li>Analyzing and interpreting pharmacology and genomic data from space missions to enhance research in the commercial astronaut sector.</li>
+                </ul>
             </div>
             
-        </div>
-    </section>
+            <div class="experience-item">
+                <h4 class="experience-title">Space Biotechnology Technician</h4>
+                <p class="experience-details"><strong>Yuri GmbH</strong> | Apr. 2023 - Jan. 2024</p>
+                <ul class="experience-description">
+                    <li>Contributed to R&D for International Space Station (ISS) hardware and scientific payloads and analyzed returned biological samples.</li>
+                </ul>
+            </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="contact-section-overlay"></div> 
-            <h2 class="contact-title">Want to learn more or collaborate?</h2> 
-            <p class="contact-intro">
-            </p>
-            <div class="contact-methods">
-                <a href="mailto:jaume.puig98@gmail.com" class="contact-method-item email">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <span>Send me an Email</span>
-                </a>
-                <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="contact-method-item linkedin">
-                    <i class="fab fa-linkedin contact-icon"></i>
-                    <span>Connect on LinkedIn</span>
+            <h3 class="experience-category">Education</h3>
+
+            <div class="experience-item">
+                <h4 class="experience-title">Ph.D. Biomolecular Sciences</h4>
+                <p class="experience-details"><strong>Laurentian University (LU) / SNOLAB</strong> | 2025 - Present</p>
+            </div>
+            
+            <div class="experience-item">
+                <h4 class="experience-title">M.Sc. Multidisciplinary Research in Experimental Sciences</h4>
+                <p class="experience-details"><strong>Barcelona Institute of Science and Technology (BIST)</strong> | 2022 - 2023</p>
+            </div>
+
+            <div class="experience-item">
+                <h4 class="experience-title">B.Eng. Biomedical Engineering</h4>
+                <p class="experience-details"><strong>Universitat Pompeu Fabra (UPF)</strong> | 2016 - 2022</p>
+            </div>
+
+            <div class="timeline-cta">
+                <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary button-timeline-cta">
+                    View More on LinkedIn
                 </a>
             </div>
+
+        </div>
+    </div>
     </section>
 
-    <!-- Footer -->
+    <!-- =================== CONTACT SECTION =================== -->
+    <section id="contact">
+    <div class="contact-overlay"></div>
+    <div class="contact-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-subtitle">
+            Whether you have a question, a project proposal, or just want to connect, I'd love to hear from you.
+        </p>
+        <div class="contact-buttons">
+            <a href="mailto:jaume.puig98@gmail.com" class="button button-primary">Email Me</a>
+            <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary">Connect on LinkedIn</a>
+        </div>
+    </div>
+    </section>
+
+    <!-- =================== FOOTER SECTION =================== -->
     <footer id="footer">
-        <ul class="social-icons">
-            <li><a href="mailto:jaume.puig98@gmail.com" class="icon"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="https://linkedin.com/in/jaume-puig" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/jaumepuig98" target="_blank" class="icon"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://instagram.com/jaume.puig98" target="_blank" class="icon"><i class="fab fa-instagram"></i></a></li>
-            <!-- <li><a href="jaume-puig.vcf" download="JaumePuig_Contact.vcf" class="icon"><i class="fas fa-address-card"></i></a></li>
-            -->
-        </ul>
-        
-        <p>&copy; 2025 <a href="#banner" class="footer-link">Jaume Puig</a> | All rights reserved</p>
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-column">
+                <a href="#banner" class="footer-brand">
+                    <img src="assets/images/icon.png" alt="Jaume Puig logo icon" class="footer-logo" loading="lazy">
+                    <span>Jaume Puig</span>
+                </a>
+                <p class="footer-copyright">
+                    &copy; 2025 Jaume Puig. All Rights Reserved.
+                </p>
+                <p class="footer-cookie-notice">
+                    This website uses cookies for analytics.
+                </p>
+                <p class="footer-last-updated">
+                    Last Updated: July 2025<br>
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about" aria-current="page">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience &amp; Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="footer-social-links">
+                    <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" lang="en"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub" lang="en"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/jaume.puig98" target="_blank" rel="noopener noreferrer" aria-label="Instagram" lang="en"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <a href="#banner">Back to Top <i class="fas fa-arrow-up"></i></a>
+        </div>
+    </div>
     </footer>
 
-    <script src="assets/js/script-main.js"></script>
-    <a href="#banner" id="scrollToTopBtn" class="scroll-to-top-btn" title="Go to top" aria-label="Scroll back to top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <!-- =================== SCROLL-TO-TOP BUTTON =================== -->
+    <button id="scroll-to-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-angles-up"></i>
+    </button>
+
+    <!-- =================== SCRIPTS =================== -->
+    <!-- Main JavaScript file for all site logic -->
+    <script src="assets/js/main.js" defer></script>
+
+
 </body>
 </html>
