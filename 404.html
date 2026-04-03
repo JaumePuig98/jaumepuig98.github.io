@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 – Jaume Puig</title>
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: var(--banner-gradient);
+            z-index: 0;
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .error-telemetry {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #ef4444;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .error-telemetry::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            animation: los-blink 1.2s step-end infinite;
+        }
+
+        @keyframes los-blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: clamp(4rem, 15vw, 8rem);
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-msg {
+            color: var(--color-text-alt);
+            margin: 16px 0 8px 0;
+            font-size: 1rem;
+        }
+
+        .error-coords {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.65rem;
+            color: var(--color-text-alt);
+            opacity: 0.45;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <p class="error-telemetry">LOS &middot; SIGNAL LOST</p>
+        <p class="error-code">404</p>
+        <p class="error-msg">These coordinates don't exist on Earth.</p>
+        <a href="/" class="button button-primary">Back to Portfolio</a>
+        <p class="error-coords">[46.4719° N · 81.1868° W · -2,070 m]</p>
+    </div>
+</body>
+</html>

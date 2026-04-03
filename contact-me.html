@@ -1,116 +1,104 @@
-<!--
-====================================================
-  Digital Business Card
-  Jaume Puig
-  Version: 2.0
-====================================================
--->
-
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"> 
+<html lang="en">
 <head>
-    <!-- =================== META & SEO SECTION =================== -->
-    <!-- Charset for proper encoding (supports Catalan, Spanish, etc.) -->
     <meta charset="UTF-8">
-    <!-- Responsive design for all devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- =================== TITLE & FAVICON =================== -->
-    <!-- Page title -->
-    <title>Jaume Puig</title>
-    <!-- Favicon icon for browser tab -->
-    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+    <title>Jaume Puig | Contact Card</title>
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
 
-    <!-- =================== FONTS & ICONS =================== -->
-    <!-- Preconnect for Google Fonts performance -->
+    <!-- Prevent search engines from indexing this page (contains personal contact info) -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://jaumepuig98.github.io/contact-me.html">
+
+    <!-- Theme color matches card background -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090D14">
+
+    <!-- OG tags for when the link is shared directly -->
+    <meta property="og:title" content="Jaume Puig – Contact Card">
+    <meta property="og:description" content="Space Radiobiologist & Engineer. Save contact or connect online.">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile.png">
+    <meta property="og:type" content="profile">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts: Merriweather (200-300), Urbanist (300-800), Roboto Mono (300-800 for secondary, 400-600 for quote) -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@200;300&family=Roboto+Mono:wght@300;400;500&family=Urbanist:wght@300;400;500;600;700;750;800&family=Inter:wght@200;250;300;400;500;600;700;750;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
-    <!-- =================== MAIN STYLESHEET =================== -->
-    <link rel="stylesheet" href="assets/css/bcard.css">
+    <!-- Icons — same version as index.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- =================== ANALYTICS & OTHER SCRIPTS =================== -->
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZS74X3Z19"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MZS74X3Z19');
-    </script>
+    <link rel="stylesheet" href="assets/css/bcard-style.css">
 </head>
 <body>
-    <div class="card-wrapper">
-        <div class="card-container">
+
+    <main class="business-card">
+        <div class="card-content">
+
             <header class="card-header">
-                <img src="assets/images/profile.png" alt="Jaume Puig" class="profile-photo">
+                <div class="profile-img-container">
+                    <img src="assets/images/profile.png" alt="Jaume Puig" class="profile-img" width="110" height="110">
+                </div>
                 <h1 class="name">Jaume Puig</h1>
-                <p class="main-title">Space Biotechnology & Engineering</p>
+                <h2 class="title">Space Radiobiologist & Engineer</h2>
+                <p class="quote">"Space exploration begins within us."</p>
             </header>
 
-            <section class="quote-section">
-                <p class="personal-quote">"Space exploration begins within us."</p>
-            </section>
-
-            <section class="affiliations">
-                <h2 class="section-title">Main Affiliations</h2>
-                <ul>
-                    <li><i class="fas fa-radiation affiliation-icon"></i><span>PhD Researcher, <strong>SNOLAB</strong></span></li>
-                    <li><i class="fas fa-rocket affiliation-icon"></i><span>CTO & Co-Founder, <strong>Stealth Mode (Space Biotech)</strong></span></li>
-                    <li><i class="fas fa-school affiliation-icon"></i><span>STEAM Educator, <strong>AulaSPUTNIK</strong></span></li>
+            <section class="card-section">
+                <h3 class="section-title">MAIN AFFILIATIONS</h3>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-circle-radiation icon" aria-hidden="true"></i> PhD Researcher, SNOLAB</li>
+                    <li><i class="fa-solid fa-rocket icon" aria-hidden="true"></i> CTO & Co-Founder, Barding Industries</li>
+                    <li><i class="fa-solid fa-chalkboard-user icon" aria-hidden="true"></i> STEAM Educator, AulaSPUTNIK</li>
                 </ul>
             </section>
 
-            <section class="contact-details">
-                <h2 class="section-title">Contact</h2>
-                <div class="info-item">
-                    <i class="fas fa-phone-alt info-icon"></i>
-                    <a href="tel:+12498799837" class="info-link">(+1) 249-879-9837</a>
-                    </div>
-                <div class="info-item">
-                    <i class="fab fa-whatsapp info-icon"></i>
-                    <a href="https://wa.me/34628745714" class="info-link">(+34) 628 745 714</a>
-                    </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope info-icon"></i>
-                    <a href="mailto:jaume.puig98@gmail.com" class="info-link">jaume.puig98@gmail.com</a>
-                </div>
-                 <div class="info-item">
-                    <i class="fas fa-link info-icon"></i>
-                    <a href="https://jaumepuig98.github.io" target="_blank" rel="noopener noreferrer" class="info-link">jaumepuig98.github.io</a>
-                </div>
+            <section class="card-section">
+                <h3 class="section-title">CONTACT</h3>
+                <ul class="info-list contact-list">
+                    <li class="contact-item">
+                        <i class="fa-solid fa-phone icon" aria-hidden="true"></i>
+                        <a href="tel:+12498799837" class="contact-link" data-copy="+12498799837" title="Click to copy on desktop, tap to call on mobile">
+                            (+1) 249-879-9837 <span class="hint">(Direct/CA)</span>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-brands fa-whatsapp icon" aria-hidden="true"></i>
+                        <a href="https://wa.me/34628745714" class="contact-link" data-copy="+34628745714" target="_blank" rel="noopener" title="Click to copy on desktop, tap to chat on mobile">
+                            (+34) 628 745 714 <span class="hint">(WhatsApp)</span>
+                        </a>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-envelope icon" aria-hidden="true"></i>
+                        <a href="mailto:jaume.puig98@gmail.com" class="contact-link" data-copy="jaume.puig98@gmail.com" title="Click to copy on desktop, tap to email on mobile">
+                            jaume.puig98@gmail.com
+                        </a>
+                    </li>
+                </ul>
             </section>
 
-            <section class="social-media-links">
-                <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://instagram.com/jaume.puig98" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </section>
-
-            <section class="action-buttons">
-                <a href="assets/vcf/jaume-puig.vcf" download="JaumePuig_Contact.vcf" class="action-button">
-                    <i class="fas fa-address-card"></i>
-                    Save Contact
-                </a>
-            </section>
+            <div class="social-links" role="list" aria-label="Social profiles">
+                <a href="https://linkedin.com/in/jaume-puig" aria-label="LinkedIn" class="social-icon" target="_blank" rel="noopener" role="listitem"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/jaumepuig98" aria-label="GitHub" class="social-icon" target="_blank" rel="noopener" role="listitem"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/jaume.puig98/" aria-label="Instagram" class="social-icon" target="_blank" rel="noopener" role="listitem"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            </div>
 
             <footer class="card-footer">
-    <a href="index.html" target="_blank" rel="noopener noreferrer" class="website-link">
-        Explore My Portfolio
-        <i class="fas fa-caret-right"></i>
-    </a>
-</footer>
+                <button onclick="downloadVCard()" class="btn btn-primary" aria-label="Save Jaume Puig to contacts">
+                    <i class="fa-solid fa-address-card btn-icon" aria-hidden="true"></i> Save Contact
+                </button>
+                <a href="https://jaumepuig98.github.io" class="btn-text">Explore My Portfolio ▸</a>
+                <p class="card-updated">Updated April 2026</p>
+                <p class="card-coords" aria-label="Current location: SNOLAB, Sudbury, Canada">46.4719° N · 81.1868° W · -2,070 m</p>
+            </footer>
+
         </div>
-    </div>
+
+        <div id="copy-toast" class="toast hidden" aria-live="polite">Copied to clipboard!</div>
+    </main>
+
+    <script src="assets/js/contact-config.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
