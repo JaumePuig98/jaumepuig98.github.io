@@ -796,9 +796,6 @@ body {
     gap: 40px;
 }
 
-/* Add explicit class to the column divs so we can target them */
-.experience-column { }
-
 .experience-category {
     font-family: var(--font-heading);
     font-size: 1.5rem;
