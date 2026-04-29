@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="We Cannot See What Background Radiation Does to Life — Because We Are Always Inside It. An essay by Jaume Puig, PhD Candidate in Radiation Biology at Laurentian University / SNOLAB.">
+    <meta name="author" content="Jaume Puig">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="We Cannot See What Background Radiation Does to Life — Jaume Puig">
+    <meta property="og:description" content="An essay on the structural bottleneck at the heart of radiation biology, and why now is the right moment to address it.">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jaumepuig98.github.io/essay.html">
+
+    <!-- Theme color -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8FAFC">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#020617">
+
+    <title>We Cannot See What Background Radiation Does to Life — Jaume Puig</title>
+    <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jaumepuig98.github.io/essay.html">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNRCCQG4MD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BNRCCQG4MD');
+    </script>
+
+    <style>
+        /* Essay-specific layout */
+        .essay-page {
+            min-height: 100vh;
+            padding-top: calc(var(--nav-height) + var(--spacing-xl));
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .essay-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .essay-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xl);
+            transition: opacity 0.2s;
+        }
+
+        .essay-back-link:hover { opacity: 0.75; }
+
+        .essay-header {
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .essay-label {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .essay-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-heading);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .essay-byline {
+            font-size: 0.9rem;
+            color: var(--color-text-alt);
+        }
+
+        .essay-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        .essay-body h2 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-heading);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .essay-body p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .essay-footer {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .essay-bio {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--color-text-alt);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .essay-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .essay-home-link:hover { opacity: 0.75; }
+
+        /* Minimal nav for essay page */
+        .essay-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
+            background-color: rgba(248, 250, 252, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .essay-nav {
+                background-color: rgba(2, 6, 23, 0.9);
+            }
+        }
+
+        .essay-nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .essay-nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-heading);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .essay-nav-brand:hover { opacity: 0.8; }
+
+        .essay-nav-logo {
+            width: 28px;
+            height: 28px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .essay-nav-logo { filter: invert(1); }
+        }
+
+        /* Remove background image — use solid surface colour instead */
+        body {
+            background-image: none;
+            background-color: var(--color-background);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ACCESSIBILITY: Skip to main content -->
+    <a href="#essay-content" class="skip-link">Skip to main content</a>
+
+    <!-- TELEMETRY SCROLL BAR -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- MINIMAL NAV -->
+    <nav class="essay-nav" aria-label="Site navigation">
+        <div class="essay-nav-container">
+            <a href="https://jaumepuig98.github.io/" class="essay-nav-brand" aria-label="Jaume Puig – home">
+                <img src="assets/images/icon.svg" alt="" aria-hidden="true" class="essay-nav-logo">
+                <span>Jaume Puig</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ESSAY CONTENT -->
+    <main class="essay-page" id="essay-content">
+<main class="essay-page" id="essay-content">
+        <div class="essay-container">
+
+            <header class="essay-header">
+                <p class="essay-label">Essay</p>
+                <h1 class="essay-title">We Cannot See What Background Radiation Does to Life, Because We Are Always Inside It</h1>
+                <p class="essay-byline">By Jaume Puig, PhD Candidate in Radiation Biology, Laurentian University / SNOLAB</p>
+            </header>
+
+            <article class="essay-body">
+
+                <h2>The bottleneck</h2>
+
+                <p>Every living cell on Earth has evolved bathed in a constant low-level field of ionizing radiation, cosmic rays penetrating from above, gamma rays emanating from rock and soil, radioactive potassium decaying inside our own bodies. This background is not a hazard we experience occasionally. It is a permanent, invisible environmental variable, as universal as gravity, as inescapable as atmospheric pressure.</p>
+
+                <p>And for exactly that reason, we have almost no idea what it is doing to biology.</p>
+
+                <p>This is not a gap at the margins of radiation science. It is a hole at the center. The entire field of radiation biology was built to answer questions about dose: what happens when you add more radiation than normal? From X-ray therapy to nuclear accident dosimetry to astronaut safety, the scientific and regulatory frameworks all assume that background is a neutral baseline, a zero from which meaningful exposures are measured. That assumption has never been rigorously tested, because testing it requires removing the background entirely. And removing it requires going underground, very far underground.</p>
+
+                <p>This is a structural bottleneck. Not a funding shortfall, not a technology lag, but a physical and institutional constraint that makes it nearly impossible to do the foundational experiment.</p>
+
+                <h2>Why it cannot be fixed within existing structures</h2>
+
+                <p>The only environments on Earth where background radiation is substantially reduced are deep underground laboratories (DULs), facilities originally built by particle physicists who need to shield sensitive detectors from cosmic ray interference. At SNOLAB in Sudbury, Ontario, the deepest clean lab in the world, located 2 km underground in an active nickel mine, cosmic radiation is reduced by a factor of roughly 50 million compared to the surface. The muon flux that constantly irradiates every surface-level cell culture simply does not exist there.</p>
+
+                <p>There are perhaps five or six such facilities worldwide with meaningful biology programs: SNOLAB (Canada), LNGS Gran Sasso (Italy), Boulby (UK), WIPP (USA), and a handful of others. Taken together, they represent a tiny, fragmented, internationally dispersed infrastructure, all of it built for physics, none of it designed or equipped for the requirements of modern biology.</p>
+
+                <p>Working biology at SNOLAB is genuinely difficult. Access requires descending by cage into an active mine. Experimental design is constrained by what equipment can be transported underground and what can survive the environment. Every protocol must be custom-built from scratch, because standard laboratory workflows assume you have a fully equipped surface lab next door. When results are obtained, reproducing them at another DUL is itself a major undertaking: each facility has different rock composition, different residual radiation spectra, different shielding geometries, and almost no shared biological infrastructure or standardized protocols.</p>
+
+                <p>The institutional gap compounds the physical one. Biology funding agencies do not fund underground facilities. Physics agencies that operate the DULs do not prioritize biological programs. The result is a small number of research groups attempting to do rigorous comparative biology in facilities that treat them as secondary users, with no community-level standards, no shared reagent libraries, no common data formats, and no coordinated experimental calendar. The DULIA-bio workshop series, a community effort to connect European underground biology groups, is a genuine attempt to address this, but it operates without dedicated infrastructure or resources. The field is held together by individual PIs negotiating access on a lab-by-lab basis.</p>
+
+                <h2>The evidence that the bottleneck is real, and the hypothesis it generates</h2>
+
+                <p>Results from underground biology, fragmentary as they are, consistently point in the same direction. Studies at LNGS have shown altered growth rates, genomic instability, and impaired stress response in organisms from bacteria to <em>Drosophila</em> maintained underground. Research from our own group at SNOLAB, the REPAIR project, found that yeast grown in sub-background conditions showed up to 16% slower growth compared to surface controls, and that survival of desiccated yeast in the sub-background environment was significantly reduced, with a more pronounced effect in DNA repair-deficient strains. These are not subtle signals. They suggest that background radiation is not merely tolerated by biology, it may be actively used. The cellular machinery that responds to low-dose radiation stress may be part of normal homeostatic function, not just a damage-repair system.</p>
+
+                <p>This raises a testable hypothesis with broad implications: terrestrial background radiation represents a biological homeostasis zone, and deviations in either direction, downward toward zero or upward toward deep-space levels, trigger stress responses with overlapping molecular signatures.</p>
+
+                <p>If true, this would fundamentally reshape how we interpret the linear no-threshold model used in radiation protection, reframe the safety literature on low-dose exposures, and directly inform the biology of long-duration spaceflight, where astronauts move above background for extended periods. It would mean we have been measuring "radiation effects" against a baseline we never understood.</p>
+
+                <p>The comparison point for the upper end of the spectrum now exists: the Deep Space Radiation Genomics (DSRG) payload flew on Artemis I, exposing yeast to the deep space radiation environment beyond Earth's magnetosphere. That data is becoming available. For the first time, it is possible, in principle, to run a controlled transcriptomic comparison across three radiation environments: sub-background (SNOLAB), terrestrial background (surface control), and deep space (Artemis-I analog). The radiation spectrum as a biological variable, fully resolved.</p>
+
+                <h2>Why now, and what a pilot experiment looks like</h2>
+
+                <p>Three developments have converged to make this the right moment.</p>
+
+                <p>First, the Artemis program has produced the deep-space data point that was previously missing. Comparative genomics across the full radiation spectrum is now feasible for the first time.</p>
+
+                <p>Second, omics technologies have become cheap and standardized enough that small groups working in logistically constrained environments can generate publication-quality transcriptomic and metabolomic datasets. The barrier to entry for this kind of comparative biology has dropped dramatically in the last decade.</p>
+
+                <p>Third, DULs are cautiously expanding their non-physics programs. There is growing institutional recognition, visible in the DULIA-bio initiative and in SNOLAB's own life sciences laboratory, that these facilities are scientifically valuable beyond particle physics. The window to help define what rigorous underground biology looks like, before practices calcify, is open now.</p>
+
+                <p>The pilot experiment I would propose is a focused, multi-site replication study using a standardized biological platform, desiccated <em>Saccharomyces cerevisiae</em>, which requires minimal maintenance and is well-characterized as a model system, deployed simultaneously at multiple DULs with different residual radiation profiles, using identical protocols and centralized downstream processing. This is the Global Underground Yeast (GUY) project framework: the goal is not primarily to discover new biology, but to validate whether the underground biology signal is reproducible across sites, and to produce the first standardized cross-facility dataset that could serve as a community reference.</p>
+
+                <p>The experiment is informative regardless of outcome. If the growth and survival effects do not replicate across sites, that tells us something critical about confounding variables, geological, atmospheric, or procedural, that the field has not accounted for. If they do replicate, we have a validated platform for the deeper comparative work.</p>
+
+                <p>The fix to the broader structural bottleneck is not a single experiment or a single lab. It is a dedicated, professionalized infrastructure layer for underground biology: shared protocols, shared equipment caches at each DUL, a common data standard, and a training pathway that gives early-career biologists the skills to work in constrained underground environments. The analogy is to what marine biology stations did for oceanography, not replacing individual labs, but providing shared infrastructure that made a category of experiment tractable for the whole field.</p>
+
+                <p>The foundational question is simple: what is background radiation doing to life? We have been unable to answer it for a century of radiation biology, not because the question is unimportant, but because the experiment requires infrastructure that no single biology lab can build or sustain. That is a structural problem. And it now has enough pieces in place to be solved.</p>
+
+            </article>
+
+            <footer class="essay-footer">
+                <p class="essay-bio">Jaume Puig is a PhD candidate in Radiation Biology at Laurentian University, working at SNOLAB under the supervision of Dr. Christopher Thome. Their research focuses on the biological effects of sub-background radiation exposure using yeast model systems.</p>
+                <a href="https://jaumepuig98.github.io/" class="essay-home-link">
+                    jaumepuig98.github.io <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </footer>
+
+        </div>
+    </main>
+
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
