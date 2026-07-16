@@ -22,6 +22,10 @@
     <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
 
     <meta name="theme-color" content="#05070d">
+    <meta name="color-scheme" content="dark">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Jaume Puig">
 
     <link rel="preload" as="image" href="assets/images/orion-earth.webp" imagesrcset="assets/images/orion-earth-800.webp 800w, assets/images/orion-earth-1600.webp 1600w, assets/images/orion-earth.webp 2560w" imagesizes="100vw" type="image/webp">
 
@@ -107,7 +111,7 @@
         <picture>
             <source type="image/webp" srcset="assets/images/orion-earth-800.webp 800w, assets/images/orion-earth-1600.webp 1600w, assets/images/orion-earth.webp 2560w" sizes="100vw">
             <source type="image/jpeg" srcset="assets/images/orion-earth-800.jpg 800w, assets/images/orion-earth-1600.jpg 1600w, assets/images/orion-earth.jpg 2560w" sizes="100vw">
-            <img src="assets/images/orion-earth.jpg" alt="" class="hero-bg-img" aria-hidden="true" loading="eager">
+            <img src="assets/images/orion-earth.jpg" alt="" class="hero-bg-img" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async">
         </picture>
         <span class="photo-credit">NASA / Artemis II</span>
 
@@ -139,7 +143,7 @@
             <h2 class="sr-only">Overview</h2>
             <div class="about-content">
                 <div class="about-image fade-in-section">
-                    <img src="assets/images/profile-main.webp" alt="Portrait of Jaume Puig" loading="lazy" width="360" height="480">
+                    <img src="assets/images/profile-main.webp" alt="Portrait of Jaume Puig" loading="lazy" decoding="async" width="360" height="480">
                 </div>
 
                 <div class="about-text fade-in-section">
@@ -268,7 +272,7 @@
                 <picture>
                     <source type="image/webp" srcset="assets/images/hero-earthmoon-800.webp 800w, assets/images/hero-earthmoon.webp 1600w" sizes="(max-width: 860px) 100vw, 380px">
                     <source type="image/jpeg" srcset="assets/images/hero-earthmoon-800.jpg 800w, assets/images/hero-earthmoon.jpg 1600w" sizes="(max-width: 860px) 100vw, 380px">
-                    <img src="assets/images/hero-earthmoon.jpg" alt="" class="contact-visual-img" loading="lazy">
+                    <img src="assets/images/hero-earthmoon.jpg" alt="" class="contact-visual-img" loading="lazy" decoding="async">
                 </picture>
                 <span class="photo-credit photo-credit--light">NASA / Artemis II</span>
             </div>
@@ -292,7 +296,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <a href="#banner" class="footer-brand">
-                        <img src="assets/images/icon.svg" alt="" class="footer-logo" loading="lazy" aria-hidden="true" width="24" height="24">
+                        <img src="assets/images/icon.svg" alt="" class="footer-logo" loading="lazy" decoding="async" aria-hidden="true" width="24" height="24">
                         <span>Jaume Puig</span>
                     </a>
                     <p class="footer-copy">&copy; 2026 Jaume Puig. All Rights Reserved.</p>
