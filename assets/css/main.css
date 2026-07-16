@@ -421,6 +421,20 @@ section + section { border-top: 1px solid var(--color-border); }
    Hero / Banner
    ========================================================================== */
 
+/* Tiny, unobtrusive image attribution -- present for correctness, not meant to draw the eye. */
+.photo-credit {
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    right: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.32);
+    pointer-events: none;
+}
+.photo-credit--light { color: rgba(255, 255, 255, 0.4); }
+
 #banner {
     position: relative;
     height: 100vh;
