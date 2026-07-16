@@ -354,9 +354,29 @@ section + section { border-top: 1px solid var(--color-border); }
 
 .nav-toggle {
     display: none;
-    font-size: 1.2rem;
+    position: relative;
+    width: 22px;
+    height: 16px;
     color: var(--color-heading);
 }
+
+/* Animated hamburger -> X, driven purely by the button's own aria-expanded
+   state (already toggled by JS for accessibility), no extra JS needed. */
+.hamburger-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease), top 0.3s var(--ease);
+}
+.hamburger-line:nth-child(1) { top: 0; }
+.hamburger-line:nth-child(2) { top: 7px; }
+.hamburger-line:nth-child(3) { top: 14px; }
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
 @media (max-width: 860px) {
     .nav-toggle { display: block; z-index: 1002; }
@@ -425,15 +445,20 @@ section + section { border-top: 1px solid var(--color-border); }
 .photo-credit {
     position: absolute;
     z-index: 2;
-    bottom: 10px;
-    right: 14px;
+    bottom: 8px;
+    right: 10px;
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.32);
+    font-size: 0.52rem;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.22);
     pointer-events: none;
 }
-.photo-credit--light { color: rgba(255, 255, 255, 0.4); }
+.photo-credit--light { color: rgba(255, 255, 255, 0.3); }
+
+@media (max-width: 760px) {
+    .photo-credit { font-size: 0.44rem; bottom: 6px; right: 8px; color: rgba(255, 255, 255, 0.16); }
+    .photo-credit--light { color: rgba(255, 255, 255, 0.22); }
+}
 
 #banner {
     position: relative;
@@ -705,7 +730,7 @@ section + section { border-top: 1px solid var(--color-border); }
 }
 .social-links a:hover { color: var(--color-accent); }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
     .about-content { grid-template-columns: 1fr; }
     .about-image { max-width: 200px; }
 }
@@ -936,14 +961,31 @@ section + section { border-top: 1px solid var(--color-border); }
 .contact-subtitle { color: var(--color-text-muted); margin-bottom: var(--space-xl); }
 .contact-buttons { display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap; }
 
-@media (max-width: 760px) {
-    .contact-split { flex-direction: column; min-height: 0; }
-    .contact-visual { flex: none; width: 100%; height: 200px; min-width: 0; }
-    /* The left/right fade was tuned for the desktop side panel; on a full-width mobile
-       strip it isn't verified against this object-position, so skip it rather than risk
-       fading across real content. */
+@media (max-width: 860px) {
+    /* Image becomes a full-bleed, darkened background behind the text instead of a
+       separate stacked strip above it -- same visual language as the hero banner. */
+    .contact-split { position: relative; display: block; min-height: 480px; }
+    .contact-visual {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .contact-visual::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(1,2,6,0.5) 0%, rgba(1,2,6,0.72) 55%, rgba(1,2,6,0.94) 100%);
+    }
     .contact-visual-img { object-position: center; -webkit-mask-image: none; mask-image: none; }
-    .contact-content { align-items: center; text-align: center; padding: var(--space-xl) var(--space-lg); }
+    .contact-content {
+        position: relative;
+        z-index: 1;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-2xl) var(--space-lg);
+    }
     .contact-content > * { max-width: 100%; }
     .contact-buttons { justify-content: center; }
 }
@@ -1002,7 +1044,7 @@ section + section { border-top: 1px solid var(--color-border); }
 .footer-bottom a { font-size: 0.82rem; color: var(--color-text-muted); }
 .footer-bottom a:hover { color: var(--color-accent); }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
     .footer-content { grid-template-columns: 1fr; gap: var(--space-lg); }
 }
 
