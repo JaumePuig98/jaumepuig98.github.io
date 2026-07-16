@@ -19,7 +19,6 @@
     --color-heading: #f5f7fb;
     --color-text: #c3cad9;
     --color-text-muted: #7c8497;
-    --color-text-dim: #565e70;
 
     /* ---- Signature accent (Cherenkov blue family) ---- */
     --color-accent: #2dd4e2;
@@ -717,7 +716,7 @@ section + section { border-top: 1px solid var(--color-border); }
     color: var(--color-text-muted);
     transition: all 0.2s var(--ease);
 }
-.filter-btn:hover { color: var(--color-heading); border-color: var(--color-border-strong); }
+.filter-btn:hover { color: var(--color-heading); }
 .filter-btn.active {
     background: var(--color-accent);
     border-color: var(--color-accent);
