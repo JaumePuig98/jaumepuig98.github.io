@@ -90,7 +90,7 @@ body.card-body {
     font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 500;
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     display: block;
@@ -113,7 +113,7 @@ body.card-body {
 .info-list:not(.contact-list) .icon { color: var(--color-text-muted); }
 .contact-list .icon { color: var(--color-accent); }
 
-.hint { font-size: 0.76rem; color: var(--color-text-dim); }
+.hint { font-size: 0.76rem; color: var(--color-text-muted); }
 
 .contact-link {
     color: var(--color-text);
@@ -127,7 +127,7 @@ body.card-body {
     .contact-link:hover::after {
         content: " (copy)";
         font-size: 0.74rem;
-        color: var(--color-text-dim);
+        color: var(--color-text-muted);
     }
 }
 

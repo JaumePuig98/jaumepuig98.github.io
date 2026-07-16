@@ -315,7 +315,7 @@ section + section { border-top: 1px solid var(--color-border); }
     letter-spacing: 0.01em;
 }
 
-.nav-logo { width: 28px; height: 28px; filter: brightness(0) invert(1); }
+.nav-logo { width: 28px; height: 28px; object-fit: contain; filter: brightness(0) invert(1); }
 
 .nav-links {
     display: flex;
@@ -479,6 +479,7 @@ section + section { border-top: 1px solid var(--color-border); }
 .hero-logo {
     width: 60px;
     height: 60px;
+    object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.95;
     margin-bottom: var(--space-md);
@@ -513,7 +514,7 @@ section + section { border-top: 1px solid var(--color-border); }
     font-size: 0.68rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-text-dim);
+    color: var(--color-text-muted);
     z-index: 2;
 }
 .scroll-down-link i { animation: bob 2s ease-in-out infinite; }
@@ -955,7 +956,7 @@ section + section { border-top: 1px solid var(--color-border); }
     font-family: var(--font-heading); font-weight: 600; color: var(--color-heading);
     margin-bottom: var(--space-sm);
 }
-.footer-logo { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+.footer-logo { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1); }
 .footer-copy { font-size: 0.82rem; color: var(--color-text-muted); }
 .footer-coords {
     font-family: var(--font-mono);
