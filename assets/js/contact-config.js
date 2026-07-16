@@ -1,7 +1,7 @@
 /**
  * contact-config.js
  * Single source of truth for Jaume Puig's contact data.
- * Update this file only — both the card page and the VCF download reflect changes automatically.
+ * Update this file only, both the card page and the VCF download reflect changes automatically.
  */
 
 const CONTACT = {
@@ -38,7 +38,7 @@ const CONTACT = {
 /**
  * generateVCard()
  * Builds a vCard 4.0 string from the CONTACT object above.
- * Called on button click — no static .vcf file needed.
+ * Called on button click, no static .vcf file needed.
  */
 function generateVCard() {
     const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
@@ -59,7 +59,7 @@ function generateVCard() {
         `PHOTO;ENCODING=b;TYPE=PNG:${CONTACT.photo}`,
         phones,
         `EMAIL;TYPE=PREF:${CONTACT.email}`,
-        `URL;TYPE=Portfolio:${CONTACT.urls.contactCard}`,
+        `URL;TYPE=Portfolio:${CONTACT.urls.portfolio}`,
         `URL;TYPE=LinkedIn:${CONTACT.urls.linkedin}`,
         `NOTE:${CONTACT.note}`,
         `REV:${now}`,

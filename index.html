@@ -5,41 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <meta name="description" content="Jaume Puig, Space Radiobiologist & Engineer. PhD researcher at SNOLAB studying low-background radiation biology. CTO of a stealth-mode space biotech startup. Expertise in space biotechnology, multi-omics, and payload engineering.">
+    <meta name="description" content="Jaume Puig, Space Radiobiologist and Engineer. PhD researcher at SNOLAB studying low-background radiation biology and space biotech hardware.">
     <meta name="author" content="Jaume Puig">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Jaume Puig – Space Radiobiologist & Engineer">
-    <meta property="og:description" content="PhD researcher bridging deep underground radiation biology with spaceflight environments. CTO of a stealth-mode space biotech startup.">
-    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile.png">
+    <meta property="og:title" content="Jaume Puig | Space Radiobiologist and Engineer">
+    <meta property="og:description" content="PhD researcher bridging deep underground radiation biology with spaceflight environments and extreme-environment biotech engineering.">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jaumepuig98.github.io">
+    <meta property="og:url" content="https://jaumepuig98.github.io/">
 
-    <!-- Theme color -->
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F8FAFC">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#020617">
+    <meta name="theme-color" content="#05070d">
 
-    <!-- Preloads -->
-    <link rel="preload" href="assets/images/background.jpg" as="image">
-    <link rel="preload" href="assets/images/profile.png" as="image">
+    <link rel="preload" href="assets/images/orion-earth.jpg" as="image">
 
-    <title>Jaume Puig</title>
+    <title>Jaume Puig | Space Radiobiologist and Engineer</title>
     <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Icons — loaded async to avoid render blocking -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://jaumepuig98.github.io/">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
 
     <!-- Analytics -->
@@ -48,16 +40,16 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-BNRCCQG4MD');
+        window.__gaId = 'G-BNRCCQG4MD';
+        if (localStorage.getItem('cookie-consent') === 'accepted') { gtag('config', window.__gaId); }
     </script>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Jaume Puig",
-        "jobTitle": "Space Radiobiologist & Engineer",
+        "jobTitle": "Space Radiobiologist and Engineer",
         "url": "https://jaumepuig98.github.io",
         "sameAs": [
             "https://linkedin.com/in/jaume-puig",
@@ -68,24 +60,22 @@
         "affiliation": [
             { "@type": "Organization", "name": "SNOLAB" },
             { "@type": "Organization", "name": "Laurentian University" },
-            { "@type": "Organization", "name": "NASA OSDR" }
+            { "@type": "Organization", "name": "NASA OSDR" },
+            { "@type": "Organization", "name": "AulaSPUTNIK" }
         ]
     }
     </script>
 </head>
 <body>
 
-    <!-- ACCESSIBILITY: Skip to main content -->
-    <a href="#about" class="skip-link">Skip to main content</a>
-
-    <!-- TELEMETRY SCROLL BAR -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="scroll-progress" aria-hidden="true"></div>
 
     <!-- ===================== NAVIGATION ===================== -->
     <nav id="main-nav" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#banner" class="nav-brand" aria-label="Jaume Puig – home">
-                <img src="assets/images/icon.svg" alt="" aria-hidden="true" class="nav-logo">
+            <a href="#banner" class="nav-brand" aria-label="Jaume Puig, home">
+                <img src="assets/images/icon.svg" alt="" aria-hidden="true" class="nav-logo" width="28" height="28">
                 <span>Jaume Puig</span>
             </a>
 
@@ -95,76 +85,108 @@
 
             <ul class="nav-links" id="nav-links" role="list">
                 <li><a href="#about" class="nav-link">Overview</a></li>
-                <li><a href="#projects" class="nav-link">Research</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
                 <li><a href="#contact" class="nav-link nav-link-cta">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- ===================== BANNER ===================== -->
+    <!-- ===================== HERO ===================== -->
     <section id="banner">
-        <div class="banner-overlay" aria-hidden="true"></div>
-        <div class="banner-content fade-in-section">
-            <div class="logo-container">
-                <img src="assets/images/icon.svg" alt="" class="logo-icon" loading="lazy" aria-hidden="true">
+        <img src="assets/images/orion-earth.jpg" alt="" class="hero-bg-img" aria-hidden="true" loading="eager">
+
+        <div class="hero-layout">
+            <div class="banner-content fade-in-section">
+                <img src="assets/images/icon.svg" alt="" class="hero-logo" aria-hidden="true" width="60" height="60">
+
+                <h1>Jaume Puig</h1>
+                <p class="subtitle">Space Radiobiologist and Engineer</p>
+
+                <div class="hero-actions">
+                    <a href="research.html" class="button button-primary">View Research</a>
+                    <a href="#contact" class="button button-secondary">Get in Touch</a>
+                </div>
             </div>
-
-            <h1>Jaume Puig</h1>
-
-            <p class="subtitle">Space Radiobiologist & Engineer</p>
-
-            <blockquote>
-                "Space exploration begins within us."
-            </blockquote>
         </div>
 
         <a href="#about" class="scroll-down-link" aria-label="Scroll to overview">
-            <span class="scroll-down-text">Explore</span>
             <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </a>
     </section>
 
+    <main id="main-content" tabindex="-1">
+
     <!-- ===================== ABOUT ===================== -->
-    <main id="main-content">
     <section id="about">
         <div class="container">
-            <h2 class="section-title fade-in-section"><span class="section-prefix" aria-hidden="true">RAD-01</span>Overview</h2>
-            <div class="about-content fade-in-section">
-                <div class="about-image">
-                    <!-- width/height prevent layout shift (CLS) -->
-                    <img src="assets/images/profile.png" alt="Portrait of Jaume Puig" loading="lazy" width="400" height="400">
+            <span class="section-label">01. Overview</span>
+            <h2 class="sr-only">Overview</h2>
+            <div class="about-content">
+                <div class="about-image fade-in-section">
+                    <img src="assets/images/profile-main.webp" alt="Portrait of Jaume Puig" loading="lazy" width="360" height="480">
                 </div>
 
-                <div class="about-text">
+                <div class="about-text fade-in-section">
                     <p>
-                        What happens to life when you remove radiation entirely, and what does that tell us about surviving in space? That question sits at the centre of my work. I study how organisms respond to the extreme ends of the radiation spectrum: from the sub-background silence of deep underground laboratories like SNOLAB, to the high-flux environments of low Earth orbit.
-                    </p>
-                    <p>
-                        As a PhD researcher in Radiation Biology and CTO of a stealth-mode space biotech startup, I bridge fundamental biological discovery with applied space engineering, building the tools, systems, and knowledge base needed for long-duration human presence beyond Earth.
+                        I research how organisms survive and adapt to extreme radiation environments, from the sub-background silence of deep underground labs like SNOLAB to the high-flux conditions of low Earth orbit, and translate those findings into hardware for long-duration human spaceflight.
                     </p>
 
                     <div class="currently-block">
-                        <h3 class="currently-heading"><span class="status-dot" aria-hidden="true"></span>Currently</h3>
+                        <span class="status-dot" aria-label="Currently active"></span>
+                        <h3 class="currently-heading">Currently</h3>
                         <ul class="currently-list">
                             <li>Coordinating the GUY project and piloting automated continuous culture systems at SNOLAB.</li>
-                            <li>Presenting at the Radiation Research Society (RRS) Annual Meeting 2026 in October.</li>
+                            <li>Presenting at the Radiation Research Society Annual Meeting, October 2026.</li>
                         </ul>
                     </div>
 
-                    <h3>Current Affiliations</h3>
+                    <h3>Affiliations</h3>
                     <ul class="affiliation-list">
-                        <li><i class="fa-solid fa-circle-radiation" aria-hidden="true"></i> <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">PhD Researcher, SNOLAB | Laurentian University</a></li>
-                        <li><i class="fa-solid fa-rocket" aria-hidden="true"></i> <a href="#" aria-label="Stealth mode space biotech startup">CTO & Co-Founder, Stealth Mode (Space Biotech)</a></li>
-                        <li><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> <a href="https://www.nasa.gov/osdr-open-science-analysis-working-groups/" target="_blank" rel="noopener noreferrer">Communications Coordinator, NASA OSDR Microbes & Hardware AWGs</a></li>
-                        <li><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> <a href="https://aulasputnik.com/" target="_blank" rel="noopener noreferrer">STEAM Educator, AulaSPUTNIK</a></li>
+                        <li>
+                            <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-circle-radiation" aria-hidden="true"></i>
+                                <span class="affiliation-text">
+                                    <span class="affiliation-role">PhD Researcher</span>
+                                    <span class="affiliation-org">SNOLAB &amp; Laurentian University</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-label="Space biotech venture">
+                                <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                                <span class="affiliation-text">
+                                    <span class="affiliation-role">CTO and Co-Founder</span>
+                                    <span class="affiliation-org">Space Biotech Venture</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.nasa.gov/osdr-open-science-analysis-working-groups/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
+                                <span class="affiliation-text">
+                                    <span class="affiliation-role">Communications Coordinator</span>
+                                    <span class="affiliation-org">NASA OSDR</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://aulasputnik.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                                <span class="affiliation-text">
+                                    <span class="affiliation-role">STEAM Educator</span>
+                                    <span class="affiliation-org">AulaSPUTNIK</span>
+                                </span>
+                            </a>
+                        </li>
                     </ul>
+                    <p class="cv-pointer"><a href="experience.html">Full experience, education, and publication record <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
 
                     <div class="social-links">
                         <a href="mailto:jaume.puig98@gmail.com" aria-label="Email Jaume Puig"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                         <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                         <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i></a>
                         <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a>
                     </div>
                 </div>
@@ -172,323 +194,73 @@
         </div>
     </section>
 
-    <!-- ===================== PROJECTS ===================== -->
-    <section id="projects">
+    <!-- ===================== RESEARCH ===================== -->
+    <section id="research">
         <div class="container">
-            <h2 class="section-title fade-in-section"><span class="section-prefix" aria-hidden="true">RES-02</span>Featured Research</h2>
+            <span class="section-label">02. Featured Research</span>
+            <h2 class="section-title fade-in-section">Selected projects across radiation biology and space bioengineering</h2>
 
-            <div class="project-filters fade-in-section" role="group" aria-label="Filter research by methodology">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="Radiation Biology">Radiation Biology</button>
-                <button class="filter-btn" data-filter="Spaceflight">Spaceflight</button>
-                <button class="filter-btn" data-filter="Multi-omics">Multi-omics</button>
-                <button class="filter-btn" data-filter="Synthetic Biology">Synthetic Biology</button>
-                <button class="filter-btn" data-filter="Bioengineering">Bioengineering</button>
-            </div>
+            <div class="projects-grid projects-grid--featured fade-in-section">
 
-            <div class="projects-grid fade-in-section">
-
-                <div class="project-card" data-tags="Radiation Biology,Multi-omics" tabindex="0">
+                <div class="project-card">
                     <div class="card-top-row">
                         <i class="fa-solid fa-earth-americas project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-active" aria-label="Active project">ACTIVE</span>
+                        <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
                     <h3 class="project-card-title">Global Underground Yeast (GUY)</h3>
-                    <p class="project-card-org-date">SNOLAB | 2025 – Present</p>
-                    <p class="project-card-description">
-                        Leading a multi-site project to validate biological responses to sub-background radiation across international deep underground laboratories.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Low-Background</span>
-                        <span class="tag">Astrobiology</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
+                    <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
+                    <p class="project-card-description">Multi-site validation of biological responses to sub-background radiation across deep underground labs.</p>
+                    <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Astrobiology</span></div>
+                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card" data-tags="Radiation Biology,Multi-omics" tabindex="0">
+                <div class="project-card">
                     <div class="card-top-row">
                         <i class="fa-solid fa-flask-vial project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-active" aria-label="Active project">ACTIVE</span>
+                        <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
                     <h3 class="project-card-title">Radiation-Deprived Yeast Metabolism</h3>
-                    <p class="project-card-org-date">SNOLAB | 2025 – Present</p>
-                    <p class="project-card-description">
-                        Characterizing radiation-deprived metabolism in yeast using automated bioreactors and multi-omics in continuous culture.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Low-Background</span>
-                        <span class="tag">Bioreactor Systems</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
+                    <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
+                    <p class="project-card-description">Characterizing radiation-deprived metabolism using automated bioreactors and multi-omics.</p>
+                    <div class="project-card-tags"><span class="tag">Bioreactor Systems</span></div>
+                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
-                <div class="project-card" data-tags="Radiation Biology,Multi-omics,Spaceflight" tabindex="0">
+                <div class="project-card">
                     <div class="card-top-row">
                         <i class="fa-solid fa-chart-line project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-active" aria-label="Active project">ACTIVE</span>
+                        <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
                     <h3 class="project-card-title">Cross-Environmental Radiation Analysis</h3>
-                    <p class="project-card-org-date">SNOLAB | 2025 – Present</p>
-                    <p class="project-card-description">
-                        Conducting cross-environmental analysis comparing low-background terrestrial data with active space radiation data.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Low-Background</span>
-                        <span class="tag">Transcriptomics</span>
-                        <span class="tag">Comparative Biology</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="Spaceflight,Multi-omics" tabindex="0">
-                    <div class="card-top-row">
-                        <i class="fa-solid fa-moon project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-active" aria-label="Active project">ACTIVE</span>
-                    </div>
-                    <h3 class="project-card-title">Lunar Agriculture & Regolith Toxicogenomics</h3>
-                    <p class="project-card-org-date">Moon Village Association | 2025 – 2026</p>
-                    <p class="project-card-description">
-                        Integrating astronaut transcriptomics, chemical toxicology, and plant data to evaluate lunar regolith health risks for bioregenerative life support systems.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Toxicogenomics</span>
-                        <span class="tag">Transcriptomics</span>
-                        <span class="tag">Genomics</span>
-                        <span class="tag">Astrobiology</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://moonvillageassociation.org/" target="_blank" rel="noopener noreferrer">MVA Working Group <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="Radiation Biology,Multi-omics" tabindex="0">
-                    <div class="card-top-row">
-                        <i class="fa-solid fa-bacteria project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-complete" aria-label="Completed project">COMPLETE</span>
-                    </div>
-                    <h3 class="project-card-title">Skin Microbiome Radiation Biotolerance</h3>
-                    <p class="project-card-org-date">UPF & LSC | 2022 – 2025</p>
-                    <p class="project-card-description">
-                        Leveraging genomics and transcriptomics to investigate skin microbiome DNA damage repair under diverse radiation conditions, including deep underground low-background environments.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Low-Background</span>
-                        <span class="tag">Transcriptomics</span>
-                        <span class="tag">Genomics</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://lsc-canfranc.es/en/" target="_blank" rel="noopener noreferrer">LSC Facility <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                        <a href="https://www.iafastro.org/events/iac/iac-2023/" target="_blank" rel="noopener noreferrer">Presented at IAC 2023, Baku <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="Spaceflight,Multi-omics" tabindex="0">
-                    <div class="card-top-row">
-                        <i class="fa-solid fa-pills project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-complete" aria-label="Completed project">COMPLETE</span>
-                    </div>
-                    <h3 class="project-card-title">Spaceflight Pharmacogenomics</h3>
-                    <p class="project-card-org-date">BioAstra | 2024 – 2025</p>
-                    <p class="project-card-description">
-                        Analyzed pharmacology and genomic data from space missions to advance commercial astronaut research, authoring protocols for the Space Omics and Medical Atlas (SOMA).
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Pharmacogenomics</span>
-                        <span class="tag">Transcriptomics</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://www.nature.com/articles/s41526-025-00490-z" target="_blank" rel="noopener noreferrer">npj Microgravity Publication <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="Radiation Biology,Spaceflight,Synthetic Biology" tabindex="0">
-                    <div class="card-top-row">
-                        <i class="fa-solid fa-shield-halved project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-complete" aria-label="Completed project">COMPLETE</span>
-                    </div>
-                    <h3 class="project-card-title">DNA Protection in Low Earth Orbit</h3>
-                    <p class="project-card-org-date">UPF & HMAR | 2020 – 2021</p>
-                    <p class="project-card-description">
-                        Led bioinformatics and experimental efforts studying bacterial survival strategies and DNA damage protection under simulated LEO ionizing radiation stressors.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Radiation Biology</span>
-                        <span class="tag">Bioinformatics</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://doi.org/10.3389/fmicb.2021.789668" target="_blank" rel="noopener noreferrer">Front. Microbiol. Publication <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                        <a href="https://agu.confex.com/agu/abscicon21/meetingapp.cgi" target="_blank" rel="noopener noreferrer">Presented at AGU/NASA AbSciCon 2022, Atlanta <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                        <a href="https://www.europlanet-society.org/europlanet-science-congress-2022/" target="_blank" rel="noopener noreferrer">Presented at Europlanet 2022, Granada <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tags="Synthetic Biology,Bioengineering" tabindex="0">
-                    <div class="card-top-row">
-                        <i class="fa-solid fa-dna project-card-icon" aria-hidden="true"></i>
-                        <span class="mission-badge mission-badge-complete" aria-label="Completed project">COMPLETE</span>
-                    </div>
-                    <h3 class="project-card-title">Intein-mediated Biosensors</h3>
-                    <p class="project-card-org-date">UPF (iGEM) | 2020 – 2021</p>
-                    <p class="project-card-description">
-                        Designed and developed intein-mediated thyroid hormone biosensors, leading the wet-lab team and overseeing characterization and system modeling.
-                    </p>
-                    <div class="project-card-tags">
-                        <span class="tag">Biosensor Design</span>
-                        <span class="tag">System Modeling</span>
-                    </div>
-                    <div class="project-card-links">
-                        <a href="https://doi.org/10.3389/fsysb.2024.1270071" target="_blank" rel="noopener noreferrer">Front. Syst. Biol. Publication <i class="fas fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
+                    <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
+                    <p class="project-card-description">Comparing low-background terrestrial data with active space radiation datasets.</p>
+                    <div class="project-card-tags"><span class="tag">Transcriptomics</span></div>
+                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- ===================== EXPERIENCE ===================== -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title fade-in-section"><span class="section-prefix" aria-hidden="true">EXP-03</span>Experience & Education</h2>
-
-            <div class="experience-grid fade-in-section">
-
-                <div class="experience-column">
-                    <h3 class="experience-category">Professional Experience</h3>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">CTO & Co-Founder</h4>
-                        <p class="experience-details"><strong>Stealth Mode (Space Biotech)</strong> | Oct 2024 – Present <span class="status-dot" aria-label="Currently active"></span></p>
-                        <ul class="experience-description">
-                            <li>Leading technology design and development for biotechnologies targeting sustainable resource extraction in space environments.</li>
-                            <li>Further details available upon request under NDA.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">Communications Coordinator & Member (Microbes & Hardware AWGs)</h4>
-                        <p class="experience-details"><strong>NASA Open Science Data Repository</strong> | Jun 2024 – Present <span class="status-dot" aria-label="Currently active"></span></p>
-                        <ul class="experience-description">
-                            <li>Contributing to open-science space microbiology through omics data reanalysis, pipeline optimisation, and methods standardisation within the Microbes, and Hardware subgroups.</li>
-                            <li>Co-authoring the SPLASH Database paper alongside AWG principal investigators.</li>
-                        </ul>
-                        <div class="experience-more" hidden>
-                            <ul class="experience-description">
-                                <li>Managing internal communications and inter-subgroup coordination across the AWG.</li>
-                            </ul>
-                        </div>
-                        <button class="show-more-btn" aria-expanded="false">Show more <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">Research Fellow (Crew 2: The Illuminator's Class)</h4>
-                        <p class="experience-details"><strong>BioAstra</strong> | Jun 2024 – Jan 2025</p>
-                        <ul class="experience-description">
-                            <li>Analysed pharmacogenomic and nutritional genomics datasets from spaceflight missions to advance commercial astronaut health research.</li>
-                            <li>Contributed to protocol development for the Space Omics and Medical Atlas (SOMA) framework, including investigations into pharmacogenomic impacts in spaceflight.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">Space Biotechnology Technician</h4>
-                        <p class="experience-details"><strong>Yuri GmbH</strong> | Apr 2023 – Jan 2024</p>
-                        <ul class="experience-description">
-                            <li>Conducted microbial culture experiments and multi-omics analysis for ISS payload projects using automated modular bioreactors, spanning diverse species and research questions including microbiome characterisation studies.</li>
-                        </ul>
-                        <div class="experience-more" hidden>
-                            <ul class="experience-description">
-                                <li>Managed laboratory facilities, hardware testing, and data interpretation across multiple concurrent payload programmes.</li>
-                            </ul>
-                        </div>
-                        <button class="show-more-btn" aria-expanded="false">Show more <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">Judge, Mentor & Community Member</h4>
-                        <p class="experience-details"><strong>iGEM Foundation</strong> | Feb 2021 – Present <span class="status-dot" aria-label="Currently active"></span></p>
-                        <ul class="experience-description">
-                            <li>Judging Committee Member (2026–Present).</li>
-                            <li>Space Network Member (2024–Present): advising teams working on space exploration and astrobiology applications.</li>
-                        </ul>
-                        <div class="experience-more" hidden>
-                            <ul class="experience-description">
-                                <li>Judge (2024–Present): evaluating international synthetic biology projects and providing expert technical feedback.</li>
-                                <li>Mentor (2022–Present): supporting teams with technical guidance across experimental design and modelling.</li>
-                                <li>Ambassador for Europe (2022–2024): promoted synthetic biology and the iGEM Foundation across Europe.</li>
-                            </ul>
-                        </div>
-                        <button class="show-more-btn" aria-expanded="false">Show more <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">STEAM Educator</h4>
-                        <p class="experience-details"><strong>AulaSPUTNIK</strong> | May 2024 – Present <span class="status-dot" aria-label="Currently active"></span></p>
-                        <ul class="experience-description">
-                            <li>Designing and delivering interactive science workshops for children while developing and managing the organisation's website.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-column">
-                    <h3 class="experience-category">Academic Background</h3>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">Ph.D. in Biomolecular Sciences</h4>
-                        <p class="experience-details"><strong>Laurentian University / SNOLAB</strong> | 2025 – Present <span class="status-dot" aria-label="Currently active"></span></p>
-                        <ul class="experience-description">
-                            <li>Major: Radiation Biology.</li>
-                            <li>McLaughlin Graduate Scholarship recipient.</li>
-                            <li>Teaching Assistant.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">M.Sc. in Multidisciplinary Research in Exp. Sciences</h4>
-                        <p class="experience-details"><strong>BIST / UPF</strong> | 2022 – 2023</p>
-                        <ul class="experience-description">
-                            <li>Major: Low-Background Radiation Omics. Minor: Ancestral Gene Resurrection.</li>
-                            <li>Lead organiser of the BIST-MMRES ScienceHack 2023, a science hackathon with 360+ participants and international and governmental backing.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h4 class="experience-title">B.Eng. in Biomedical Engineering</h4>
-                        <p class="experience-details"><strong>Universitat Pompeu Fabra (UPF)</strong> | 2016 – 2022</p>
-                        <ul class="experience-description">
-                            <li>Major: LEO Radiation Biotolerance.</li>
-                            <li>iGEM 2020: Gold Medal, Best New Basic Part, Best Wiki. Nominated for Best Therapeutics Project, Best Poster, and Best Presentation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-cta">
-                    <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary">
-                        View Full History on LinkedIn
-                    </a>
-                </div>
-
+            <div class="research-cta fade-in-section">
+                <a href="research.html" class="button button-secondary">View All Research <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
 
     <!-- ===================== CONTACT ===================== -->
     <section id="contact">
-        <div class="contact-content fade-in-section">
-            <h2 class="section-title contact-section-title"><span class="section-prefix" aria-hidden="true">COM-04</span>Get In Touch</h2>
-
-            <p class="contact-subtitle">
-                Open to research collaborations, space biotech ventures, and conversations with fellow researchers and congress organisers.<br>
-                If you are working at the intersection of radiation biology, astrobiology, or space bioengineering, let's talk.
-            </p>
-
-            <div class="contact-buttons">
-                <a href="mailto:jaume.puig98@gmail.com" class="button button-primary">Email Me</a>
-                <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary">Connect on LinkedIn</a>
+        <div class="contact-split">
+            <div class="contact-visual" aria-hidden="true">
+                <img src="assets/images/hero-earthmoon.jpg" alt="" class="contact-visual-img" loading="lazy">
+            </div>
+            <div class="contact-content fade-in-section">
+                <h2 class="section-title contact-section-title">Contact</h2>
+                <p class="contact-subtitle">
+                    Open to research collaborations, space biotech ventures, and inquiries from fellow researchers and congress organizers.
+                </p>
+                <div class="contact-buttons">
+                    <a href="mailto:jaume.puig98@gmail.com" class="button button-primary">Email</a>
+                    <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary">LinkedIn</a>
+                </div>
             </div>
         </div>
     </section>
@@ -500,19 +272,19 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <a href="#banner" class="footer-brand">
-                        <img src="assets/images/icon.svg" alt="" class="footer-logo" loading="lazy" aria-hidden="true">
+                        <img src="assets/images/icon.svg" alt="" class="footer-logo" loading="lazy" aria-hidden="true" width="24" height="24">
                         <span>Jaume Puig</span>
                     </a>
                     <p class="footer-copy">&copy; 2026 Jaume Puig. All Rights Reserved.</p>
-                    <p class="footer-coords" aria-label="SNOLAB coordinates">46.4719° N · 81.1868° W · -2,070 m</p>
+                    <p class="footer-coords" aria-label="SNOLAB coordinates">46.4719 N, 81.1868 W, -2,070 m</p>
                 </div>
 
                 <div class="footer-column">
                     <h4>Navigation</h4>
                     <ul class="footer-links">
                         <li><a href="#about">Overview</a></li>
-                        <li><a href="#projects">Research</a></li>
-                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="experience.html">Experience</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -520,17 +292,17 @@
                 <div class="footer-column">
                     <h4>Connect</h4>
                     <div class="footer-social-links">
-                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i></a>
-                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a>
+                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <a href="#banner">Back to Top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+                <a href="#banner">Back to Top <i class="fas fa-arrow-up"></i></a>
             </div>
         </div>
     </footer>
@@ -538,6 +310,14 @@
     <button id="scroll-to-top-btn" aria-label="Scroll to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <div class="cookie-bar" id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
+        <p class="cookie-text">This site uses Google Analytics to measure traffic. No personal data is sold or shared.</p>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-btn-deny" id="cookie-deny">Decline</button>
+            <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accept</button>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /contact-me.html
 
 Sitemap: https://jaumepuig98.github.io/sitemap.xml

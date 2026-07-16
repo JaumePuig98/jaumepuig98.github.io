@@ -4,69 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jaume Puig</title>
+    <title>Jaume Puig | Contact</title>
     <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
 
-    <!-- Prevent search engines from indexing this page (contains personal contact info) -->
+    <meta name="author" content="Jaume Puig">
+    <!-- Kept off search engines & out of index nav on purpose (unlisted, QR-code card link) -->
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://jaumepuig98.github.io/contact-me.html">
+    <meta name="theme-color" content="#05070d">
 
-    <!-- Theme color matches card background -->
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090D14">
-
-    <!-- OG tags for when the link is shared directly -->
-    <meta property="og:title" content="Jaume Puig – Contact Card">
-    <meta property="og:description" content="Space Radiobiologist & Engineer. Save contact or connect online.">
-    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile.png">
+    <meta property="og:title" content="Jaume Puig | Contact">
+    <meta property="og:description" content="Space Radiobiologist and Engineer. Save contact or connect online.">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile-card.webp">
     <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://jaumepuig98.github.io/contact-me.html">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Space+Grotesk:wght@500;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
-    <!-- Icons — same version as index.html -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/bcard-style.css">
 </head>
-<body>
+<body class="card-body">
 
     <main class="business-card">
         <div class="card-content">
 
             <header class="card-header">
                 <div class="profile-img-container">
-                    <img src="assets/images/profile.png" alt="Jaume Puig" class="profile-img" width="110" height="110">
+                    <img src="assets/images/profile-card.webp" alt="Jaume Puig" class="profile-img" width="108" height="108">
                 </div>
                 <h1 class="name">Jaume Puig</h1>
-                <h2 class="title">Space Radiobiologist & Engineer</h2>
+                <h2 class="title">Space Radiobiologist and Engineer</h2>
                 <p class="quote">"Space exploration begins within us."</p>
             </header>
 
             <section class="card-section">
-                <h3 class="section-title">MAIN AFFILIATIONS</h3>
+                <span class="section-title">Main Affiliations</span>
                 <ul class="info-list">
                     <li><i class="fa-solid fa-circle-radiation icon" aria-hidden="true"></i> PhD Researcher, SNOLAB</li>
-                    <li><i class="fa-solid fa-rocket icon" aria-hidden="true"></i> CTO & Co-Founder, Barding Industries</li>
+                    <li><i class="fa-solid fa-rocket icon" aria-hidden="true"></i> CTO and Co-Founder, Barding Industries</li>
                     <li><i class="fa-solid fa-chalkboard-user icon" aria-hidden="true"></i> STEAM Educator, AulaSPUTNIK</li>
                 </ul>
             </section>
 
             <section class="card-section">
-                <h3 class="section-title">CONTACT</h3>
+                <span class="section-title">Contact</span>
                 <ul class="info-list contact-list">
                     <li class="contact-item">
                         <i class="fa-solid fa-phone icon" aria-hidden="true"></i>
                         <a href="tel:+12498799837" class="contact-link" data-copy="+12498799837" title="Click to copy on desktop, tap to call on mobile">
-                            (+1) 249-879-9837 <span class="hint">(Direct/CA)</span>
+                            (+1) 249-879-9837 <span class="hint">Direct, CA</span>
                         </a>
                     </li>
                     <li class="contact-item">
                         <i class="fa-brands fa-whatsapp icon" aria-hidden="true"></i>
                         <a href="https://wa.me/34628745714" class="contact-link" data-copy="+34628745714" target="_blank" rel="noopener" title="Click to copy on desktop, tap to chat on mobile">
-                            (+34) 628 745 714 <span class="hint">(WhatsApp)</span>
+                            (+34) 628 745 714 <span class="hint">WhatsApp</span>
                         </a>
                     </li>
                     <li class="contact-item">
@@ -86,16 +83,16 @@
 
             <footer class="card-footer">
                 <button onclick="downloadVCard()" class="btn btn-primary" aria-label="Save Jaume Puig to contacts">
-                    <i class="fa-solid fa-address-card btn-icon" aria-hidden="true"></i> Save Contact
+                    <i class="fa-solid fa-address-card" aria-hidden="true"></i> Save Contact
                 </button>
-                <a href="https://jaumepuig98.github.io" class="btn-text">Explore My Portfolio ▸</a>
-                <p class="card-updated">Updated April 2026</p>
-                <p class="card-coords" aria-label="Current location: SNOLAB, Sudbury, Canada">46.4719° N · 81.1868° W · -2,070 m</p>
+                <a href="https://jaumepuig98.github.io" class="btn-text">Explore My Portfolio &#9656;</a>
+                <p class="card-updated">Updated July 2026</p>
+                <p class="card-coords" aria-label="Current location: SNOLAB, Sudbury, Canada">46.4719 N, 81.1868 W, -2,070 m</p>
             </footer>
 
         </div>
 
-        <div id="copy-toast" class="toast hidden" aria-live="polite">Copied to clipboard!</div>
+        <div id="copy-toast" class="toast hidden" aria-live="polite">Copied to clipboard</div>
     </main>
 
     <script src="assets/js/contact-config.js"></script>

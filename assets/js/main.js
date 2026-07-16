@@ -1,153 +1,144 @@
-/**
- * Main JavaScript File
- * Jaume Puig - 2026 Brand Refresh
- */
+(function () {
+    'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+    /* ---------------------------------------------------------
+       Scroll progress bar
+    --------------------------------------------------------- */
+    var progressBar = document.getElementById('scroll-progress');
+    var mainNav = document.getElementById('main-nav');
+    function updateScrollProgress() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (progressBar) {
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }
+        if (mainNav) {
+            mainNav.classList.toggle('nav-scrolled', scrollTop > 40);
+        }
+    }
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
 
-    // ===============================
-    // 1. SMOOTH SCROLLING FOR ANCHOR LINKS
-    // ===============================
-    const nav = document.getElementById('main-nav');
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && href.startsWith('#') && href.length > 1) {
-                e.preventDefault();
-                const targetElement = document.getElementById(href.substring(1));
-                if (targetElement) targetElement.scrollIntoView({ behavior: 'smooth' });
-                if (navLinks) { navLinks.classList.remove('is-open'); navToggle.setAttribute('aria-expanded', 'false'); }
-            } else if (href === '#' || href === '#banner') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                if (navLinks) { navLinks.classList.remove('is-open'); navToggle.setAttribute('aria-expanded', 'false'); }
+    /* ---------------------------------------------------------
+       Skip link: move keyboard focus to main content on activation
+       (some browsers don't focus a tabindex="-1" target from a
+       fragment link alone).
+    --------------------------------------------------------- */
+    var skipLink = document.querySelector('.skip-link');
+    if (skipLink) {
+        skipLink.addEventListener('click', function () {
+            var targetId = skipLink.getAttribute('href').slice(1);
+            var target = document.getElementById(targetId);
+            if (target) {
+                setTimeout(function () { target.focus(); }, 0);
             }
         });
-    });
+    }
 
-    // ===============================
-    // 2. NAVIGATION — SCROLLED STATE, AOS/LOS, ACTIVE LINKS, MOBILE TOGGLE
-    // ===============================
-    const allNavLinks = document.querySelectorAll('.nav-link');
-
-    // 2a. Nav background on scroll
-    const handleNavScroll = () => {
-        if (window.scrollY > 20) {
-            nav.classList.add('nav-scrolled');
-        } else {
-            nav.classList.remove('nav-scrolled');
-        }
-    };
-
-    window.addEventListener('scroll', handleNavScroll, { passive: true });
-    handleNavScroll();
-
-    // 2b. Active nav link
-    const sections = document.querySelectorAll('section[id]');
-    const highlightNav = () => {
-        const navHeight = nav ? nav.offsetHeight : 64;
-        let current = '';
-        sections.forEach(section => {
-            if (window.scrollY >= section.offsetTop - navHeight - 20) current = section.getAttribute('id');
-        });
-        allNavLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-        });
-    };
-    window.addEventListener('scroll', highlightNav, { passive: true });
-    highlightNav();
-
-    // 2c. Mobile nav toggle
+    /* ---------------------------------------------------------
+       Nav: mobile toggle
+    --------------------------------------------------------- */
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.getElementById('nav-links');
     if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('is-open');
-            navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.addEventListener('click', function () {
+            var isOpen = navLinks.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target)) { navLinks.classList.remove('is-open'); navToggle.setAttribute('aria-expanded', 'false'); }
+        navLinks.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 
-    // ===============================
-    // 3. SCROLL TO TOP BUTTON
-    // ===============================
-    const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
-    if (scrollToTopBtn) {
-        window.addEventListener('scroll', () => {
-            scrollToTopBtn.classList.toggle('is-visible', window.scrollY > 400);
-        }, { passive: true });
-        scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-
-    // ===============================
-    // 4. FADE-IN SECTION ANIMATION (Staggered)
-    // ===============================
-    const fadeInSections = document.querySelectorAll('.fade-in-section, .project-card');
-    if (fadeInSections.length > 0) {
-        const sectionObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry, index) => {
+    /* ---------------------------------------------------------
+       Reveal on scroll
+    --------------------------------------------------------- */
+    var revealEls = document.querySelectorAll('.fade-in-section');
+    if ('IntersectionObserver' in window && revealEls.length) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('is-visible'), index * 75);
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        fadeInSections.forEach(section => sectionObserver.observe(section));
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
     }
 
-    // ===============================
-    // 5. PROJECT FILTER BUTTONS
-    // ===============================
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    filterBtns.forEach(btn => {
+
+    /* ---------------------------------------------------------
+       Project filters
+    --------------------------------------------------------- */
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var projectCards = document.querySelectorAll('.project-card');
+    filterBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            const filter = this.getAttribute('data-filter');
-            projectCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    const tags = card.getAttribute('data-tags').split(',');
-                    if (filter === 'all' || tags.includes(filter)) {
-                        card.style.display = 'flex';
-                        void card.offsetWidth;
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1) translateY(0)';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }, 250);
+            filterBtns.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            var filter = btn.getAttribute('data-filter');
+            projectCards.forEach(function (card) {
+                var tags = card.getAttribute('data-tags') || '';
+                var show = filter === 'all' || tags.indexOf(filter) !== -1;
+                card.style.display = show ? '' : 'none';
             });
         });
     });
 
-    // ===============================
-    // 7. SHOW MORE / SHOW LESS — Experience entries
-    // ===============================
-    document.querySelectorAll('.show-more-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            const more = this.previousElementSibling;
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-            if (isExpanded) {
-                more.classList.remove('is-open');
-                more.hidden = true;
-                this.setAttribute('aria-expanded', 'false');
-                this.innerHTML = 'Show more <i class="fas fa-chevron-down" aria-hidden="true"></i>';
-            } else {
-                more.hidden = false;
-                requestAnimationFrame(() => more.classList.add('is-open'));
-                this.setAttribute('aria-expanded', 'true');
-                this.innerHTML = 'Show less <i class="fas fa-chevron-down" aria-hidden="true"></i>';
-            }
+    /* ---------------------------------------------------------
+       Back to top
+    --------------------------------------------------------- */
+    var backToTop = document.getElementById('scroll-to-top-btn');
+    if (backToTop) {
+        window.addEventListener('scroll', function () {
+            backToTop.classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    });
+    }
 
-    // end DOMContentLoaded
-});
+    /* ---------------------------------------------------------
+       Cookie consent (gates Google Analytics)
+    --------------------------------------------------------- */
+    var cookieBar = document.getElementById('cookie-bar');
+    var cookieAccept = document.getElementById('cookie-accept');
+    var cookieDeny = document.getElementById('cookie-deny');
+    var consentKey = 'cookie-consent';
+
+    function enableAnalytics() {
+        if (typeof gtag === 'function' && window.__gaId) {
+            gtag('config', window.__gaId);
+        }
+    }
+
+    var existingConsent = localStorage.getItem(consentKey);
+    if (cookieBar) {
+        if (!existingConsent) {
+            setTimeout(function () { cookieBar.classList.add('visible'); }, 900);
+        }
+        /* Note: the "already accepted" case is handled by each page's own
+           inline head script at initial load, so it isn't repeated here. */
+
+        if (cookieAccept) {
+            cookieAccept.addEventListener('click', function () {
+                localStorage.setItem(consentKey, 'accepted');
+                cookieBar.classList.remove('visible');
+                enableAnalytics();
+            });
+        }
+        if (cookieDeny) {
+            cookieDeny.addEventListener('click', function () {
+                localStorage.setItem(consentKey, 'declined');
+                cookieBar.classList.remove('visible');
+            });
+        }
+    }
+
+})();

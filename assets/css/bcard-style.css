@@ -1,341 +1,199 @@
 /* ==========================================================================
-   JAUME PUIG - DIGITAL BUSINESS CARD STYLES
+   Business Card. Same structure and spacing as the original card design,
+   re-themed to the dark, sharp-edged system in main.css.
    ========================================================================== */
- 
-/* --- THEME VARIABLES (Light Mode Default - Cleanroom) --- */
-:root {
-    --bg-page: #F1F5F9;
-    --bg-card: #FFFFFF;
-    --text-main: #0F172A;
-    --text-muted: #64748B;
-    --border-color: #E2E8F0;
-    --accent-blue: #0097A7; /* Cherenkov Blue */
-    --accent-green: #10B981;
- 
-    --font-head: 'Space Grotesk', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-}
- 
-/* --- THEME VARIABLES (Dark Mode Override - Deep Space) --- */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-page: #020617;
-        --bg-card: #090D14;
-        --text-main: #F8FAFC;
-        --text-muted: #94A3B8;
-        --border-color: #1E293B;
-    }
-}
- 
-/* --- BASE STYLES --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
- 
-body {
-    background-color: var(--bg-page);
-    /* Subtle dot grid texture — CSS only, no image file */
-    background-image: radial-gradient(
-        circle,
-        rgba(0, 210, 255, 0.08) 1px,
-        transparent 1px
-    );
+
+body.card-body {
+    background-color: var(--color-bg);
+    background-image: radial-gradient(circle, rgba(45,212,226,0.10) 1px, transparent 1px);
     background-size: 28px 28px;
-    color: var(--text-main);
-    font-family: var(--font-body);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
- 
-/* --- FOCUS RING (consistent with main site) --- */
-:focus-visible {
-    outline: 3px solid rgba(0, 210, 255, 0.6);
-    outline-offset: 2px;
-}
- 
-/* --- REDUCED MOTION --- */
+
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
- 
-    .business-card {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
+    .business-card { animation: none; opacity: 1; transform: none; }
 }
- 
-/* --- CARD ARCHITECTURE --- */
+
 .business-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
- 
-    /* Entrance animation */
-    animation: card-enter 0.5s ease-out both;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+    animation: card-enter 0.5s var(--ease) both;
 }
- 
 @keyframes card-enter {
-    from {
-        opacity: 0;
-        transform: translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
 }
- 
-.card-content {
-    position: relative;
-    z-index: 10;
-    padding: 35px 30px;
+.business-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: var(--space-lg); right: var(--space-lg);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0.6;
 }
- 
-/* --- HEADER --- */
-.card-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
- 
+
+.card-content { position: relative; z-index: 10; padding: 34px 28px; }
+
+/* ---- Header ---- */
+.card-header { text-align: center; margin-bottom: 26px; }
+
 .profile-img-container {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 20px auto;
+    width: 108px;
+    height: 108px;
+    margin: 0 auto 18px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--border-color);
-    background-color: var(--border-color);
+    border: 2px solid var(--color-border-strong);
 }
- 
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+.profile-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.card-header .name {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
 }
- 
-.name {
-    font-family: var(--font-head);
-    font-size: 1.7rem;
-    margin: 0 0 5px 0;
-    letter-spacing: -0.5px;
-}
- 
-.title {
-    font-size: 0.95rem;
-    color: var(--accent-blue);
+.card-header .title {
+    font-size: 0.86rem;
+    color: var(--color-accent);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0 0 10px 0;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
 }
- 
-.quote {
+.card-header .quote {
     font-style: italic;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.86rem;
 }
- 
-/* --- SECTIONS & LISTS --- */
-.card-section {
-    margin-bottom: 25px;
+
+/* ---- Sections ----
+   Note: main.css has a bare `section { padding: var(--space-3xl) 0; }` rule for the
+   one-page site. Reset it here since the card reuses <section> tags semantically. */
+.card-content section.card-section {
+    padding: 0;
+    margin-bottom: 22px;
 }
- 
-.section-title {
-    font-family: var(--font-head);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 1.5px;
+.card-content section.card-section + section.card-section { border-top: none; }
+.card-section .section-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--color-text-dim);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
-}
- 
-.info-list {
-    list-style: none;
-}
- 
-.info-list li {
-    font-size: 0.95rem;
+    display: block;
     margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.info-list li {
+    font-size: 0.92rem;
+    margin-bottom: 11px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 11px;
+    color: var(--color-text);
 }
- 
-/* --- ICONS --- */
-.icon {
-    font-size: 0.9rem;
-    width: 16px;
-    text-align: center;
-    flex-shrink: 0;
-}
- 
-/* Affiliations: neutral */
-.info-list:not(.contact-list) .icon {
-    color: var(--text-muted);
-}
- 
-/* Contact: actionable blue */
-.contact-list .icon {
-    color: var(--accent-blue);
-}
- 
-.hint {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
- 
-/* --- CONTACT LINKS --- */
+.info-list li:last-child { margin-bottom: 0; }
+
+.icon { font-size: 0.88rem; width: 16px; text-align: center; flex-shrink: 0; }
+.info-list:not(.contact-list) .icon { color: var(--color-text-muted); }
+.contact-list .icon { color: var(--color-accent); }
+
+.hint { font-size: 0.76rem; color: var(--color-text-dim); }
+
 .contact-link {
-    color: var(--text-main);
-    text-decoration: none;
-    transition: color 0.2s;
-    min-height: 24px;
+    color: var(--color-text);
+    transition: color 0.2s var(--ease);
     display: inline-block;
-    cursor: pointer;
 }
- 
-.contact-link:hover {
-    color: var(--accent-blue);
-}
- 
-/* Desktop: show copy hint on hover */
+.contact-link:hover { color: var(--color-accent); }
+
 @media (pointer: fine) {
     .contact-item { position: relative; }
- 
     .contact-link:hover::after {
-        content: " (Copy)";
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        position: absolute;
-        margin-left: 8px;
-        margin-top: 2px;
+        content: " (copy)";
+        font-size: 0.74rem;
+        color: var(--color-text-dim);
     }
 }
- 
-/* --- SOCIAL LINKS --- */
+
+/* ---- Social links: plain glyphs, no border boxes ---- */
 .social-links {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
- 
 .social-icon {
-    color: var(--text-muted);
-    text-decoration: none;
+    color: var(--color-text-muted);
     font-size: 1.2rem;
-    transition: color 0.2s, transform 0.2s;
+    transition: color 0.2s var(--ease);
 }
- 
-.social-icon:hover {
-    color: var(--accent-blue);
-    transform: translateY(-2px); /* Fixed: was translateY(0px) which did nothing */
-}
- 
-/* --- FOOTER --- */
-.card-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-}
- 
+.social-icon:hover { color: var(--color-accent); }
+
+/* ---- Footer ---- */
+.card-footer { display: flex; flex-direction: column; gap: 13px; text-align: center; }
+
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-family: var(--font-body);
-    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
     font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.2s ease;
-    cursor: pointer; /* Ensure pointer on <button> elements */
-    border: none;
+    border: 1px solid transparent;
+    transition: all 0.2s var(--ease);
 }
- 
-.btn-primary {
-    background-color: var(--text-main);
-    color: var(--bg-card);
-}
- 
+.btn-primary { background-color: var(--color-accent); color: #00171a; }
 .btn-primary:hover {
-    background-color: var(--accent-blue);
-    color: #000;
+    background-color: var(--color-accent-wash);
+    color: var(--color-accent-strong);
+    border-color: var(--color-accent);
 }
- 
-.btn-text {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color 0.2s;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
- 
-.btn-text:hover {
-    color: var(--text-main);
-}
- 
-/* Extracted from inline style */
-.card-updated {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 5px;
-}
- 
+
+.btn-text { color: var(--color-text-muted); font-size: 0.88rem; font-weight: 600; }
+.btn-text:hover { color: var(--color-accent); }
+
+.card-updated { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 4px; }
 .card-coords {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    opacity: 0.45;
-    letter-spacing: 0.5px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.03em;
     margin-top: 2px;
 }
- 
-/* --- TOAST NOTIFICATION --- */
+
+/* ---- Toast ---- */
 .toast {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--accent-green);
-    color: #000;
+    background-color: var(--color-status-active);
+    color: #00190f;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s var(--ease);
     z-index: 100;
     white-space: nowrap;
 }
- 
-.toast.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
+.toast.hidden { opacity: 0; pointer-events: none; }
