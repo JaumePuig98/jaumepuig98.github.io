@@ -1,7 +1,9 @@
 /**
  * contact-config.js
- * Single source of truth for Jaume Puig's contact data.
- * Update this file only, both the card page and the VCF download reflect changes automatically.
+ * Contact data used to generate the downloadable vCard (Save Contact button).
+ * Note: this does NOT drive the visible business card markup in contact-me.html
+ * (phone numbers, email, etc. are hardcoded there) — update both places if
+ * contact details change.
  */
 
 const CONTACT = {
