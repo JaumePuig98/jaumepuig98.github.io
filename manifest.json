@@ -1,0 +1,14 @@
+{
+    "name": "Jaume Puig — Space Radiobiologist and Engineer",
+    "short_name": "Jaume Puig",
+    "description": "Personal portfolio of Jaume Puig, PhD researcher in radiation biology and space biotech engineer.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#05070d",
+    "theme_color": "#05070d",
+    "icons": [
+        { "src": "assets/images/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "assets/images/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+}

@@ -100,6 +100,7 @@ h1, h2, h3, h4 {
 a { color: inherit; text-decoration: none; }
 
 img { max-width: 100%; display: block; }
+picture { display: block; line-height: 0; }
 
 ul, ol { list-style: none; }
 
@@ -1115,4 +1116,66 @@ section + section { border-top: 1px solid var(--color-border); }
 
 @media (max-width: 900px) {
     section { padding: var(--space-2xl) 0; }
+}
+
+
+/* ==========================================================================
+   Print
+   Reuses every component's existing var(--color-*) references by simply
+   redefining the custom properties for print media, instead of overriding
+   each component's colors individually. Chrome (nav, footer, cookie bar,
+   scroll UI, decorative photo credits) is hidden; the experience page in
+   particular is meant to print as a clean one-page resume.
+   ========================================================================== */
+
+@media print {
+    :root {
+        --color-bg: #ffffff;
+        --color-bg-alt: #ffffff;
+        --color-surface: #ffffff;
+        --color-surface-raised: #f2f2f2;
+        --color-border: #cccccc;
+        --color-border-strong: #999999;
+        --color-border-accent: #667;
+        --color-heading: #000000;
+        --color-text: #1a1a1a;
+        --color-text-muted: #444444;
+        --color-accent: #005f66;
+        --color-accent-strong: #004247;
+        --color-accent-dim: #005f66;
+        --color-accent-glow: transparent;
+        --color-accent-wash: transparent;
+        --color-status-active: #1a1a1a;
+        --color-status-complete: #444444;
+    }
+
+    body { background: #fff; }
+
+    /* Scroll-reveal animations never fire for content the visitor never scrolled
+       to, so force everything visible for print regardless of JS state. */
+    .fade-in-section { opacity: 1 !important; transform: none !important; }
+
+    #main-nav, #scroll-progress, #scroll-to-top-btn, .cookie-bar,
+    .skip-link, .cv-back-link, .photo-credit, .status-dot, #footer,
+    .contact-buttons, .business-card .btn, .toast, .nav-toggle,
+    .project-filters { display: none !important; }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.72em;
+        color: #444;
+    }
+    a[href^="#"]::after, .nav-link[href]::after { content: ''; }
+
+    section, .container, .cv-section, #contact, #research { padding: 0 !important; box-shadow: none !important; }
+    section + section { border-top: 1px solid var(--color-border); padding-top: var(--space-lg) !important; }
+    .project-card, .cv-entry, .business-card { box-shadow: none !important; }
+
+    /* A 100vh hero and an image-backed contact panel mean nothing on a printed
+       page -- collapse them to plain text instead of a near-empty giant block. */
+    #banner { height: auto !important; min-height: 0 !important; padding: var(--space-lg) 0 !important; display: block !important; }
+    #banner .hero-bg-img, #banner::before, #banner picture { display: none !important; }
+    .hero-layout { position: static !important; padding: 0 !important; }
+    .contact-split { display: block !important; min-height: 0 !important; }
+    .contact-visual { display: none !important; }
 }
