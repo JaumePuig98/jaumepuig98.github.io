@@ -246,6 +246,14 @@ section + section { border-top: 1px solid var(--color-border); }
     min-width: 220px;
 }
 .contact-visual-img {
+    /* Absolutely positioned (like .hero-bg-img) rather than a plain 100%/100% box: the
+       <picture> wrapper around this <img> has no explicit height, so a percentage height
+       on the <img> alone doesn't resolve and it falls back to its own aspect ratio --
+       leaving a flat, uncovered gap once the panel grows taller than the image (this is
+       what caused the image to cut off partway down on mobile, well above the section's
+       actual bottom). inset: 0 sidesteps the percentage-height resolution problem entirely. */
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
