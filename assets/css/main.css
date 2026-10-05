@@ -32,8 +32,8 @@
     --color-status-complete: #7c8497;
 
     /* ---- Fonts ---- */
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-body: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
 
     /* ---- Spacing scale ---- */
@@ -879,6 +879,8 @@ section + section { border-top: 1px solid var(--color-border); }
 }
 .cv-entry-title { font-size: 1.02rem; margin-bottom: 2px; }
 .cv-entry-org { color: var(--color-accent); font-size: 0.88rem; margin-bottom: var(--space-sm); }
+.cv-entry-org a { border-bottom: 1px solid transparent; transition: border-color 0.2s var(--ease); }
+.cv-entry-org a:hover { border-bottom-color: var(--color-accent); }
 .cv-entry-desc li {
     font-size: 0.9rem;
     color: var(--color-text-muted);

@@ -17,7 +17,7 @@ Source for Jaume Puig's personal site: a dark, sharp-edged, technical portfolio 
 ## Design system
 
 * Dark-first palette, sharp corners, hairline borders. See CSS custom properties at the top of `assets/css/main.css`.
-* Fonts: Space Grotesk (headings), Plus Jakarta Sans (body), IBM Plex Mono (technical labels/data).
+* Fonts: Inter (headings and body), IBM Plex Mono (technical labels/data).
 * Font Awesome for icons, Google Fonts for typography.
 
 ## Technologies
