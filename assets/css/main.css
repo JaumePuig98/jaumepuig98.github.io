@@ -52,10 +52,46 @@
 
     /* ---- Layout ---- */
     --container-width: 1120px;
-    --nav-height: 72px;
+    --nav-height: 88px;
+    --nav-height-compact: 64px;
 
     /* ---- Motion ---- */
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* ---- Research category colors (muted, one per discipline) ---- */
+    --cat-radiation: #2dd4e2;
+    --cat-spaceflight: #a493d1;
+    --cat-omics: #5fb97d;
+    --cat-synthetic: #d19a5e;
+    --cat-bioeng: #7f9cd1;
+}
+
+/* Light "paper" surface: re-points the same design tokens, so every component
+   (cards, tags, buttons, headings) re-themes with no per-component overrides.
+   Same trick the print stylesheet uses. Accent colors are darkened to stay AA on light. */
+.on-paper {
+    --color-bg: #f1f4f8;
+    --color-bg-alt: #e8ecf2;
+    --color-surface: #ffffff;
+    --color-surface-raised: #f7f9fc;
+    --color-border: rgba(8, 14, 26, 0.12);
+    --color-border-strong: rgba(8, 14, 26, 0.24);
+    --color-border-accent: rgba(7, 106, 119, 0.55);
+    --color-heading: #0a0f1a;
+    --color-text: #2c3544;
+    --color-text-muted: #566074;
+    --color-accent: #076a77;
+    --color-accent-strong: #054f59;
+    --color-accent-wash: rgba(7, 106, 119, 0.08);
+    --color-status-active: #0b7a53;
+    --color-status-complete: #566074;
+    --cat-radiation: #076a77;
+    --cat-spaceflight: #6b52a8;
+    --cat-omics: #277a45;
+    --cat-synthetic: #8f5c1d;
+    --cat-bioeng: #3d63a8;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 /* ==========================================================================
@@ -66,7 +102,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--nav-height);
+    scroll-padding-top: calc(var(--nav-height-compact) + 8px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,6 +132,9 @@ h1, h2, h3, h4 {
     letter-spacing: -0.01em;
     font-weight: 600;
 }
+
+h1, h2, h3, .section-body, .contact-subtitle, .hero-affiliation { text-wrap: balance; }
+p { text-wrap: pretty; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -217,7 +256,6 @@ section { position: relative; padding: var(--space-3xl) 0; }
 section + section { border-top: 1px solid var(--color-border); }
 
 /* Subtle alternating backgrounds so sections read as distinct, not one flat slab */
-#research { background: var(--color-bg-alt); }
 /* Sampled directly from the photo's own black sky, so the section reads as one continuous
    surface rather than a mismatched color next to it. */
 #contact {
@@ -295,9 +333,10 @@ section + section { border-top: 1px solid var(--color-border); }
     z-index: 1000;
     background: transparent;
     border-bottom: 1px solid transparent;
-    transition: background 0.3s var(--ease), border-color 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
+    transition: height 0.3s var(--ease), background 0.3s var(--ease), border-color 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
 }
 #main-nav.nav-scrolled {
+    height: var(--nav-height-compact);
     background: rgba(5, 7, 13, 0.82);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -325,7 +364,8 @@ section + section { border-top: 1px solid var(--color-border); }
     letter-spacing: 0.01em;
 }
 
-.nav-logo { width: 34px; height: 34px; object-fit: contain; filter: brightness(0) invert(1); }
+.nav-logo { width: 42px; height: 42px; object-fit: contain; filter: brightness(0) invert(1); transition: width 0.3s var(--ease), height 0.3s var(--ease); }
+#main-nav.nav-scrolled .nav-logo { width: 34px; height: 34px; }
 
 .nav-links {
     display: flex;
@@ -448,6 +488,14 @@ section + section { border-top: 1px solid var(--color-border); }
     border-color: var(--color-accent);
     background: var(--color-accent-wash);
 }
+.on-paper .button-primary { color: #ffffff; }
+.on-paper .button-primary:hover { color: var(--color-accent-strong); }
+
+/* Arrow nudges forward on hover */
+.button .fa, .project-card-links a .fa, .cv-pointer a .fa { transition: transform 0.25s var(--ease); }
+.button:hover .fa, .project-card-links a:hover .fa, .cv-pointer a:hover .fa { transform: translateX(3px); }
+.cv-back-link .fa { transition: transform 0.25s var(--ease); }
+.cv-back-link:hover .fa { transform: translateX(-3px); }
 
 
 /* ==========================================================================
@@ -830,10 +878,38 @@ section + section { border-top: 1px solid var(--color-border); }
     font-weight: 600;
     padding: 5px 11px;
     border-radius: var(--radius-sm);
-    background: rgba(45,212,226,0.14);
+    background: var(--color-accent-wash);
     color: var(--color-accent-strong);
-    border: 1px solid rgba(45,212,226,0.4);
+    border: 1px solid var(--color-border-accent);
 }
+.on-paper .project-card:hover { box-shadow: 0 8px 24px rgba(10, 20, 40, 0.12); }
+
+/* Category color: top rule, icon, and tags follow the card's primary discipline */
+.cat-radiation { --cat: var(--cat-radiation); }
+.cat-spaceflight { --cat: var(--cat-spaceflight); }
+.cat-omics { --cat: var(--cat-omics); }
+.cat-synthetic { --cat: var(--cat-synthetic); }
+.cat-bioeng { --cat: var(--cat-bioeng); }
+.project-card[class*="cat-"],
+.project-card[class*="cat-"]:hover,
+.project-card[class*="cat-"]:focus-within { border-top: 2px solid var(--cat); }
+.project-card[class*="cat-"] .project-card-icon { color: var(--cat); }
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+    .project-card[class*="cat-"] .tag {
+        color: var(--cat);
+        background: color-mix(in srgb, var(--cat) 12%, transparent);
+        border-color: color-mix(in srgb, var(--cat) 45%, transparent);
+    }
+}
+
+/* Filter dots double as the legend */
+.filter-btn::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 8px; background: var(--color-text-muted); vertical-align: 1px; }
+.filter-btn[data-filter="Radiation Biology"]::before { background: var(--cat-radiation); }
+.filter-btn[data-filter="Spaceflight"]::before { background: var(--cat-spaceflight); }
+.filter-btn[data-filter="Multi-omics"]::before { background: var(--cat-omics); }
+.filter-btn[data-filter="Synthetic Biology"]::before { background: var(--cat-synthetic); }
+.filter-btn[data-filter="Bioengineering"]::before { background: var(--cat-bioeng); }
+.filter-btn.active::before { background: #00171a; }
 
 .project-card-links { display: flex; flex-direction: column; gap: 6px; }
 .project-card-links a {
@@ -1016,6 +1092,56 @@ section + section { border-top: 1px solid var(--color-border); }
     .contact-buttons { justify-content: center; }
 }
 
+
+/* ==========================================================================
+   Stats strip
+   ========================================================================== */
+
+.stats-section { padding: var(--space-xl) 0; }
+.stats-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+.stat-num {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 4.4vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-heading);
+    font-variant-numeric: tabular-nums;
+}
+.stat-num::after { content: ''; display: block; width: 28px; height: 2px; margin-top: var(--space-sm); background: var(--color-accent); }
+.stat-label { display: block; margin-top: var(--space-sm); font-size: 0.92rem; color: var(--color-text-muted); max-width: 28ch; line-height: 1.5; }
+.stats-list li:nth-child(2) { transition-delay: 0.08s; }
+.stats-list li:nth-child(3) { transition-delay: 0.16s; }
+@media (max-width: 760px) { .stats-list { grid-template-columns: 1fr; gap: var(--space-xl); } }
+
+/* ==========================================================================
+   Page header band with triangular lattice (echoes the logo's peaks).
+   The bright layer is revealed under the cursor via a radial mask.
+   ========================================================================== */
+
+.page-hero-band { position: relative; overflow: hidden; }
+.grid-lattice {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641'%3E%3Cpath d='M0 0H60M0 34.641L30 0M30 34.641L60 0M0 0L30 34.641M30 0L60 34.641' fill='none' stroke='white' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 60px 34.641px;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+.grid-lattice--glow {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641'%3E%3Cpath d='M0 0H60M0 34.641L30 0M30 34.641L60 0M0 0L30 34.641M30 0L60 34.641' fill='none' stroke='%232dd4e2' stroke-opacity='0.55' stroke-width='1'/%3E%3C/svg%3E");
+    -webkit-mask-image: radial-gradient(circle 280px at var(--cx, -999px) var(--cy, -999px), black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 280px at var(--cx, -999px) var(--cy, -999px), black 0%, transparent 100%);
+}
+.page-hero-band > .container { position: relative; z-index: 1; }
+
 /* ==========================================================================
    Footer
    ========================================================================== */
@@ -1184,7 +1310,7 @@ section + section { border-top: 1px solid var(--color-border); }
     #main-nav, #scroll-progress, #scroll-to-top-btn, .cookie-bar,
     .skip-link, .cv-back-link, .photo-credit, .status-dot, #footer,
     .contact-buttons, .business-card .btn, .toast, .nav-toggle,
-    .project-filters { display: none !important; }
+    .project-filters, .grid-lattice { display: none !important; }
 
     a[href]::after {
         content: " (" attr(href) ")";

@@ -130,6 +130,23 @@
     }
 
     /* ---------------------------------------------------------
+       Lattice glow follows the cursor (fine pointers only)
+    --------------------------------------------------------- */
+    if (window.matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll('[data-lattice]').forEach(function (band) {
+            band.addEventListener('pointermove', function (e) {
+                var r = band.getBoundingClientRect();
+                band.style.setProperty('--cx', (e.clientX - r.left) + 'px');
+                band.style.setProperty('--cy', (e.clientY - r.top) + 'px');
+            }, { passive: true });
+            band.addEventListener('pointerleave', function () {
+                band.style.removeProperty('--cx');
+                band.style.removeProperty('--cy');
+            });
+        });
+    }
+
+    /* ---------------------------------------------------------
        External links: tell assistive tech they open a new tab
     --------------------------------------------------------- */
     document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
