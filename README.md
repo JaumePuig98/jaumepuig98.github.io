@@ -18,7 +18,7 @@ Source for Jaume Puig's personal site: a dark, sharp-edged, technical portfolio 
 
 * Dark-first palette, sharp corners, hairline borders. See CSS custom properties at the top of `assets/css/main.css`.
 * Fonts: Inter (headings and body), IBM Plex Mono (technical labels/data).
-* Icons: inline SVG sprite (`assets/images/sprite.svg`, Font Awesome Free 6.5.2 subset, CC BY 4.0). Typography via Google Fonts.
+* Icons: inline SVG sprite (`assets/images/sprite.svg`, Font Awesome Free 6.5.2 subset, CC BY 4.0). Fonts are self-hosted in `assets/fonts` (latin woff2 subsets from @fontsource), so no third-party request is made before consent.
 
 ## Technologies
 

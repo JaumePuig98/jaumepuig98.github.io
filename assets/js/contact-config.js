@@ -56,7 +56,7 @@ function generateVCard() {
         `ORG:${CONTACT.org}`,
         `TITLE:${CONTACT.title}`,
         `ROLE:${CONTACT.role}`,
-        `PHOTO;ENCODING=b;TYPE=PNG:${typeof CONTACT_PHOTO !== 'undefined' ? CONTACT_PHOTO : ''}`,
+        `PHOTO;ENCODING=b;TYPE=JPEG:${typeof CONTACT_PHOTO !== 'undefined' ? CONTACT_PHOTO : ''}`,
         phones,
         `EMAIL;TYPE=PREF:${CONTACT.email}`,
         `URL;TYPE=Portfolio:${CONTACT.urls.portfolio}`,
