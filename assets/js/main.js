@@ -130,25 +130,22 @@
     }
 
     /* ---------------------------------------------------------
-       Live particle tracks in page headers (canvas). Random showers fan out from
-       a vertex, grow, linger, and fade. Pauses off-screen; static under reduced motion.
+       Live particle tracks in page headers (canvas), like a cloud chamber:
+       single tracks flash in at random places and fade away. Long, nearly
+       straight "muons" cross the field; short, curling "electrons" appear
+       and spiral. Pauses off-screen; a few still tracks under reduced motion.
     --------------------------------------------------------- */
     (function () {
         var bands = document.querySelectorAll('[data-tracks]');
         if (!bands.length) { return; }
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var EMITTERS = {
-            a: [[0.93, -0.10], [0.72, -0.16], [1.02, 0.12]],
-            b: [[0.60, -0.14], [0.86, -0.08], [0.99, 0.18]]
-        };
         function rnd(lo, hi) { return lo + Math.random() * (hi - lo); }
 
         bands.forEach(function (band) {
             var canvas = band.querySelector('canvas.tracks');
             if (!canvas || !canvas.getContext) { return; }
             var ctx = canvas.getContext('2d');
-            var emitters = EMITTERS[band.getAttribute('data-tracks')] || EMITTERS.a;
-            var W = 0, H = 0, showers = [], nextSpawn = 0, last = 0, raf = 0, visible = true;
+            var W = 0, H = 0, tracks = [], nextSpawn = 0, last = 0, raf = 0, visible = true;
 
             function resize() {
                 var r = band.getBoundingClientRect();
@@ -159,57 +156,57 @@
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             }
 
-            function makeShower() {
-                var e = emitters[Math.floor(Math.random() * emitters.length)];
-                var ox = e[0] * W + rnd(-30, 30), oy = e[1] * H;
-                var n = Math.round(rnd(5, 9));
-                var lo = rnd(95, 120), hi = lo + rnd(40, 60);
-                var sign = Math.random() < 0.5 ? -1 : 1;
-                var maxLen = Math.min(W, 1000) * rnd(0.28, 0.5) + 120;
-                var widths = [0.8, 1, 1.2, 1.5];
-                var tracks = [];
-                for (var k = 0; k < n; k++) {
-                    var ang = (lo + (hi - lo) * (k / (n - 1)) + rnd(-4, 4)) * Math.PI / 180;
-                    var curv = sign * rnd(0.0015, 0.007);
-                    var len = rnd(0.55, 1) * maxLen, step = 6;
-                    var x = ox, y = oy, pts = [[x, y]];
-                    for (var i = 0; i < len / step; i++) {
-                        ang += curv;
-                        x += Math.cos(ang) * step; y += Math.sin(ang) * step;
-                        pts.push([x, y]);
+            function makeTrack() {
+                var pts = [], x, y, ang, curv, grow = 0, step, i, n;
+                var kind = Math.random() < 0.6 ? 'muon' : 'electron';
+                if (kind === 'muon') {
+                    step = 6;
+                    if (Math.random() < 0.75) {            // enters through the top edge
+                        x = rnd(-0.05 * W, 1.05 * W); y = -8; ang = rnd(55, 125) * Math.PI / 180;
+                    } else if (Math.random() < 0.5) {       // enters from the left edge
+                        x = -8; y = rnd(0, 0.5 * H); ang = rnd(5, 50) * Math.PI / 180;
+                    } else {                                // enters from the right edge
+                        x = W + 8; y = rnd(0, 0.5 * H); ang = rnd(130, 175) * Math.PI / 180;
                     }
-                    tracks.push({ pts: pts, w: widths[Math.floor(rnd(0, 4))] });
+                    curv = (Math.random() < 0.5 ? -1 : 1) * rnd(0.0003, 0.0016);
+                    n = Math.ceil(Math.max(W, H) * 1.5 / step);
+                    pts.push([x, y]);
+                    for (i = 0; i < n; i++) { ang += curv; x += Math.cos(ang) * step; y += Math.sin(ang) * step; pts.push([x, y]); }
+                    grow = 0.16;
+                } else {
+                    step = 3;
+                    x = rnd(0.05 * W, 0.95 * W); y = rnd(0.02 * H, 0.6 * H); ang = rnd(0, 6.2832);
+                    var sign = Math.random() < 0.5 ? -1 : 1, k = rnd(0.012, 0.03), loss = rnd(0.0004, 0.0011);
+                    n = Math.round(rnd(60, 130));
+                    pts.push([x, y]);
+                    for (i = 0; i < n; i++) {
+                        ang += sign * (k + i * loss);       // tighter curl as it loses energy
+                        x += Math.cos(ang) * step; y += Math.sin(ang) * step; pts.push([x, y]);
+                    }
+                    grow = 0.09;
                 }
-                return { t: 0, tracks: tracks, grow: rnd(1.1, 1.8), hold: rnd(1.2, 2.2), fade: rnd(2.2, 3.2) };
+                return { pts: pts, age: 0, grow: grow, hold: rnd(0.08, 0.2), fade: rnd(0.9, 1.7),
+                         alpha: kind === 'muon' ? rnd(0.3, 0.5) : rnd(0.28, 0.45), w: kind === 'muon' ? rnd(1, 1.5) : rnd(1.1, 1.6) };
             }
 
-            function drawShower(s) {
-                var p = Math.min(1, s.t / s.grow);
-                p = 1 - (1 - p) * (1 - p);
-                var life = s.t < s.grow + s.hold ? 1 : Math.max(0, 1 - (s.t - s.grow - s.hold) / s.fade);
+            function drawTrack(t) {
+                var p = Math.min(1, t.age / t.grow);
+                var life = t.age < t.grow + t.hold ? 1 : Math.max(0, 1 - (t.age - t.grow - t.hold) / t.fade);
+                life = life * life;
                 if (life <= 0) { return; }
+                var end = Math.max(1, Math.floor(p * (t.pts.length - 1)));
+                var chunks = [[0, 1 / 3, 1], [1 / 3, 2 / 3, 0.8], [2 / 3, 1, 0.55]];
                 ctx.lineCap = 'round';
-                s.tracks.forEach(function (tr) {
-                    var last = Math.max(1, Math.floor(p * (tr.pts.length - 1)));
-                    var chunks = [[0, 1, 0.30], [1, 2, 0.18], [2, 3, 0.08]];
-                    for (var c = 0; c < chunks.length; c++) {
-                        var a0 = Math.floor(last * chunks[c][0] / 3), a1 = Math.floor(last * chunks[c][1] / 3);
-                        if (c === 2) { a1 = last; }
-                        if (a1 <= a0) { continue; }
-                        ctx.strokeStyle = 'rgba(160,228,240,' + (chunks[c][2] * life).toFixed(3) + ')';
-                        ctx.lineWidth = tr.w;
-                        ctx.beginPath();
-                        ctx.moveTo(tr.pts[a0][0], tr.pts[a0][1]);
-                        for (var i = a0 + 1; i <= a1; i++) { ctx.lineTo(tr.pts[i][0], tr.pts[i][1]); }
-                        ctx.stroke();
-                    }
-                    if (p < 1) {
-                        ctx.fillStyle = 'rgba(190,245,255,' + (0.7 * life).toFixed(3) + ')';
-                        ctx.beginPath();
-                        ctx.arc(tr.pts[last][0], tr.pts[last][1], tr.w + 0.6, 0, 6.2832);
-                        ctx.fill();
-                    }
-                });
+                ctx.lineWidth = t.w;
+                for (var c = 0; c < 3; c++) {
+                    var a0 = Math.floor(end * chunks[c][0]), a1 = c === 2 ? end : Math.floor(end * chunks[c][1]);
+                    if (a1 <= a0) { continue; }
+                    ctx.strokeStyle = 'rgba(170,232,244,' + (t.alpha * chunks[c][2] * life).toFixed(3) + ')';
+                    ctx.beginPath();
+                    ctx.moveTo(t.pts[a0][0], t.pts[a0][1]);
+                    for (var i = a0 + 1; i <= a1; i++) { ctx.lineTo(t.pts[i][0], t.pts[i][1]); }
+                    ctx.stroke();
+                }
             }
 
             function frame(now) {
@@ -219,14 +216,14 @@
                 last = now;
                 ctx.clearRect(0, 0, W, H);
                 nextSpawn -= dt;
-                if (nextSpawn <= 0 && showers.length < 4) {
-                    showers.push(makeShower());
-                    nextSpawn = rnd(0.9, 2.4);
+                if (nextSpawn <= 0 && tracks.length < 6) {
+                    tracks.push(makeTrack());
+                    nextSpawn = rnd(0.35, 1.6);
                 }
-                showers = showers.filter(function (s) {
-                    s.t += dt;
-                    drawShower(s);
-                    return s.t < s.grow + s.hold + s.fade;
+                tracks = tracks.filter(function (t) {
+                    t.age += dt;
+                    drawTrack(t);
+                    return t.age < t.grow + t.hold + t.fade;
                 });
                 raf = requestAnimationFrame(frame);
             }
@@ -235,10 +232,11 @@
 
             function drawStatic() {
                 ctx.clearRect(0, 0, W, H);
-                for (var i = 0; i < 3; i++) {
-                    var s = makeShower();
-                    s.t = s.grow;
-                    drawShower(s);
+                for (var i = 0; i < 4; i++) {
+                    var t = makeTrack();
+                    t.age = t.grow + t.hold;
+                    t.alpha *= 0.6;
+                    drawTrack(t);
                 }
             }
 
@@ -246,8 +244,7 @@
             if (reduce) {
                 drawStatic();
             } else {
-                for (var i = 0; i < 2; i++) { var s = makeShower(); s.t = rnd(0.5, 2.5); showers.push(s); }
-                nextSpawn = 0.6;
+                nextSpawn = 0.2;
                 start();
                 if ('IntersectionObserver' in window) {
                     new IntersectionObserver(function (entries) {
