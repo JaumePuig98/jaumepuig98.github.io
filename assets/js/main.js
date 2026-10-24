@@ -130,21 +130,142 @@
     }
 
     /* ---------------------------------------------------------
-       Lattice glow follows the cursor (fine pointers only)
+       Live particle tracks in page headers (canvas). Random showers fan out from
+       a vertex, grow, linger, and fade. Pauses off-screen; static under reduced motion.
     --------------------------------------------------------- */
-    if (window.matchMedia('(pointer: fine)').matches) {
-        document.querySelectorAll('[data-lattice]').forEach(function (band) {
-            band.addEventListener('pointermove', function (e) {
+    (function () {
+        var bands = document.querySelectorAll('[data-tracks]');
+        if (!bands.length) { return; }
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var EMITTERS = {
+            a: [[0.93, -0.10], [0.72, -0.16], [1.02, 0.12]],
+            b: [[0.60, -0.14], [0.86, -0.08], [0.99, 0.18]]
+        };
+        function rnd(lo, hi) { return lo + Math.random() * (hi - lo); }
+
+        bands.forEach(function (band) {
+            var canvas = band.querySelector('canvas.tracks');
+            if (!canvas || !canvas.getContext) { return; }
+            var ctx = canvas.getContext('2d');
+            var emitters = EMITTERS[band.getAttribute('data-tracks')] || EMITTERS.a;
+            var W = 0, H = 0, showers = [], nextSpawn = 0, last = 0, raf = 0, visible = true;
+
+            function resize() {
                 var r = band.getBoundingClientRect();
-                band.style.setProperty('--cx', (e.clientX - r.left) + 'px');
-                band.style.setProperty('--cy', (e.clientY - r.top) + 'px');
-            }, { passive: true });
-            band.addEventListener('pointerleave', function () {
-                band.style.removeProperty('--cx');
-                band.style.removeProperty('--cy');
+                var dpr = Math.min(window.devicePixelRatio || 1, 2);
+                W = r.width; H = r.height;
+                canvas.width = Math.round(W * dpr);
+                canvas.height = Math.round(H * dpr);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+
+            function makeShower() {
+                var e = emitters[Math.floor(Math.random() * emitters.length)];
+                var ox = e[0] * W + rnd(-30, 30), oy = e[1] * H;
+                var n = Math.round(rnd(5, 9));
+                var lo = rnd(95, 120), hi = lo + rnd(40, 60);
+                var sign = Math.random() < 0.5 ? -1 : 1;
+                var maxLen = Math.min(W, 1000) * rnd(0.28, 0.5) + 120;
+                var widths = [0.8, 1, 1.2, 1.5];
+                var tracks = [];
+                for (var k = 0; k < n; k++) {
+                    var ang = (lo + (hi - lo) * (k / (n - 1)) + rnd(-4, 4)) * Math.PI / 180;
+                    var curv = sign * rnd(0.0015, 0.007);
+                    var len = rnd(0.55, 1) * maxLen, step = 6;
+                    var x = ox, y = oy, pts = [[x, y]];
+                    for (var i = 0; i < len / step; i++) {
+                        ang += curv;
+                        x += Math.cos(ang) * step; y += Math.sin(ang) * step;
+                        pts.push([x, y]);
+                    }
+                    tracks.push({ pts: pts, w: widths[Math.floor(rnd(0, 4))] });
+                }
+                return { t: 0, tracks: tracks, grow: rnd(1.1, 1.8), hold: rnd(1.2, 2.2), fade: rnd(2.2, 3.2) };
+            }
+
+            function drawShower(s) {
+                var p = Math.min(1, s.t / s.grow);
+                p = 1 - (1 - p) * (1 - p);
+                var life = s.t < s.grow + s.hold ? 1 : Math.max(0, 1 - (s.t - s.grow - s.hold) / s.fade);
+                if (life <= 0) { return; }
+                ctx.lineCap = 'round';
+                s.tracks.forEach(function (tr) {
+                    var last = Math.max(1, Math.floor(p * (tr.pts.length - 1)));
+                    var chunks = [[0, 1, 0.30], [1, 2, 0.18], [2, 3, 0.08]];
+                    for (var c = 0; c < chunks.length; c++) {
+                        var a0 = Math.floor(last * chunks[c][0] / 3), a1 = Math.floor(last * chunks[c][1] / 3);
+                        if (c === 2) { a1 = last; }
+                        if (a1 <= a0) { continue; }
+                        ctx.strokeStyle = 'rgba(160,228,240,' + (chunks[c][2] * life).toFixed(3) + ')';
+                        ctx.lineWidth = tr.w;
+                        ctx.beginPath();
+                        ctx.moveTo(tr.pts[a0][0], tr.pts[a0][1]);
+                        for (var i = a0 + 1; i <= a1; i++) { ctx.lineTo(tr.pts[i][0], tr.pts[i][1]); }
+                        ctx.stroke();
+                    }
+                    if (p < 1) {
+                        ctx.fillStyle = 'rgba(190,245,255,' + (0.7 * life).toFixed(3) + ')';
+                        ctx.beginPath();
+                        ctx.arc(tr.pts[last][0], tr.pts[last][1], tr.w + 0.6, 0, 6.2832);
+                        ctx.fill();
+                    }
+                });
+            }
+
+            function frame(now) {
+                raf = 0;
+                if (!visible) { return; }
+                var dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016;
+                last = now;
+                ctx.clearRect(0, 0, W, H);
+                nextSpawn -= dt;
+                if (nextSpawn <= 0 && showers.length < 4) {
+                    showers.push(makeShower());
+                    nextSpawn = rnd(0.9, 2.4);
+                }
+                showers = showers.filter(function (s) {
+                    s.t += dt;
+                    drawShower(s);
+                    return s.t < s.grow + s.hold + s.fade;
+                });
+                raf = requestAnimationFrame(frame);
+            }
+
+            function start() { if (!raf && visible && !reduce) { last = 0; raf = requestAnimationFrame(frame); } }
+
+            function drawStatic() {
+                ctx.clearRect(0, 0, W, H);
+                for (var i = 0; i < 3; i++) {
+                    var s = makeShower();
+                    s.t = s.grow;
+                    drawShower(s);
+                }
+            }
+
+            resize();
+            if (reduce) {
+                drawStatic();
+            } else {
+                for (var i = 0; i < 2; i++) { var s = makeShower(); s.t = rnd(0.5, 2.5); showers.push(s); }
+                nextSpawn = 0.6;
+                start();
+                if ('IntersectionObserver' in window) {
+                    new IntersectionObserver(function (entries) {
+                        visible = entries[0].isIntersecting;
+                        if (visible) { start(); }
+                    }).observe(band);
+                }
+            }
+            var resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    resize();
+                    if (reduce) { drawStatic(); }
+                }, 150);
             });
         });
-    }
+    })();
 
     /* ---------------------------------------------------------
        External links: tell assistive tech they open a new tab
