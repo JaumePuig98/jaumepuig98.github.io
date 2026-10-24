@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta name="description" content="Full professional experience, education, and publication history for Jaume Puig, Space Radiobiologist and Engineer.">
     <meta name="author" content="Jaume Puig">
@@ -15,14 +16,18 @@
 
     <meta property="og:title" content="Experience | Jaume Puig">
     <meta property="og:description" content="Full professional experience, education, and publication history for Jaume Puig, Space Radiobiologist and Engineer.">
-    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaumepuig98.github.io/experience.html">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Experience | Jaume Puig">
     <meta name="twitter:description" content="Full professional experience, education, and publication history for Jaume Puig, Space Radiobiologist and Engineer.">
-    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
 
     <title>Experience | Jaume Puig</title>
     <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
@@ -33,42 +38,97 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <link rel="canonical" href="https://jaumepuig98.github.io/experience.html">
-    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css?v=26.10.24">
+    <noscript><style>.fade-in-section { opacity: 1; transform: none; }</style></noscript>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNRCCQG4MD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
         window.__gaId = 'G-BNRCCQG4MD';
-        if (localStorage.getItem('cookie-consent') === 'accepted') { gtag('config', window.__gaId); }
+        window.__loadGA = function () {
+            if (window.__gaLoaded) { return; }
+            window.__gaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__gaId;
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', window.__gaId);
+        };
+        try { if (localStorage.getItem('cookie-consent') === 'accepted') { window.__loadGA(); } } catch (e) {}
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jaume Puig",
-        "jobTitle": "Space Radiobiologist and Engineer",
-        "url": "https://jaumepuig98.github.io/experience.html",
-        "sameAs": [
-            "https://linkedin.com/in/jaume-puig",
-            "https://github.com/jaumepuig98",
-            "https://orcid.org/0000-0002-3642-4919",
-            "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
-        ],
-        "affiliation": [
-            { "@type": "Organization", "name": "SNOLAB" },
-            { "@type": "Organization", "name": "Barding Industries", "url": "https://bardingindustries.com" },
-            { "@type": "Organization", "name": "Laurentian University" },
-            { "@type": "Organization", "name": "NASA OSDR" },
-            { "@type": "Organization", "name": "AulaSPUTNIK" }
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "url": "https://jaumepuig98.github.io/experience.html",
+                "name": "Experience | Jaume Puig",
+                "about": {
+                    "@id": "https://jaumepuig98.github.io/#person"
+                },
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "url": "https://jaumepuig98.github.io/",
+                    "name": "Jaume Puig"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jaumepuig98.github.io/#person",
+                "name": "Jaume Puig",
+                "jobTitle": "Space Radiobiologist and Engineer",
+                "url": "https://jaumepuig98.github.io/",
+                "image": "https://jaumepuig98.github.io/assets/images/profile-share.jpg",
+                "sameAs": [
+                    "https://linkedin.com/in/jaume-puig",
+                    "https://github.com/jaumepuig98",
+                    "https://orcid.org/0000-0002-3642-4919",
+                    "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
+                ],
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Barding Industries",
+                    "url": "https://bardingindustries.com"
+                },
+                "affiliation": [
+                    {
+                        "@type": "Organization",
+                        "name": "SNOLAB"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Laurentian University"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "NASA OSDR"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "AulaSPUTNIK"
+                    }
+                ],
+                "alumniOf": [
+                    {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Universitat Pompeu Fabra"
+                    }
+                ],
+                "knowsAbout": [
+                    "Radiation biology",
+                    "Low-background radiation research",
+                    "Space biotechnology",
+                    "Synthetic biology",
+                    "Multi-omics"
+                ]
+            }
         ]
     }
     </script>
@@ -90,7 +150,7 @@
             <ul class="nav-links" id="nav-links" role="list">
                 <li><a href="index.html#about" class="nav-link">Overview</a></li>
                 <li><a href="research.html" class="nav-link">Research</a></li>
-                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="experience.html" class="nav-link" aria-current="page">Experience</a></li>
                 <li><a href="index.html#contact" class="nav-link nav-link-cta">Contact</a></li>
             </ul>
         </div>
@@ -99,7 +159,7 @@
     <main id="main-content" tabindex="-1">
 
         <div class="container cv-page-header">
-            <a href="index.html" class="cv-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Overview</a>
+            <a href="index.html" class="cv-back-link"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-left"></use></svg> Back to Overview</a>
             <span class="section-label">Experience</span>
             <h1 class="section-title section-title--narrow">Full professional experience, education, and publications</h1>
         </div>
@@ -232,49 +292,49 @@
                 <h2 class="section-title section-title--sub">Publications &amp; Presentations</h2>
                 <ul class="cv-pub-list fade-in-section" role="list">
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--paper"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--paper"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-file-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type">Publication</span>
                             <p class="cv-pub-text"><a href="https://www.nature.com/articles/s41526-025-00490-z" target="_blank" rel="noopener noreferrer">npj Microgravity</a>: spaceflight pharmacogenomics and protocols for SOMA (2025).</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--paper"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--paper"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-file-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type">Publication</span>
                             <p class="cv-pub-text"><a href="https://doi.org/10.3389/fsysb.2024.1270071" target="_blank" rel="noopener noreferrer">Frontiers in Systems Biology</a>: intein-mediated thyroid hormone biosensors (2024).</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--paper"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--paper"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-file-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type">Publication</span>
                             <p class="cv-pub-text"><a href="https://doi.org/10.3389/fmicb.2021.789668" target="_blank" rel="noopener noreferrer">Frontiers in Microbiology</a>: DNA protection strategies under simulated LEO radiation (2021).</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--talk"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--talk"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-microphone-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type cv-pub-type--talk">Presentation</span>
                             <p class="cv-pub-text">Radiation Research Society (RRS) Annual Meeting, October 2026.</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--talk"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--talk"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-microphone-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type cv-pub-type--talk">Presentation</span>
                             <p class="cv-pub-text"><a href="https://www.iafastro.org/events/iac/iac-2023/" target="_blank" rel="noopener noreferrer">International Astronautical Congress (IAC) 2023</a>, Baku: skin microbiome radiation biotolerance.</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--talk"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--talk"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-microphone-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type cv-pub-type--talk">Presentation</span>
                             <p class="cv-pub-text">AGU / NASA AbSciCon 2022, Atlanta: DNA protection in low Earth orbit.</p>
                         </div>
                     </li>
                     <li class="cv-pub-item">
-                        <span class="cv-pub-icon cv-pub-icon--talk"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i></span>
+                        <span class="cv-pub-icon cv-pub-icon--talk"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-microphone-lines"></use></svg></span>
                         <div>
                             <span class="cv-pub-type cv-pub-type--talk">Presentation</span>
                             <p class="cv-pub-text">Europlanet Science Congress 2022, Granada: DNA protection in low Earth orbit.</p>
@@ -283,6 +343,7 @@
                 </ul>
 
                 <div class="cv-linkedin-cta">
+                    <a href="assets/Jaume-Puig-CV.pdf" class="button button-primary" download>Download CV (PDF)</a>
                     <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" class="button button-secondary">View on LinkedIn</a>
                 </div>
             </div>
@@ -302,7 +363,7 @@
                     <p class="footer-coords" aria-label="SNOLAB coordinates">46.4719 N, 81.1868 W, -2,070 m</p>
                 </div>
                 <div class="footer-column">
-                    <h4>Navigation</h4>
+                    <h3>Navigation</h3>
                     <ul class="footer-links" role="list">
                         <li><a href="index.html#about">Overview</a></li>
                         <li><a href="research.html">Research</a></li>
@@ -311,23 +372,23 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Connect</h4>
+                    <h3>Connect</h3>
                     <div class="footer-social-links">
-                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
-                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-envelope"></use></svg></a>
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-linkedin"></use></svg></a>
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-github"></use></svg></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-google-scholar"></use></svg></a>
+                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-orcid"></use></svg></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <a href="#main-content">Back to Top <i class="fas fa-arrow-up"></i></a>
+                <a href="#main-content">Back to Top <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg></a>
             </div>
         </div>
     </footer>
 
-    <button id="scroll-to-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="scroll-to-top-btn" aria-label="Scroll to top"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg></button>
 
     <div class="cookie-bar" id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
         <p class="cookie-text">This site uses Google Analytics to measure traffic. No personal data is sold or shared.</p>
@@ -337,6 +398,6 @@
         </div>
     </div>
 
-    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/main.min.js?v=26.10.24"></script>
 </body>
 </html>

@@ -52,6 +52,21 @@
                 navToggle.setAttribute('aria-expanded', 'false');
             });
         });
+        function closeNav() {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeNav();
+                navToggle.focus();
+            }
+        });
+        document.addEventListener('click', function (e) {
+            if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                closeNav();
+            }
+        });
     }
 
     /* ---------------------------------------------------------
@@ -78,16 +93,26 @@
     --------------------------------------------------------- */
     var filterBtns = document.querySelectorAll('.filter-btn');
     var projectCards = document.querySelectorAll('.project-card');
+    var filterStatus = document.getElementById('filter-status');
     filterBtns.forEach(function (btn) {
         btn.addEventListener('click', function () {
-            filterBtns.forEach(function (b) { b.classList.remove('active'); });
+            filterBtns.forEach(function (b) {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
             var filter = btn.getAttribute('data-filter');
+            var shown = 0;
             projectCards.forEach(function (card) {
                 var tags = card.getAttribute('data-tags') || '';
                 var show = filter === 'all' || tags.indexOf(filter) !== -1;
                 card.style.display = show ? '' : 'none';
+                if (show) { shown++; }
             });
+            if (filterStatus) {
+                filterStatus.textContent = 'Showing ' + shown + (shown === 1 ? ' project' : ' projects') + (filter === 'all' ? '' : ' for ' + filter);
+            }
         });
     });
 
@@ -105,6 +130,21 @@
     }
 
     /* ---------------------------------------------------------
+       External links: tell assistive tech they open a new tab
+    --------------------------------------------------------- */
+    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+        var label = a.getAttribute('aria-label');
+        if (label) {
+            a.setAttribute('aria-label', label + ' (opens in a new tab)');
+        } else {
+            var note = document.createElement('span');
+            note.className = 'sr-only';
+            note.textContent = ' (opens in a new tab)';
+            a.appendChild(note);
+        }
+    });
+
+    /* ---------------------------------------------------------
        Cookie consent (gates Google Analytics)
     --------------------------------------------------------- */
     var cookieBar = document.getElementById('cookie-bar');
@@ -112,13 +152,18 @@
     var cookieDeny = document.getElementById('cookie-deny');
     var consentKey = 'cookie-consent';
 
+    /* Analytics is only ever loaded after consent (see __loadGA in each page's head). */
     function enableAnalytics() {
-        if (typeof gtag === 'function' && window.__gaId) {
-            gtag('config', window.__gaId);
-        }
+        if (typeof window.__loadGA === 'function') { window.__loadGA(); }
+    }
+    function readConsent() {
+        try { return localStorage.getItem(consentKey); } catch (e) { return null; }
+    }
+    function writeConsent(value) {
+        try { localStorage.setItem(consentKey, value); } catch (e) { /* storage blocked: ignore */ }
     }
 
-    var existingConsent = localStorage.getItem(consentKey);
+    var existingConsent = readConsent();
     if (cookieBar) {
         if (!existingConsent) {
             setTimeout(function () { cookieBar.classList.add('visible'); }, 900);
@@ -128,14 +173,14 @@
 
         if (cookieAccept) {
             cookieAccept.addEventListener('click', function () {
-                localStorage.setItem(consentKey, 'accepted');
+                writeConsent('accepted');
                 cookieBar.classList.remove('visible');
                 enableAnalytics();
             });
         }
         if (cookieDeny) {
             cookieDeny.addEventListener('click', function () {
-                localStorage.setItem(consentKey, 'declined');
+                writeConsent('declined');
                 cookieBar.classList.remove('visible');
             });
         }

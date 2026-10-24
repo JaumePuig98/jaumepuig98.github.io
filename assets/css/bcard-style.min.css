@@ -17,7 +17,7 @@ to{opacity:1;transform:translateY(0)}
 .card-header .quote{font-style:italic;color:var(--color-text-muted);font-size:.86rem}
 .card-content section.card-section{padding:0;margin-bottom:22px}
 .card-content section.card-section+section.card-section{border-top:none}
-.card-section .section-title{font-family:var(--font-mono);font-size:.68rem;font-weight:500;color:var(--color-text-muted);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--color-border)}
+.card-section .section-title{font-family:var(--font-mono);font-size:.72rem;font-weight:500;color:var(--color-text-muted);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--color-border)}
 .info-list li{font-size:.92rem;margin-bottom:11px;display:flex;align-items:center;gap:11px;color:var(--color-text)}
 .info-list li:last-child{margin-bottom:0}
 .icon{font-size:.88rem;width:16px;text-align:center;flex-shrink:0}
@@ -40,6 +40,6 @@ to{opacity:1;transform:translateY(0)}
 .btn-text{color:var(--color-text-muted);font-size:.88rem;font-weight:600}
 .btn-text:hover{color:var(--color-accent)}
 .card-updated{font-size:.72rem;color:var(--color-text-muted);margin-top:4px}
-.card-coords{font-family:var(--font-mono);font-size:.68rem;color:var(--color-text-muted);letter-spacing:.03em;margin-top:2px}
+.card-coords{font-family:var(--font-mono);font-size:.72rem;color:var(--color-text-muted);letter-spacing:.03em;margin-top:2px}
 .toast{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background-color:var(--color-status-active);color:#00190f;padding:8px 16px;border-radius:20px;font-size:.85rem;font-weight:600;opacity:1;transition:opacity .3s var(--ease);z-index:100;white-space:nowrap}
 .toast.hidden{opacity:0;pointer-events:none}

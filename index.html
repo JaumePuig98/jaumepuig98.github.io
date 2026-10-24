@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <!-- SEO -->
     <meta name="description" content="Jaume Puig, Space Radiobiologist and Engineer. PhD researcher at SNOLAB, and CTO and co-founder of Barding Industries.">
@@ -12,14 +13,18 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Jaume Puig | Space Radiobiologist and Engineer">
     <meta property="og:description" content="PhD researcher bridging deep underground radiation biology with spaceflight environments and extreme-environment biotech engineering.">
-    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaumepuig98.github.io/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Jaume Puig | Space Radiobiologist and Engineer">
     <meta name="twitter:description" content="PhD researcher bridging deep underground radiation biology with spaceflight environments and extreme-environment biotech engineering.">
-    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
 
     <meta name="theme-color" content="#05070d">
     <meta name="color-scheme" content="dark">
@@ -39,44 +44,94 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <link rel="canonical" href="https://jaumepuig98.github.io/">
-    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css?v=26.10.24">
+    <noscript><style>.fade-in-section { opacity: 1; transform: none; }</style></noscript>
 
     <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNRCCQG4MD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
         window.__gaId = 'G-BNRCCQG4MD';
-        if (localStorage.getItem('cookie-consent') === 'accepted') { gtag('config', window.__gaId); }
+        window.__loadGA = function () {
+            if (window.__gaLoaded) { return; }
+            window.__gaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__gaId;
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', window.__gaId);
+        };
+        try { if (localStorage.getItem('cookie-consent') === 'accepted') { window.__loadGA(); } } catch (e) {}
     </script>
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jaume Puig",
-        "jobTitle": "Space Radiobiologist and Engineer",
-        "url": "https://jaumepuig98.github.io",
-        "sameAs": [
-            "https://linkedin.com/in/jaume-puig",
-            "https://github.com/jaumepuig98",
-            "https://orcid.org/0000-0002-3642-4919",
-            "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
-        ],
-        "affiliation": [
-            { "@type": "Organization", "name": "SNOLAB" },
-            { "@type": "Organization", "name": "Barding Industries", "url": "https://bardingindustries.com" },
-            { "@type": "Organization", "name": "Laurentian University" },
-            { "@type": "Organization", "name": "NASA OSDR" },
-            { "@type": "Organization", "name": "AulaSPUTNIK" }
+        "@graph": [
+            {
+                "@type": "ProfilePage",
+                "url": "https://jaumepuig98.github.io/",
+                "name": "Jaume Puig | Space Radiobiologist and Engineer",
+                "mainEntity": {
+                    "@id": "https://jaumepuig98.github.io/#person"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jaumepuig98.github.io/#person",
+                "name": "Jaume Puig",
+                "jobTitle": "Space Radiobiologist and Engineer",
+                "url": "https://jaumepuig98.github.io/",
+                "image": "https://jaumepuig98.github.io/assets/images/profile-share.jpg",
+                "sameAs": [
+                    "https://linkedin.com/in/jaume-puig",
+                    "https://github.com/jaumepuig98",
+                    "https://orcid.org/0000-0002-3642-4919",
+                    "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
+                ],
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Barding Industries",
+                    "url": "https://bardingindustries.com"
+                },
+                "affiliation": [
+                    {
+                        "@type": "Organization",
+                        "name": "SNOLAB"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Laurentian University"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "NASA OSDR"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "AulaSPUTNIK"
+                    }
+                ],
+                "alumniOf": [
+                    {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Universitat Pompeu Fabra"
+                    }
+                ],
+                "knowsAbout": [
+                    "Radiation biology",
+                    "Low-background radiation research",
+                    "Space biotechnology",
+                    "Synthetic biology",
+                    "Multi-omics"
+                ]
+            }
         ]
     }
     </script>
@@ -122,6 +177,7 @@
 
                 <h1>Jaume Puig</h1>
                 <p class="subtitle">Space Radiobiologist and Engineer</p>
+                <p class="hero-affiliation">PhD Researcher, SNOLAB &nbsp;|&nbsp; CTO, Barding Industries</p>
 
                 <div class="hero-actions">
                     <a href="research.html" class="button button-primary">View Research</a>
@@ -131,7 +187,7 @@
         </div>
 
         <a href="#about" class="scroll-down-link" aria-label="Scroll to overview">
-            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-chevron-down"></use></svg>
         </a>
     </section>
 
@@ -165,7 +221,7 @@
                     <ul class="affiliation-list" role="list">
                         <li>
                             <a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-solid fa-circle-radiation" aria-hidden="true"></i>
+                                <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-circle-radiation"></use></svg>
                                 <span class="affiliation-text">
                                     <span class="affiliation-role">PhD Researcher</span>
                                     <span class="affiliation-org">SNOLAB &amp; Laurentian University</span>
@@ -174,7 +230,7 @@
                         </li>
                         <li>
                             <a href="https://bardingindustries.com" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                                <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-rocket"></use></svg>
                                 <span class="affiliation-text">
                                     <span class="affiliation-role">CTO &amp; Co-Founder</span>
                                     <span class="affiliation-org">Barding Industries</span>
@@ -183,7 +239,7 @@
                         </li>
                         <li>
                             <a href="https://www.nasa.gov/osdr-open-science-analysis-working-groups/" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
+                                <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-satellite-dish"></use></svg>
                                 <span class="affiliation-text">
                                     <span class="affiliation-role">Communications Coordinator</span>
                                     <span class="affiliation-org">NASA OSDR</span>
@@ -192,7 +248,7 @@
                         </li>
                         <li>
                             <a href="https://aulasputnik.com/" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                                <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-chalkboard-user"></use></svg>
                                 <span class="affiliation-text">
                                     <span class="affiliation-role">STEAM Educator</span>
                                     <span class="affiliation-org">AulaSPUTNIK</span>
@@ -200,14 +256,14 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="cv-pointer"><a href="experience.html">Full experience, education, and publication record <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                    <p class="cv-pointer"><a href="experience.html">Full experience, education, and publication record <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></p>
 
                     <div class="social-links">
-                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email Jaume Puig"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar" aria-hidden="true"></i></a>
-                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid" aria-hidden="true"></i></a>
+                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email Jaume Puig"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-envelope"></use></svg></a>
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-linkedin"></use></svg></a>
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-github"></use></svg></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-google-scholar"></use></svg></a>
+                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-orcid"></use></svg></a>
                     </div>
                 </div>
             </div>
@@ -224,44 +280,44 @@
 
                 <div class="project-card">
                     <div class="card-top-row">
-                        <i class="fa-solid fa-earth-americas project-card-icon" aria-hidden="true"></i>
+                        <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-earth-americas"></use></svg>
                         <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
                     <h3 class="project-card-title">Global Underground Yeast (GUY)</h3>
                     <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
                     <p class="project-card-description">Multi-site validation of biological responses to sub-background radiation across deep underground labs.</p>
                     <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Astrobiology</span></div>
-                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-top-row">
-                        <i class="fa-solid fa-flask-vial project-card-icon" aria-hidden="true"></i>
+                        <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-flask-vial"></use></svg>
                         <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
                     <h3 class="project-card-title">Radiation-Deprived Yeast Metabolism</h3>
                     <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
                     <p class="project-card-description">Characterizing radiation-deprived metabolism using automated bioreactors and multi-omics.</p>
                     <div class="project-card-tags"><span class="tag">Bioreactor Systems</span></div>
-                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                 </div>
 
                 <div class="project-card">
                     <div class="card-top-row">
-                        <i class="fa-solid fa-chart-line project-card-icon" aria-hidden="true"></i>
+                        <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-rocket"></use></svg>
                         <span class="mission-badge mission-badge-active">ACTIVE</span>
                     </div>
-                    <h3 class="project-card-title">Cross-Environmental Radiation Analysis</h3>
-                    <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
-                    <p class="project-card-description">Comparing low-background terrestrial data with active space radiation datasets.</p>
-                    <div class="project-card-tags"><span class="tag">Transcriptomics</span></div>
-                    <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                    <h3 class="project-card-title">Barding Industries</h3>
+                    <p class="project-card-org-date">CTO &amp; Co-Founder · 2024 to Present</p>
+                    <p class="project-card-description">Developing biotechnologies for sustainable resource extraction in space environments.</p>
+                    <div class="project-card-tags"><span class="tag">Space Biotechnology</span></div>
+                    <div class="project-card-links"><a href="https://bardingindustries.com" target="_blank" rel="noopener noreferrer">bardingindustries.com <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                 </div>
 
             </div>
 
             <div class="research-cta fade-in-section">
-                <a href="research.html" class="button button-secondary">View All Research <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="research.html" class="button button-secondary">View All Research <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a>
             </div>
         </div>
     </section>
@@ -305,7 +361,7 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Navigation</h4>
+                    <h3>Navigation</h3>
                     <ul class="footer-links" role="list">
                         <li><a href="#about">Overview</a></li>
                         <li><a href="research.html">Research</a></li>
@@ -315,25 +371,25 @@
                 </div>
 
                 <div class="footer-column">
-                    <h4>Connect</h4>
+                    <h3>Connect</h3>
                     <div class="footer-social-links">
-                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
-                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-envelope"></use></svg></a>
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-linkedin"></use></svg></a>
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-github"></use></svg></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-google-scholar"></use></svg></a>
+                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-orcid"></use></svg></a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <a href="#banner">Back to Top <i class="fas fa-arrow-up"></i></a>
+                <a href="#banner">Back to Top <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg></a>
             </div>
         </div>
     </footer>
 
     <button id="scroll-to-top-btn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg>
     </button>
 
     <div class="cookie-bar" id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
@@ -344,6 +400,6 @@
         </div>
     </div>
 
-    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/main.min.js?v=26.10.24"></script>
 </body>
 </html>

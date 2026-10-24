@@ -18,7 +18,7 @@ Source for Jaume Puig's personal site: a dark, sharp-edged, technical portfolio 
 
 * Dark-first palette, sharp corners, hairline borders. See CSS custom properties at the top of `assets/css/main.css`.
 * Fonts: Inter (headings and body), IBM Plex Mono (technical labels/data).
-* Font Awesome for icons, Google Fonts for typography.
+* Icons: inline SVG sprite (`assets/images/sprite.svg`, Font Awesome Free 6.5.2 subset, CC BY 4.0). Typography via Google Fonts.
 
 ## Technologies
 
@@ -29,6 +29,8 @@ Source for Jaume Puig's personal site: a dark, sharp-edged, technical portfolio 
 ## Build step: minified assets
 
 Every page loads the **minified** CSS/JS (`assets/css/main.min.css`, `assets/js/main.min.js`, etc.) in production, not the readable source files. Always edit the source files (`main.css`, `main.js`, `bcard-style.css`, `script.js`, `contact-config.js`, `contact-photo.js`) and then regenerate their `.min.` counterparts before committing, or the live site won't reflect your change:
+
+Asset URLs in the HTML carry a `?v=YY.MM.DD` suffix; bump it on all pages when you change a minified file so returning visitors skip stale caches.
 
 ```
 npm install terser clean-css-cli   # one-time, into a scratch folder

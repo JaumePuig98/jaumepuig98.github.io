@@ -88,7 +88,7 @@ body.card-body {
 .card-content section.card-section + section.card-section { border-top: none; }
 .card-section .section-title {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 500;
     color: var(--color-text-muted);
     letter-spacing: 0.1em;
@@ -173,7 +173,7 @@ body.card-body {
 .card-updated { font-size: 0.72rem; color: var(--color-text-muted); margin-top: 4px; }
 .card-coords {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     color: var(--color-text-muted);
     letter-spacing: 0.03em;
     margin-top: 2px;

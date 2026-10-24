@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta name="description" content="Research projects by Jaume Puig across radiation biology, spaceflight biotechnology, and synthetic biology.">
     <meta name="author" content="Jaume Puig">
@@ -15,14 +16,18 @@
 
     <meta property="og:title" content="Research | Jaume Puig">
     <meta property="og:description" content="Research projects by Jaume Puig across radiation biology, spaceflight biotechnology, and synthetic biology.">
-    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta property="og:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jaumepuig98.github.io/research.html">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research | Jaume Puig">
     <meta name="twitter:description" content="Research projects by Jaume Puig across radiation biology, spaceflight biotechnology, and synthetic biology.">
-    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/profile-main.webp">
+    <meta name="twitter:image" content="https://jaumepuig98.github.io/assets/images/og-image.jpg">
+    <meta name="twitter:image:alt" content="Jaume Puig, Space Radiobiologist and Engineer. PhD Researcher at SNOLAB and CTO of Barding Industries.">
 
     <title>Research | Jaume Puig</title>
     <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml">
@@ -33,42 +38,97 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <link rel="canonical" href="https://jaumepuig98.github.io/research.html">
-    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/main.min.css?v=26.10.24">
+    <noscript><style>.fade-in-section { opacity: 1; transform: none; }</style></noscript>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNRCCQG4MD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
         window.__gaId = 'G-BNRCCQG4MD';
-        if (localStorage.getItem('cookie-consent') === 'accepted') { gtag('config', window.__gaId); }
+        window.__loadGA = function () {
+            if (window.__gaLoaded) { return; }
+            window.__gaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.__gaId;
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', window.__gaId);
+        };
+        try { if (localStorage.getItem('cookie-consent') === 'accepted') { window.__loadGA(); } } catch (e) {}
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jaume Puig",
-        "jobTitle": "Space Radiobiologist and Engineer",
-        "url": "https://jaumepuig98.github.io/research.html",
-        "sameAs": [
-            "https://linkedin.com/in/jaume-puig",
-            "https://github.com/jaumepuig98",
-            "https://orcid.org/0000-0002-3642-4919",
-            "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
-        ],
-        "affiliation": [
-            { "@type": "Organization", "name": "SNOLAB" },
-            { "@type": "Organization", "name": "Barding Industries", "url": "https://bardingindustries.com" },
-            { "@type": "Organization", "name": "Laurentian University" },
-            { "@type": "Organization", "name": "NASA OSDR" },
-            { "@type": "Organization", "name": "AulaSPUTNIK" }
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "url": "https://jaumepuig98.github.io/research.html",
+                "name": "Research | Jaume Puig",
+                "about": {
+                    "@id": "https://jaumepuig98.github.io/#person"
+                },
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "url": "https://jaumepuig98.github.io/",
+                    "name": "Jaume Puig"
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "https://jaumepuig98.github.io/#person",
+                "name": "Jaume Puig",
+                "jobTitle": "Space Radiobiologist and Engineer",
+                "url": "https://jaumepuig98.github.io/",
+                "image": "https://jaumepuig98.github.io/assets/images/profile-share.jpg",
+                "sameAs": [
+                    "https://linkedin.com/in/jaume-puig",
+                    "https://github.com/jaumepuig98",
+                    "https://orcid.org/0000-0002-3642-4919",
+                    "https://scholar.google.com/citations?hl=en&user=d1bjSmkAAAAJ"
+                ],
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Barding Industries",
+                    "url": "https://bardingindustries.com"
+                },
+                "affiliation": [
+                    {
+                        "@type": "Organization",
+                        "name": "SNOLAB"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "Laurentian University"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "NASA OSDR"
+                    },
+                    {
+                        "@type": "Organization",
+                        "name": "AulaSPUTNIK"
+                    }
+                ],
+                "alumniOf": [
+                    {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Universitat Pompeu Fabra"
+                    }
+                ],
+                "knowsAbout": [
+                    "Radiation biology",
+                    "Low-background radiation research",
+                    "Space biotechnology",
+                    "Synthetic biology",
+                    "Multi-omics"
+                ]
+            }
         ]
     }
     </script>
@@ -89,7 +149,7 @@
             </button>
             <ul class="nav-links" id="nav-links" role="list">
                 <li><a href="index.html#about" class="nav-link">Overview</a></li>
-                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="research.html" class="nav-link" aria-current="page">Research</a></li>
                 <li><a href="experience.html" class="nav-link">Experience</a></li>
                 <li><a href="index.html#contact" class="nav-link nav-link-cta">Contact</a></li>
             </ul>
@@ -99,7 +159,7 @@
     <main id="main-content" tabindex="-1">
 
         <div class="container cv-page-header">
-            <a href="index.html" class="cv-back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Overview</a>
+            <a href="index.html" class="cv-back-link"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-left"></use></svg> Back to Overview</a>
             <span class="section-label">Research</span>
             <h1 class="section-title section-title--narrow">All projects, in full</h1>
             <p class="section-body">Radiation biology, spaceflight biotechnology, and synthetic biology, spanning deep underground laboratories to low Earth orbit.</p>
@@ -108,92 +168,107 @@
         <section style="padding-top: var(--space-lg);">
             <div class="container">
                 <div class="project-filters fade-in-section" role="group" aria-label="Filter research by methodology">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="Radiation Biology">Radiation Biology</button>
-                    <button class="filter-btn" data-filter="Spaceflight">Spaceflight</button>
-                    <button class="filter-btn" data-filter="Multi-omics">Multi-omics</button>
-                    <button class="filter-btn" data-filter="Synthetic Biology">Synthetic Biology</button>
-                    <button class="filter-btn" data-filter="Bioengineering">Bioengineering</button>
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="Radiation Biology" aria-pressed="false">Radiation Biology</button>
+                    <button class="filter-btn" data-filter="Spaceflight" aria-pressed="false">Spaceflight</button>
+                    <button class="filter-btn" data-filter="Multi-omics" aria-pressed="false">Multi-omics</button>
+                    <button class="filter-btn" data-filter="Synthetic Biology" aria-pressed="false">Synthetic Biology</button>
+                    <button class="filter-btn" data-filter="Bioengineering" aria-pressed="false">Bioengineering</button>
                 </div>
 
                 <h2 class="sr-only">Research Projects</h2>
+                <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
                 <div class="projects-grid fade-in-section">
 
                     <div class="project-card" data-tags="Radiation Biology,Multi-omics">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-earth-americas project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-earth-americas"></use></svg>
                             <span class="mission-badge mission-badge-active">ACTIVE</span>
                         </div>
                         <h3 class="project-card-title">Global Underground Yeast (GUY)</h3>
                         <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
                         <p class="project-card-description">Leading a multi-site project validating biological responses to sub-background radiation across international deep underground laboratories, coordinating shared protocols and comparative analysis between sites.</p>
                         <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Astrobiology</span></div>
-                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                     <div class="project-card" data-tags="Radiation Biology,Multi-omics">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-flask-vial project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-flask-vial"></use></svg>
                             <span class="mission-badge mission-badge-active">ACTIVE</span>
                         </div>
                         <h3 class="project-card-title">Radiation-Deprived Yeast Metabolism</h3>
                         <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
                         <p class="project-card-description">Characterizing radiation-deprived metabolism in yeast using automated bioreactors and multi-omics profiling under continuous culture conditions.</p>
                         <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Bioreactor Systems</span></div>
-                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
+                    <!-- Hidden for now (restore by removing this comment wrapper):
                     <div class="project-card" data-tags="Radiation Biology,Multi-omics,Spaceflight">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-chart-line project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-chart-line"></use></svg>
                             <span class="mission-badge mission-badge-active">ACTIVE</span>
                         </div>
                         <h3 class="project-card-title">Cross-Environmental Radiation Analysis</h3>
                         <p class="project-card-org-date">SNOLAB · 2025 to Present</p>
                         <p class="project-card-description">Conducting cross-environmental analysis comparing low-background terrestrial data with active space radiation datasets to identify shared and divergent biological responses.</p>
                         <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Transcriptomics</span><span class="tag">Comparative Biology</span></div>
-                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://www.snolab.ca/" target="_blank" rel="noopener noreferrer">SNOLAB Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
+                    </div>
+                    -->
+
+                    <div class="project-card" data-tags="Spaceflight,Bioengineering">
+                        <div class="card-top-row">
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-rocket"></use></svg>
+                            <span class="mission-badge mission-badge-active">ACTIVE</span>
+                        </div>
+                        <h3 class="project-card-title">Barding Industries</h3>
+                        <p class="project-card-org-date">CTO &amp; Co-Founder · 2024 to Present</p>
+                        <p class="project-card-description">Leading technology design and development for biotechnologies targeting sustainable resource extraction in space environments.</p>
+                        <div class="project-card-tags"><span class="tag">Space Biotechnology</span><span class="tag">Bioengineering</span></div>
+                        <div class="project-card-links"><a href="https://bardingindustries.com" target="_blank" rel="noopener noreferrer">bardingindustries.com <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                     <div class="project-card" data-tags="Spaceflight,Multi-omics">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-moon project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-moon"></use></svg>
                             <span class="mission-badge mission-badge-complete">COMPLETE</span>
                         </div>
                         <h3 class="project-card-title">Lunar Agriculture and Regolith Toxicogenomics</h3>
                         <p class="project-card-org-date">Moon Village Association · 2025 to 2026</p>
                         <p class="project-card-description">Integrating astronaut transcriptomics, chemical toxicology, and plant data to evaluate lunar regolith health risks for bioregenerative life support systems.</p>
                         <div class="project-card-tags"><span class="tag">Toxicogenomics</span><span class="tag">Transcriptomics</span><span class="tag">Genomics</span></div>
-                        <div class="project-card-links"><a href="https://moonvillageassociation.org/" target="_blank" rel="noopener noreferrer">MVA Working Group <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://moonvillageassociation.org/" target="_blank" rel="noopener noreferrer">MVA Working Group <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                     <div class="project-card" data-tags="Radiation Biology,Multi-omics">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-bacteria project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-bacteria"></use></svg>
                             <span class="mission-badge mission-badge-complete">COMPLETE</span>
                         </div>
                         <h3 class="project-card-title">Skin Microbiome Radiation Biotolerance</h3>
                         <p class="project-card-org-date">UPF and LSC · 2022 to 2025</p>
                         <p class="project-card-description">Used genomics and transcriptomics to investigate skin microbiome DNA damage repair under diverse radiation conditions, including deep underground low-background environments.</p>
                         <div class="project-card-tags"><span class="tag">Low-Background</span><span class="tag">Transcriptomics</span><span class="tag">Genomics</span></div>
-                        <div class="project-card-links"><a href="https://lsc-canfranc.es/en/" target="_blank" rel="noopener noreferrer">LSC Facility <i class="fas fa-arrow-right"></i></a><a href="https://www.iafastro.org/events/iac/iac-2023/" target="_blank" rel="noopener noreferrer">Presented at IAC 2023, Baku <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://lsc-canfranc.es/en/" target="_blank" rel="noopener noreferrer">LSC Facility <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a><a href="https://www.iafastro.org/events/iac/iac-2023/" target="_blank" rel="noopener noreferrer">Presented at IAC 2023, Baku <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                     <div class="project-card" data-tags="Spaceflight,Multi-omics">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-pills project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-pills"></use></svg>
                             <span class="mission-badge mission-badge-complete">COMPLETE</span>
                         </div>
                         <h3 class="project-card-title">Spaceflight Pharmacogenomics</h3>
                         <p class="project-card-org-date">BioAstra · 2024 to 2025</p>
                         <p class="project-card-description">Analyzed pharmacology and genomic data from spaceflight missions to advance commercial astronaut research, authoring protocols for the Space Omics and Medical Atlas (SOMA).</p>
                         <div class="project-card-tags"><span class="tag">Pharmacogenomics</span><span class="tag">Transcriptomics</span></div>
-                        <div class="project-card-links"><a href="https://www.nature.com/articles/s41526-025-00490-z" target="_blank" rel="noopener noreferrer">npj Microgravity Publication <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://www.nature.com/articles/s41526-025-00490-z" target="_blank" rel="noopener noreferrer">npj Microgravity Publication <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                     <div class="project-card" data-tags="Radiation Biology,Spaceflight,Synthetic Biology">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-shield-halved project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-shield-halved"></use></svg>
                             <span class="mission-badge mission-badge-complete">COMPLETE</span>
                         </div>
                         <h3 class="project-card-title">DNA Protection in Low Earth Orbit</h3>
@@ -201,22 +276,22 @@
                         <p class="project-card-description">Led bioinformatics and experimental efforts studying bacterial survival strategies and DNA damage protection under simulated LEO ionizing radiation stressors.</p>
                         <div class="project-card-tags"><span class="tag">Radiation Biology</span><span class="tag">Bioinformatics</span></div>
                         <div class="project-card-links">
-                            <a href="https://doi.org/10.3389/fmicb.2021.789668" target="_blank" rel="noopener noreferrer">Front. Microbiol. Publication <i class="fas fa-arrow-right"></i></a>
-                            <a href="https://agu.confex.com/agu/abscicon21/meetingapp.cgi" target="_blank" rel="noopener noreferrer">Presented at AGU/NASA AbSciCon 2022 <i class="fas fa-arrow-right"></i></a>
-                            <a href="https://www.europlanet-society.org/europlanet-science-congress-2022/" target="_blank" rel="noopener noreferrer">Presented at Europlanet 2022 <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://doi.org/10.3389/fmicb.2021.789668" target="_blank" rel="noopener noreferrer">Front. Microbiol. Publication <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a>
+                            <a href="https://agu.confex.com/agu/abscicon21/meetingapp.cgi" target="_blank" rel="noopener noreferrer">Presented at AGU/NASA AbSciCon 2022 <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a>
+                            <a href="https://www.europlanet-society.org/europlanet-science-congress-2022/" target="_blank" rel="noopener noreferrer">Presented at Europlanet 2022 <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a>
                         </div>
                     </div>
 
                     <div class="project-card" data-tags="Synthetic Biology,Bioengineering">
                         <div class="card-top-row">
-                            <i class="fa-solid fa-dna project-card-icon" aria-hidden="true"></i>
+                            <svg class="fa project-card-icon" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-dna"></use></svg>
                             <span class="mission-badge mission-badge-complete">COMPLETE</span>
                         </div>
                         <h3 class="project-card-title">Intein-mediated Biosensors</h3>
                         <p class="project-card-org-date">UPF (iGEM) · 2020 to 2021</p>
                         <p class="project-card-description">Designed and developed intein-mediated thyroid hormone biosensors, leading the wet-lab team and overseeing characterization and system modeling.</p>
                         <div class="project-card-tags"><span class="tag">Biosensor Design</span><span class="tag">System Modeling</span></div>
-                        <div class="project-card-links"><a href="https://doi.org/10.3389/fsysb.2024.1270071" target="_blank" rel="noopener noreferrer">Front. Syst. Biol. Publication <i class="fas fa-arrow-right"></i></a></div>
+                        <div class="project-card-links"><a href="https://doi.org/10.3389/fsysb.2024.1270071" target="_blank" rel="noopener noreferrer">Front. Syst. Biol. Publication <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-right"></use></svg></a></div>
                     </div>
 
                 </div>
@@ -237,7 +312,7 @@
                     <p class="footer-coords" aria-label="SNOLAB coordinates">46.4719 N, 81.1868 W, -2,070 m</p>
                 </div>
                 <div class="footer-column">
-                    <h4>Navigation</h4>
+                    <h3>Navigation</h3>
                     <ul class="footer-links" role="list">
                         <li><a href="index.html#about">Overview</a></li>
                         <li><a href="research.html">Research</a></li>
@@ -246,23 +321,23 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Connect</h4>
+                    <h3>Connect</h3>
                     <div class="footer-social-links">
-                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
-                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+                        <a href="mailto:jaume.puig98@gmail.com" aria-label="Email"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-envelope"></use></svg></a>
+                        <a href="https://linkedin.com/in/jaume-puig" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-linkedin"></use></svg></a>
+                        <a href="https://github.com/jaumepuig98" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-github"></use></svg></a>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=d1bjSmkAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-google-scholar"></use></svg></a>
+                        <a href="https://orcid.org/0000-0002-3642-4919" target="_blank" rel="noopener noreferrer" aria-label="ORCID"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-orcid"></use></svg></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <a href="#main-content">Back to Top <i class="fas fa-arrow-up"></i></a>
+                <a href="#main-content">Back to Top <svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg></a>
             </div>
         </div>
     </footer>
 
-    <button id="scroll-to-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="scroll-to-top-btn" aria-label="Scroll to top"><svg class="fa" aria-hidden="true" focusable="false"><use href="assets/images/sprite.svg#i-arrow-up"></use></svg></button>
 
     <div class="cookie-bar" id="cookie-bar" role="dialog" aria-label="Cookie consent" aria-live="polite">
         <p class="cookie-text">This site uses Google Analytics to measure traffic. No personal data is sold or shared.</p>
@@ -272,6 +347,6 @@
         </div>
     </div>
 
-    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/main.min.js?v=26.10.24"></script>
 </body>
 </html>
