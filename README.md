@@ -42,6 +42,10 @@ npx terser assets/js/contact-config.js -c -m -o assets/js/contact-config.min.js
 npx terser assets/js/contact-photo.js -c -m -o assets/js/contact-photo.min.js
 ```
 
+## CV PDF
+
+`assets/Jaume-Puig-CV.pdf` is generated from the content of `experience.html` (experience, education, publications, presentations, awards) by `tools/make_cv.py`. Regenerate it whenever that page changes, and keep it to two pages. See the docstring in the script for the dependencies.
+
 ---
 
 ## Copyright & License
