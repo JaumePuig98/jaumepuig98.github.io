@@ -52,10 +52,10 @@
                 navToggle.setAttribute('aria-expanded', 'false');
             });
         });
-        function closeNav() {
+        var closeNav = function () {
             navLinks.classList.remove('open');
             navToggle.setAttribute('aria-expanded', 'false');
-        }
+        };
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && navLinks.classList.contains('open')) {
                 closeNav();
