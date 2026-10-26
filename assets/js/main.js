@@ -316,6 +316,28 @@
     });
 
     /* ---------------------------------------------------------
+       In-page section menu: highlight the section being read
+    --------------------------------------------------------- */
+    (function () {
+        var links = document.querySelectorAll('.cv-subnav a[href^="#"]');
+        if (!links.length || !('IntersectionObserver' in window)) { return; }
+        var map = {};
+        links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+        function setCurrent(id) {
+            links.forEach(function (a) { a.removeAttribute('aria-current'); });
+            if (map[id]) {
+                map[id].setAttribute('aria-current', 'true');
+                var bar = map[id].parentNode;
+                if (bar.scrollWidth > bar.clientWidth) { bar.scrollLeft = map[id].offsetLeft - 16; }
+            }
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { setCurrent(e.target.id); } });
+        }, { rootMargin: '-35% 0px -60% 0px' });
+        Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) { io.observe(el); } });
+    })();
+
+    /* ---------------------------------------------------------
        Cookie consent (gates Google Analytics)
     --------------------------------------------------------- */
     var cookieBar = document.getElementById('cookie-bar');

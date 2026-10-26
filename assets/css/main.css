@@ -1016,6 +1016,67 @@ section + section { border-top: 1px solid var(--color-border); }
 .cv-pub-text a { color: var(--color-text); }
 .cv-pub-text a:hover { color: var(--color-accent); }
 
+/* In-page section menu (Experience page): sticks under the compact nav */
+.cv-subnav {
+    position: sticky;
+    top: var(--nav-height-compact);
+    z-index: 900;
+    margin-top: var(--space-xl);
+    background: rgba(5, 7, 13, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+.cv-subnav-inner { display: flex; gap: var(--space-xs); overflow-x: auto; scrollbar-width: none; }
+.cv-subnav-inner::-webkit-scrollbar { display: none; }
+.cv-subnav a {
+    flex: none;
+    padding: 14px var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.cv-subnav a:hover { color: var(--color-heading); }
+.cv-subnav a[aria-current="true"] { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+.cv-section[id] { scroll-margin-top: 44px; }
+
+/* Cards for publications, presentations and awards */
+.cv-subhead { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-muted); margin: var(--space-xl) 0 var(--space-md); }
+.cv-card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
+.cv-card {
+    --kind: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 2px solid var(--kind);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.cv-card:hover { border-color: var(--color-border-strong); border-top-color: var(--kind); transform: translateY(-2px); }
+.cv-card--talk { --kind: var(--color-text-muted); }
+.cv-card--award { --kind: var(--cat-synthetic); }
+.cv-card--quiet { --kind: var(--color-border-strong); }
+.cv-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); }
+.cv-card-kind { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--kind); }
+.cv-card--quiet .cv-card-kind { color: var(--color-text-muted); }
+.cv-card-when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-text-muted); }
+.cv-card-title { font-size: 1.02rem; line-height: 1.35; margin: 0; }
+.cv-card-meta { font-size: 0.86rem; color: var(--color-text-muted); margin: 0; }
+.cv-card-meta strong { color: var(--color-text); font-weight: 600; }
+.cv-card-links { margin-top: auto; padding-top: var(--space-sm); display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.cv-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; font-size: 0.82rem; color: var(--color-text); }
+.cv-card-link .fa { font-size: 0.7rem; color: var(--color-accent); }
+.cv-card-link:hover { color: var(--color-accent); }
+@media (max-width: 760px) { .cv-card-grid { grid-template-columns: 1fr; } .cv-card { padding: var(--space-md); } }
+
 .cv-linkedin-cta {
     display: flex;
     justify-content: center;
@@ -1265,7 +1326,7 @@ section + section { border-top: 1px solid var(--color-border); }
     .fade-in-section { opacity: 1 !important; transform: none !important; }
 
     #main-nav, #scroll-progress, #scroll-to-top-btn, .cookie-bar,
-    .skip-link, .cv-back-link, .photo-credit, .status-dot, #footer,
+    .skip-link, .cv-subnav, .cv-back-link, .photo-credit, .status-dot, #footer,
     .contact-buttons, .business-card .btn, .toast, .nav-toggle,
     .project-filters, .tracks { display: none !important; }
 
