@@ -379,4 +379,19 @@
         }
     }
 
+    /* ---------------------------------------------------------
+       Conversion events (only sent after analytics consent)
+    --------------------------------------------------------- */
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest ? e.target.closest('a') : null;
+        if (!a || typeof window.gtag !== 'function' || readConsent() !== 'accepted') { return; }
+        var href = a.getAttribute('href') || '', name = null;
+        if (/^mailto:/.test(href)) { name = 'contact_email'; }
+        else if (/linkedin\.com/.test(href)) { name = 'contact_linkedin'; }
+        else if (/Jaume-Puig-CV\.pdf/.test(href)) { name = 'cv_download'; }
+        else if (/bardingindustries\.com/.test(href)) { name = 'barding_click'; }
+        else if (/^https?:/.test(href) && a.hostname !== window.location.hostname) { name = 'outbound_click'; }
+        if (name) { window.gtag('event', name, { link_url: href }); }
+    });
+
 })();
